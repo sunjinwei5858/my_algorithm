@@ -25,7 +25,7 @@ public class _04_edit_instance {
     public int minDistance(String word1, String word2) {
         int m = word1.length();
         int n = word2.length();
-        // 状态定义：返回 s1[0..i] 和 s2[0..j] 的最小编辑距离
+        // 状态定义：dp[i,j]表示word1前i个字符变到word2前j个字符最少的编辑次数
         int[][] dp = new int[m + 1][n + 1];
         // base case
         for (int i = 1; i <= m; i++) {
@@ -34,7 +34,7 @@ public class _04_edit_instance {
         for (int j = 1; j <= n; j++) {
             dp[0][j] = j;
         }
-        // 自底向上求解 i=0 j=0开始
+        // 自底向上求解 i=1 j=1开始
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
                 if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
@@ -42,11 +42,7 @@ public class _04_edit_instance {
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
                     // 增 删 改
-                    dp[i][j] = min(
-                            dp[i][j - 1] + 1,
-                            dp[i - 1][j - 1] + 1,
-                            dp[i - 1][j] + 1
-                    );
+                    dp[i][j] = 1 + min(dp[i][j - 1], dp[i - 1][j - 1], dp[i - 1][j]);
                 }
             }
         }
