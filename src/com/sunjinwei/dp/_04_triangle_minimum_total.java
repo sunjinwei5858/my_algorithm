@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 力扣120 三角形最小路径和 triangle
+ * 力扣120 三角形最小路径和 triangle 经典的动态规划题目
  * <p>
  * 给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。
  * 相邻的结点在这里指的是下标[i,j]与上一层结点下标相同[i+1,j]或者等于上一层结点下标+1的[i+1，j+1]两个结点。
@@ -20,7 +20,7 @@ public class _04_triangle_minimum_total {
 
 
     /**
-     * 解法一 暴力递归 【自顶向下】
+     * 解法一 暴力递归 【自顶向下】类似求二叉树的最小值或者最大值 也是使用递归的办法 将左子树和右子树分别求出来
      * <p>
      * 若定义f(i,j)为顶点到(i,j)的最小路径和，则易知递归求解式为:
      * <p>
@@ -74,7 +74,7 @@ public class _04_triangle_minimum_total {
      */
     public int dp(List<List<Integer>> triangle) {
         int n = triangle.size();
-        // 状态定义：dp[i][j]表示从[i.j]到底步的最小路径和
+        // 状态定义：dp[i][j]表示从[i.j]到底边的最小路径和
         int[][] dp = new int[n + 1][n + 1];
         // 从三角形的最后一行开始递推 自底向上 需要倒序遍历
         for (int i = n - 1; i >= 0; i--) {

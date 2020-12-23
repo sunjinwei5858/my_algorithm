@@ -75,8 +75,11 @@ public class _04_edit_instance {
     }
 
     private int dp(int i, int j) {
-        if (i == -1 || j == -1) {
-            return 0;
+        if (i == -1) {
+            return j + 1;
+        }
+        if (j == -1) {
+            return i + 1;
         }
         if (str1.charAt(i) == str2.charAt(j)) {
             // 跳过
@@ -90,5 +93,43 @@ public class _04_edit_instance {
             );
         }
     }
+
+    /**
+     * 解法三：暴力递归+备忘录
+     */
+    public Integer[][] dptables;
+
+    public int minInstance_03(String word1, String word2) {
+        str1 = word1;
+        str2 = word2;
+        dptables = new Integer[str1.length()][str2.length()];
+        // 自顶向下
+        return dp_03(word1.length() - 1, word2.length() - 1);
+    }
+
+    private int dp_03(int i, int j) {
+        if (i == -1) {
+            return j + 1;
+        }
+        if (j == -1) {
+            return i + 1;
+        }
+        if (dptables[i][j] != null) {
+            return dptables[i][j];
+        }
+        if (str1.charAt(i) == str2.charAt(j)) {
+            // 跳过
+            dptables[i][j] = dp(i - 1, j - 1);
+        } else {
+            // 增 删 改
+            dptables[i][j] = min(
+                    dp(i, j - 1) + 1,
+                    dp(i - 1, j - 1) + 1,
+                    dp(i - 1, j) + 1
+            );
+        }
+        return dptables[i][j];
+    }
+
 
 }
