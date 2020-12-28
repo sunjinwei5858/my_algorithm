@@ -5,7 +5,7 @@ package com.sunjinwei.dp;
  * 描述：给你一个可装载重量为w的背包和n个物品，每个物品有重量和价值两个属性
  * 第i个物品的重量为wt[i] 价值为val[i]，求最大价值
  */
-public class _05_0_1_beibao {
+public class _05_01_beibao {
 
     /**
      * @param w   背包的重量
