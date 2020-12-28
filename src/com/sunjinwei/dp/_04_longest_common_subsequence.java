@@ -53,6 +53,7 @@ public class _04_longest_common_subsequence {
      * 暴力递归优化解法：递归+备忘录
      */
     public Integer[][] memory;
+
     public int longestCommonSubsequence_02(String text1, String text2) {
         str1 = text1;
         str2 = text2;
@@ -60,6 +61,7 @@ public class _04_longest_common_subsequence {
         // 自顶向下
         return dp_02(text1.length() - 1, text2.length() - 1);
     }
+
     private int dp_02(int i, int j) {
         if (i == -1 || j == -1) {
             return 0;

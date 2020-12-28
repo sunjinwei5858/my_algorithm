@@ -11,7 +11,7 @@ import java.util.Queue;
 public class _03_tree_depth {
 
     /**
-     * 最小深度--bfs_dfs_huisu
+     * 最小深度 解法一：bfs
      *
      * @param root
      * @return
@@ -44,7 +44,8 @@ public class _03_tree_depth {
     }
 
     /**
-     * 最小深度--dfs 思路：递归，但是要注意有坑，需要注意二叉树变成一颗斜树即链表
+     * 最小深度 解法二：dfs
+     * 思路：递归，但是要注意有坑，需要注意二叉树变成一颗斜树即链表
      *
      * @param root
      * @return
@@ -65,7 +66,7 @@ public class _03_tree_depth {
     }
 
     /**
-     * 最大深度--bfs_dfs_huisu
+     * 最大深度 解法一：bfs
      *
      * @param root
      * @return
@@ -94,7 +95,8 @@ public class _03_tree_depth {
     }
 
     /**
-     * 最大深度--dfs 思想：递归
+     * 最大深度 解法二：dfs
+     * 思想：递归
      *
      * @param root
      * @return

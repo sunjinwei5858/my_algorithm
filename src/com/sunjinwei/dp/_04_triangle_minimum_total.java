@@ -71,6 +71,9 @@ public class _04_triangle_minimum_total {
     /**
      * 解法三：动态规划 【自底向上】
      * 定义二维dp数组 将解法二中的【自顶向下的递归】==》【自底向上的递推】
+     * 注意：
+     * 1。如果是从[i+1]推出[i] 那么一般要倒序遍历，对应的结果为dp[0,0]
+     * 2。如果是i-1推出i,那么正序遍历即可,对应的结果为dp[m,n]
      */
     public int dp(List<List<Integer>> triangle) {
         int n = triangle.size();
