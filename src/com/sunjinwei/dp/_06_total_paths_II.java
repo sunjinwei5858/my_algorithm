@@ -48,7 +48,7 @@ public class _06_total_paths_II {
             if (obstacleGrid[i][0] == 0) {
                 dp[i][0] = 1;
             } else {
-                // 在只有行的情况下 如果行有障碍物 那么障碍物之后的格子都到达不了 直接break
+                // 在只有行的情况下 如果行有障碍物 那么障碍物之后的格子都到达不了 直接break，后面的不管有没有障碍物都不能访问了
                 dp[i][0] = 0;
                 break;
             }

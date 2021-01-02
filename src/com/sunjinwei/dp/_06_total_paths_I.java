@@ -10,7 +10,7 @@ package com.sunjinwei.dp;
 public class _06_total_paths_I {
 
     /**
-     * 二维数组 中规中矩的写法
+     * 二维数组： 中规中矩的写法 复杂度O(m*n)
      *
      * @param m
      * @param n
@@ -40,7 +40,7 @@ public class _06_total_paths_I {
 
 
     /**
-     * 二维数组 简洁写法 初始化处理直接放在两个for循环中处理
+     * 二维数组： 简洁写法 初始化处理直接放在两个for循环中处理
      *
      * @param m
      * @param n
@@ -62,6 +62,40 @@ public class _06_total_paths_I {
             }
         }
         return dp[m - 1][n - 1];
+    }
+
+
+    /**
+     * 一维数组：状态压缩!!! 终极降维 复杂度O(m*n)
+     * 核心思路：画图 画图 画图 80%的动态规划都可以画图 https://zhuanlan.zhihu.com/p/91582909
+     * dp[i] [j] 是一个二维矩阵，我们来画个二维矩阵的图，对矩阵进行初始化
+     * 然后根据公式 dp[i][j] = dp[i-1][j] + dp[i][j-1] 来填充矩阵的其他值。下面我们先填充第二行的值。
+     * 当我们要填充第三行的值的时候，我们需要用到第一行的值吗？答是不需要的，
+     * 当你要填充第三，第四....第 n 行的时候，第一行的值永远不会用到，只要填充第二行的值时会用到。
+     * 答案：
+     * 我们只需要用一个一维的 dp[] 来保存一行的历史记录就可以了。然后在计算机的过程中，不断着更新 dp[] 的值
+     *
+     *
+     * 该题目：dp[i][j] 依赖于 dp[i-1][j] 和 dp[i][j-1]
+     * 联想编辑距离：dp[i][j] 依赖于 dp[i-1][j]，dp[i-1][j-1] 和 dp[i][j-1]。如何进行优化？
+     * @param m
+     * @param n
+     */
+    public int uniquePaths_03(int m, int n) {
+        // 状态定义:[i]表示从起点走到i位置的路径条
+        int[] dp = new int[n];
+        // base case 初始化数据
+        for (int i = 0; i < n; i++) {
+            dp[i] = 1;
+        }
+        // 状态转移方程
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                // 一边更新 dp[i] 的值，一边把 dp[i] 的旧值抛弃的
+                dp[j] = dp[j] + dp[j - 1];
+            }
+        }
+        return dp[n - 1];
     }
 
     public static void main(String[] args) {
