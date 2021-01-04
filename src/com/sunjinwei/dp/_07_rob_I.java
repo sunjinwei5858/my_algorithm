@@ -77,7 +77,7 @@ public class _07_rob_I {
 
 
     /**
-     * 解法三：递归
+     * 解法三：递归:暴力递归
      *
      * @param nums
      */
@@ -98,6 +98,42 @@ public class _07_rob_I {
         // 不选择 去下间房子
         int s2 = digui(nums, index + 1);
         return Math.max(s1, s2);
+    }
+
+
+    /**
+     * 解法四： 递归+备忘录 【备忘录 一般需要初始化 填充数据】
+     *
+     * @param nums
+     */
+    private int[] memory;
+
+    public int rob_04(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        return rob_04_helper(nums, 0);
+    }
+
+    private int rob_04_helper(int[] nums, int i) {
+        // 递归终止条件
+        if (i >= nums.length) {
+            return 0;
+        }
+        // 边界条件
+        if (nums.length == 1) {
+            return nums[0];
+        }
+        // 从备忘录中找
+        if (memory[i] != -1) {
+            return memory[i];
+        }
+        // 选择当前i 那么下一个就是位置i+2
+        int s1 = rob_04_helper(nums, i + 2) + nums[i];
+        // 不选择当前i
+        int s2 = rob_04_helper(nums, i + 1);
+        memory[i] = Math.max(s1, s2);
+        return memory[i];
     }
 
 
