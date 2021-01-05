@@ -9,7 +9,7 @@ package com.sunjinwei.dp;
  * 两个字符串的「公共子序列」是这两个字符串所共同拥有的子序列。
  * 若这两个字符串没有公共子序列，则返回 0。
  */
-public class _04_longest_common_subsequence {
+public class _04_long_common_subsequence {
 
 
     public String str1;
@@ -105,7 +105,7 @@ public class _04_longest_common_subsequence {
     }
 
     public static void main(String[] args) {
-        _04_longest_common_subsequence commonSubsequence = new _04_longest_common_subsequence();
+        _04_long_common_subsequence commonSubsequence = new _04_long_common_subsequence();
         System.out.println(commonSubsequence.longestCommonSubsequence_dp("ace", "abcde"));
     }
 
