@@ -6,7 +6,7 @@ package com.sunjinwei.dp;
  * 给定一个字符串 s ，找到其中最长的回文子序列，并返回该序列的长度。可以假设 s 的最大长度为 1000 。
  * 比如 s = "cbbd" 输出2 最长的回文长度为bb ，即2
  */
-public class _04_long_huiwen_subsequence {
+public class _04_long_huiwen_length {
 
     /**
      * 动态规划解法
