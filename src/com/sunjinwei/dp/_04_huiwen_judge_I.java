@@ -8,7 +8,7 @@ package com.sunjinwei.dp;
  * 方法1：api法 直接将字符串反转 判断是不是相等
  * 方法2：左右指针
  */
-public class _04_huiwen_judge {
+public class _04_huiwen_judge_I {
 
     /**
      * 方法一：API法 利用StringBuffer的reverse方法和
@@ -68,7 +68,7 @@ public class _04_huiwen_judge {
 
 
     public static void main(String[] args) {
-        _04_huiwen_judge huiwen_judge = new _04_huiwen_judge();
+        _04_huiwen_judge_I huiwen_judge = new _04_huiwen_judge_I();
         System.out.println(huiwen_judge.isPalindrome_02("A man, a plan, a canal: Panama"));
         System.out.println(huiwen_judge.isPalindrome_02("race a car"));
 
