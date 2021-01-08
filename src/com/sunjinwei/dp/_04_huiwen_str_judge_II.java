@@ -6,7 +6,7 @@ package com.sunjinwei.dp;
  * 给定一个非空字符串s，最多删除一个字符。判断是否能成为回文字符串。
  * 字符串只包含从 a-z 的小写字母。字符串的最大长度是50000。
  */
-public class _04_huiwen_judge_II {
+public class _04_huiwen_str_judge_II {
 
     /**
      * 自己的错误写法：不能使用切割，因为如果刚开始左右是相等的，此时left和right进行了++，再去切割的话 会少两个字符串，而不是少一个字符串
@@ -121,7 +121,7 @@ public class _04_huiwen_judge_II {
 
 
     public static void main(String[] args) {
-        _04_huiwen_judge_II huiwen_judge_ii = new _04_huiwen_judge_II();
+        _04_huiwen_str_judge_II huiwen_judge_ii = new _04_huiwen_str_judge_II();
         System.out.println(huiwen_judge_ii.validPalindrome_03("abca"));
 
         String s = "abcd";

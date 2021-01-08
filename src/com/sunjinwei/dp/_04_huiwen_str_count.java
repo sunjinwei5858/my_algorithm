@@ -1,8 +1,8 @@
 package com.sunjinwei.dp;
 
 /**
- * 力扣647 回文子串
- * 本题是找到一个字符串中所有的回文子串，而第 5 题是求解一个字符串中最长的回文子串，
+ * 力扣647 计算这个字符串中有多少个回文子串
+ * 本题是找到一个字符串中所有的回文子串，而第5题是求解一个字符串中最长的回文子串，
  * 很明显求解出所有的字符串自然能够找到最大的
  * 描述：
  * 给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。
@@ -16,8 +16,14 @@ package com.sunjinwei.dp;
  * <p>
  * 题解：https://leetcode-cn.com/problems/palindromic-substrings/solution/647-hui-wen-zi-chuan-dong-tai-gui-hua-fang-shi-qiu/
  */
-public class _04_huiwen_string {
+public class _04_huiwen_str_count {
 
+    /**
+     * 动态规划解法
+     *
+     * @param s
+     * @return
+     */
     public int countSubstrings(String s) {
         if (s == null || s.length() == 0) {
             return 0;
@@ -54,7 +60,7 @@ public class _04_huiwen_string {
     }
 
     public static void main(String[] args) {
-        _04_huiwen_string huiwen_string = new _04_huiwen_string();
+        _04_huiwen_str_count huiwen_string = new _04_huiwen_str_count();
         System.out.println(huiwen_string.countSubstrings("abba"));
     }
 

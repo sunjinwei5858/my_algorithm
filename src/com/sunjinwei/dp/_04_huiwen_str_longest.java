@@ -9,7 +9,7 @@ package com.sunjinwei.dp;
  * 注意: "aba" 也是一个有效答案。
  * 回文串： 正着读和反着读都是一样的字符串，对称
  */
-public class _04_long_huiwen_string {
+public class _04_huiwen_str_longest {
 
     public String longestPalindrome(String s) {
         int n = s.length();
