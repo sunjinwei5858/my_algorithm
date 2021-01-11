@@ -1,5 +1,7 @@
 package com.sunjinwei.dp;
 
+import java.util.HashSet;
+
 /**
  * 分割/构造 最长回文子串的长度 力扣409 难度 中等
  * <p>
@@ -14,9 +16,11 @@ public class _04_huiwen_str_partion_longest_length {
 
 
     /**
-     * 思路一：
-     * 1.先判断是不是回文串 如果是 那么最大长度就是本身
-     * 2。如果不是回文串 那么最长长度就需要匹配 偶数 奇数
+     * 思路一：使用数组 存储字符出现的次数
+     * 思路： 解体的关键在于计算有多少对相同的字符。
+     * <p>
+     * 执行用时：2 ms, 在所有 Java 提交中击败了70.95%的用户
+     * 内存消耗：36.4 MB, 在所有 Java 提交中击败了97.03%的用户
      *
      * @param s
      * @return
@@ -30,8 +34,7 @@ public class _04_huiwen_str_partion_longest_length {
         for (int i = 0; i < length; ++i) {
             char c = s.charAt(i);
             // count[c]++;
-            int num = count[c];
-            count[c] = num++;
+            count[c] = count[c] + 1;
         }
         // 如果有任何一个字符ch的出现次数v为奇数（即v%2 == 1），那么可以将这个字符作为回文中心，注意只能最多有一个字符作为回文中心。
         // 在代码中，我们用ans存储回文串的长度，由于在遍历字符时，ans每次会增加v/2 * 2，因此ans一直为偶数。
@@ -49,6 +52,36 @@ public class _04_huiwen_str_partion_longest_length {
         return ans;
     }
 
+    /**
+     * 思路二：自己的方法 直接使用set进行处理:
+     * 如果存在相同的元素 直接+2，然后移除这个元素
+     * <p>
+     * 执行用时：7 ms, 在所有 Java 提交中击败了31.71%的用户
+     * 内存消耗：38.2 MB, 在所有 Java 提交中击败了8.95%的用户
+     *
+     * @param s
+     */
+    public int longestPalindrome_02(String s) {
+        int result = 0;
+        HashSet<Character> hashSet = new HashSet<>();
+        int length = s.length();
+        for (int i = 0; i < length; i++) {
+            // 如果重复 那么长度需要+2，同时移除这个元素
+            if (hashSet.contains(s.charAt(i))) {
+                result = result + 2;
+                hashSet.remove(s.charAt(i));
+            } else {
+                hashSet.add(s.charAt(i));
+            }
+        }
+        // 最后如果set不为空 那么进行+1 即可
+        if (!hashSet.isEmpty()) {
+            result++;
+        }
+        return result;
+    }
+
+
     public static void main(String[] args) {
         String s = "abc";
         System.out.println(s.charAt(0));
@@ -58,6 +91,22 @@ public class _04_huiwen_str_partion_longest_length {
         System.out.println(7 % 3); // 1
 
         System.out.println(8 % 4); // 0
+
+        System.out.println("===================");
+
+
+        String s2 = "abccccdd";
+
+        _04_huiwen_str_partion_longest_length huiwen_str_partion_longest_length = new _04_huiwen_str_partion_longest_length();
+        System.out.println(huiwen_str_partion_longest_length.longestPalindrome_02(s2));
+
+        char i = 98;
+        int[] arr = new int[8];
+        arr[i] = 89;
+
+        char[] array = new char[90];
+        array[i] = 30;
+
 
     }
 
