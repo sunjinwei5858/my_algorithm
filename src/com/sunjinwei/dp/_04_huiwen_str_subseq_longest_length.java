@@ -1,12 +1,15 @@
 package com.sunjinwei.dp;
 
 /**
- * 最长回文子序列 力扣516 难度 中等
+ * 最长回文子序列的长度 力扣516 难度 中等 动态规划
+ * 子序列：顺序不可调整
  * <p>
- * 给定一个字符串 s ，找到其中最长的回文子序列，并返回该序列的长度。可以假设 s 的最大长度为 1000 。
+ * 给定一个字符串s，并返回该序列的长度。可以假设s的最大长度为1000 。
  * 比如 s = "cbbd" 输出2 最长的回文长度为bb ，即2
+ * 注意：
+ * 和409的区别 409是构造最长的回文串 返回长度
  */
-public class _04_huiwen_str_longest_length {
+public class _04_huiwen_str_subseq_longest_length {
 
     /**
      * 动态规划解法
