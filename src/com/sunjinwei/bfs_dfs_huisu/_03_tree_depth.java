@@ -54,9 +54,11 @@ public class _03_tree_depth {
         if (root == null) {
             return 0;
         }
+        // 判断是不是斜树 鲁棒性
         if (root.left == null) {
             return 1 + minDepthDfs(root.right);
         }
+        // 判断是不是斜树 鲁棒性
         if (root.right == null) {
             return 1 + minDepthDfs(root.left);
         }
