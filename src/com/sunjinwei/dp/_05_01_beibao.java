@@ -21,7 +21,7 @@ package com.sunjinwei.dp;
 public class _05_01_beibao {
 
     /**
-     * 01背包：
+     * 01背包：动态规划
      *
      * @param w   背包的重量
      * @param n   可选择的物品数量
@@ -55,5 +55,12 @@ public class _05_01_beibao {
         }
         return dp[n][w];
     }
+
+    /**
+     * 解法二：回溯
+     */
+
+
+
 
 }

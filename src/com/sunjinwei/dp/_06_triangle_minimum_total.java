@@ -16,7 +16,7 @@ import java.util.List;
  * ]
  * 相邻结点：与(i,j)点相邻的结点为(i+1,j)和(i+1,j+1)。
  */
-public class _04_triangle_minimum_total {
+public class _06_triangle_minimum_total {
 
 
     /**
@@ -109,7 +109,7 @@ public class _04_triangle_minimum_total {
     }
 
     public static void main(String[] args) {
-        _04_triangle_minimum_total triangle_minimum_total = new _04_triangle_minimum_total();
+        _06_triangle_minimum_total triangle_minimum_total = new _06_triangle_minimum_total();
         // [[2],[3,4],[6,5,7],[4,1,8,3]])
         int dp = triangle_minimum_total.dp(Arrays.asList(
                 Arrays.asList(2),
