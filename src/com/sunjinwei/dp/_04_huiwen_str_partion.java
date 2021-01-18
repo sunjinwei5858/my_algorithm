@@ -74,7 +74,7 @@ public class _04_huiwen_str_partion {
 
     public static void main(String[] args) {
         _04_huiwen_str_partion huiwen_create = new _04_huiwen_str_partion();
-        List<List<String>> aab = huiwen_create.partition("aab");
+        List<List<String>> aab = huiwen_create.partition("acab");
         for (List<String> strings : aab) {
             System.out.println(strings.toString());
         }

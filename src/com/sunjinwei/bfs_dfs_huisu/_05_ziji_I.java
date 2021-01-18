@@ -20,7 +20,7 @@ public class _05_ziji_I {
     private List<List<Integer>> result = new ArrayList<>();
 
     /**
-     * 方法1：回溯
+     * 自己的方法1：回溯 直接结果集contains 暴力判重 + 排序 + boolean记录状态
      * 思路：解集不能包含重复的子集 也就是 不能重复 有一种办法先对数组进行排序
      *
      * @param nums
@@ -46,16 +46,21 @@ public class _05_ziji_I {
     }
 
     private void subsets_help(int[] nums, LinkedList<Integer> path, int start, boolean[] visited) {
-        // 终止条件
-        if (start == nums.length) {
+        // 暴力对结果集判重
+        if (!result.contains(new ArrayList<>(path))) {
             result.add(new ArrayList(path));
-            return;
         }
         for (int i = start; i < nums.length; i++) {
-            // 如果路径包含该元素 跳过
-            /*if (visited[i]) {
+            if (path.contains(nums[i])) {
                 continue;
-            }*/
+            }
+            // 如果路径包含该元素 跳过
+            if (visited[i]) {
+                continue;
+            }
+            if (i > 0 && nums[i] == nums[i - 1] && visited[i - 1]) {
+                continue;
+            }
             visited[i] = true;
             path.add(nums[i]);
             // 回溯
