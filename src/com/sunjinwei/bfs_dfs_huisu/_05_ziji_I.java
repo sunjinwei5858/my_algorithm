@@ -71,11 +71,56 @@ public class _05_ziji_I {
         }
     }
 
+    /**
+     * 方法2：直接暴力对结果集判重 不需要排序和boolean记录状态
+     * 执行用时：8 ms, 在所有 Java 提交中击败了12.95%的用户
+     * 内存消耗：38.5 MB, 在所有 Java 提交中击败了83.14%的用户 【加了Arrays.sort排序内存】
+     * <p>
+     * 不进行排序的执行效率情况：
+     * 执行用时：8 ms, 在所有 Java 提交中击败了12.95%的用户
+     * 内存消耗：38.9 MB, 在所有 Java 提交中击败了11.59%的用户
+     *
+     * @param nums
+     */
+    public List<List<Integer>> subsets_02(int[] nums) {
+        // 鲁棒性1
+        if (nums == null || nums.length == 0) {
+            return result;
+        }
+        // 直接添加一个空数组
+        result.add(new ArrayList<>());
+        // 进行递归 回溯
+        Arrays.sort(nums);
+        // 3声明路径集合
+        LinkedList<Integer> path = new LinkedList<>();
+        // 4 递归回溯
+        subsets_help_02(nums, path, 0);
+        return result;
+    }
+
+    private void subsets_help_02(int[] nums, LinkedList<Integer> path, int start) {
+        // 暴力对结果集判重
+        if (!result.contains(new ArrayList<>(path))) {
+            result.add(new ArrayList(path));
+        }
+        for (int i = start; i < nums.length; i++) {
+            if (path.contains(nums[i])) {
+                continue;
+            }
+            path.add(nums[i]);
+            // 回溯
+            subsets_help_02(nums, path, i + 1);
+            // 撤销选择
+            path.removeLast();
+        }
+    }
+
+
     public static void main(String[] args) {
         _05_ziji_I ziji_i = new _05_ziji_I();
         int[] arr = new int[]{1, 2, 3};
 
-        List<List<Integer>> subsets = ziji_i.subsets(arr);
+        List<List<Integer>> subsets = ziji_i.subsets_02(arr);
         for (List<Integer> subset : subsets) {
             System.out.println(subset.toString());
         }
