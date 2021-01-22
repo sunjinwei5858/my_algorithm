@@ -19,26 +19,62 @@ public class _07_n_queens {
     public List<List<String>> solveNQueens(int n) {
 
         LinkedList<String> path = new LinkedList<>();
-        boolean[][] visited = new boolean[n + 1][n + 1];
+        String[][] visited = new String[n][n];
+        // 初始化二维数组
+        for (int i = 0; i < n; i++) {
+            visited[i][i] = ".";
+        }
         solveNQueens_help(path, n, visited);
         return result;
     }
 
-    private void solveNQueens_help(LinkedList<String> path, int n, boolean[][] visited) {
-        if (path.contains("Q")) {
+    private void solveNQueens_help(LinkedList<String> path, int n, String[][] visited) {
 
-        }
         if (path.size() == n) {
             result.add(new ArrayList<>(path));
             return;
         }
-        for (int i = 1; i <= n; i++) {
-            for (int j = i + 1; j <= n; j++) {
-              if (visited[i][j+1]){
-
-              }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (!valid(visited, i, j)) {
+                    continue;
+                }
+                visited[i][j] = "Q";
+                solveNQueens_help(path, n, visited);
+                visited[i][j] = ".";
+                path.removeLast();
             }
         }
+    }
+
+    /**
+     * @param visited
+     * @param row     行
+     * @param col     列
+     * @return
+     */
+    private boolean valid(String[][] visited, int row, int col) {
+        // 1左斜方向 行遍历倒序
+        for (int i = row, j = 0; i > j; i--, j++) {
+            if (Math.abs((i - j)) == Math.abs((row - col))) {
+                if (visited[i][j] == "Q") {
+                    return false;
+                }
+            }
+        }
+        // 2水平方向 列是递增的 行是一样的
+        for (int i = 0; i < col; i++) {
+            if (visited[row][i] == "Q") {
+                return false;
+            }
+        }
+        // 3竖直方向 行是递增的
+        for (int i = 0; i < row; i++) {
+            if (visited[col][i] == "Q") {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
@@ -47,5 +83,7 @@ public class _07_n_queens {
         for (List<String> list : lists) {
             System.out.println(list.toString());
         }
+
+
     }
 }
