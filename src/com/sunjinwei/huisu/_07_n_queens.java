@@ -172,17 +172,17 @@ public class _07_n_queens {
                 return false;
             }
         }
-        // 列的左上 列倒序 行倒序
+        // 列的左上 列倒序 行倒序 因为这里行row-1 列是col-1 保证了是对角线遍历
+        // 如果 j = col 那么除了对角线 是整个右上方的遍历了!!!
         for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
             // 对角线的这个条件也可以不加
             if ((i - j == row - col) && arr[i][j] == "Q") {
                 return false;
             }
         }
-        // 列的右上 列正序 行倒序
+        // 列的右对角线遍历 因为这里行row-1,列是col+1 保证了这是对角线的遍历
         for (int i = row - 1, j = col + 1; i >= 0 && j < arr.length; i--, j++) {
-            // 对角线的这个条件也可以不加
-            if ((i + j == row + col) && arr[i][j] == "Q") {
+            if (arr[i][j] == "Q") {
                 return false;
             }
         }
