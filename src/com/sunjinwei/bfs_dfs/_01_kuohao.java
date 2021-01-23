@@ -1,4 +1,4 @@
-package com.sunjinwei.bfs_dfs_huisu;
+package com.sunjinwei.bfs_dfs;
 
 
 import java.util.*;
