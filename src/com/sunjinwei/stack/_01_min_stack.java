@@ -21,39 +21,21 @@ public class _01_min_stack {
     }
 
     public void push(int x) {
-        // 第一个元素
-        if (stackData.isEmpty()) {
-            stackData.push(x);
+        stackData.push(x);
+        if (stackMin.isEmpty()) {
             stackMin.push(x);
-        } else {
-            stackData.push(x);
-            // 比较当前元素和最小值
-            Integer min = stackMin.pop();
-            if (min > x) {
-                // 如果栈顶元素不是最小值了 调整push的顺序
-                stackMin.push(x);
-            } else if (min < x) {
-                stackMin.push(min);
-            } else {
-                stackMin.push(min);
-                stackMin.push(min);
-            }
+        } else if (this.getMin() >= x) {
+            stackMin.push(x);
         }
+
     }
 
     public int pop() {
-        Integer pop = stackData.pop();
-        // 如果栈顶元素就是最小值 需要调整stackMin维护的栈顶最小值
-        if (!stackMin.isEmpty()) {
-            if (pop.equals(stackMin.peek())) {
-                stackMin.pop();
-                if (stackData.size() == 1 && stackMin.isEmpty()) {
-                    stackMin.push(stackData.peek());
-                }
-            }
-
+        Integer value = stackData.pop();
+        if (value == this.getMin()) {
+            stackMin.pop();
         }
-        return pop;
+        return value;
     }
 
     public int top() {
