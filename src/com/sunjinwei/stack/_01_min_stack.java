@@ -20,11 +20,21 @@ public class _01_min_stack {
         stackMin = new Stack<>();
     }
 
+    /**
+     * 其实有两种方法，第一种是：辅助栈stackMin只存储部分min元素，第二种是完全填充，每一个data都对应一个min
+     *
+     * @param x
+     */
     public void push(int x) {
         stackData.push(x);
-        if (stackMin.isEmpty()) {
+        /*if (stackMin.isEmpty()) {
             stackMin.push(x);
         } else if (this.getMin() >= x) {
+            stackMin.push(x);
+        }*/
+
+        // 上面的代码可以重构
+        if (stackMin.isEmpty() || this.getMin() >= x) {
             stackMin.push(x);
         }
 

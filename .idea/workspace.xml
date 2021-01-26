@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c622fff3-95cd-466b-9e7d-d2fbe6e9110c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_07_n_queens.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sunjinwei/stack/_01_min_stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sunjinwei/stack/_01_min_stack.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,36 +20,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/InvertedOrder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/_tree/_01_is_valid_bst.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/_tree/_02_pre_order.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="65" selection-start-line="65" selection-end-line="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_huiwen_digit_judge.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -80,59 +50,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_huiwen_str_partion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="28" column="24" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_05_ziji_I.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="105" column="36" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_05_ziji_II.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="91" column="17" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_06_zuhei.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="295">
+              <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_07_n_queens.java">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/stack/_01_min_stack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1403">
+              <caret line="73" column="18" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_02_quan_pailie_I.java">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_huiwen_str_count.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="140" column="21" lean-forward="true" selection-start-line="140" selection-start-column="21" selection-end-line="140" selection-end-column="21" />
+            <state relative-caret-position="178">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -167,6 +104,7 @@
         <option value="$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_05_ziji_I.java" />
         <option value="$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_06_zuhei.java" />
         <option value="$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_07_n_queens.java" />
+        <option value="$PROJECT_DIR$/src/com/sunjinwei/stack/_01_min_stack.java" />
       </list>
     </option>
   </component>
@@ -220,49 +158,7 @@
               <item name="my_algorithm" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sunjinwei" type="462c0819:PsiDirectoryNode" />
-              <item name="_tree" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my_algorithm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my_algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sunjinwei" type="462c0819:PsiDirectoryNode" />
-              <item name="bfs_dfs_huisu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my_algorithm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my_algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sunjinwei" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my_algorithm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my_algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sunjinwei" type="462c0819:PsiDirectoryNode" />
-              <item name="dp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my_algorithm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my_algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sunjinwei" type="462c0819:PsiDirectoryNode" />
-              <item name="linkedlist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my_algorithm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my_algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sunjinwei" type="462c0819:PsiDirectoryNode" />
-              <item name="lru" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my_algorithm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my_algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sunjinwei" type="462c0819:PsiDirectoryNode" />
-              <item name="other" type="462c0819:PsiDirectoryNode" />
+              <item name="stack" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -273,7 +169,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1611186948545" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1611619813617" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
@@ -364,7 +260,7 @@
       <updated>1607395869199</updated>
       <workItem from="1607395872912" duration="6588000" />
       <workItem from="1608598351196" duration="47000" />
-      <workItem from="1609770628425" duration="27653000" />
+      <workItem from="1609770628425" duration="33276000" />
     </task>
     <task id="LOCAL-00001" summary="回文子串和回文子序列，最长回文子串，最长回文子序列">
       <created>1609809611180</created>
@@ -387,11 +283,18 @@
       <option name="project" value="LOCAL" />
       <updated>1611067193216</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="N皇后">
+      <created>1611186977248</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611186977249</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34288000" />
+    <option name="totallyTimeSpent" value="39911000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -403,7 +306,7 @@
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Messages" weight="0.32935154" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32935154" />
@@ -463,14 +366,15 @@
     <MESSAGE value="回文子串和回文子序列，最长回文子串，最长回文子序列" />
     <MESSAGE value="回文串学习的第三天 还是有点蒙蔽" />
     <MESSAGE value="组合问题，力扣77，自己ac出来了，回溯算法的模板真爽" />
-    <option name="LAST_COMMIT_MESSAGE" value="组合问题，力扣77，自己ac出来了，回溯算法的模板真爽" />
+    <MESSAGE value="N皇后" />
+    <option name="LAST_COMMIT_MESSAGE" value="N皇后" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_07_n_queens.java</url>
-          <line>45</line>
+          <line>83</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -595,13 +499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_huiwen_str_count.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_261/src.zip!/java/lang/StringBuffer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -720,13 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_huiwen_str_partion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="28" column="24" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_05_ziji_I.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -758,13 +648,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_01_kuohao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_huiwen_str_count.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_02_quan_pailie_II.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="96" column="39" selection-start-line="96" selection-start-column="39" selection-end-line="96" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_07_n_queens.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="322">
+          <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_huiwen_str_partion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/stack/_01_min_stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1403">
+          <caret line="73" column="18" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
         </state>
       </provider>
     </entry>
