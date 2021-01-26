@@ -16,13 +16,13 @@ import java.util.Stack;
  * 2 如果辅助栈不为空 不能push
  * 以上两个条件 缺一不可 这道题目看似简单 其实没有那么简单
  */
-public class _02_2stack_deque {
+public class _02_two_stack_queue_I {
 
     private Stack<Integer> stackPush;
 
     private Stack<Integer> stackPop;
 
-    public _02_2stack_deque() {
+    public _02_two_stack_queue_I() {
         stackPush = new Stack<>();
         stackPop = new Stack<>();
     }
@@ -64,7 +64,7 @@ public class _02_2stack_deque {
     }
 
     public static void main(String[] args) {
-        _02_2stack_deque stack_deque = new _02_2stack_deque();
+        _02_two_stack_queue_I stack_deque = new _02_two_stack_queue_I();
         stack_deque.appendTail(1);
         stack_deque.appendTail(2);
 

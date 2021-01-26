@@ -12,7 +12,7 @@ import java.util.Stack;
  * int peek() 返回队列开头的元素
  * boolean empty() 如果队列为空，返回 true ；否则，返回 false
  */
-public class _02_2stack_deque_02 {
+public class _02_two_stack_queue_II {
 
     private Stack<Integer> stackPush;
     private Stack<Integer> stackPop;
@@ -20,7 +20,7 @@ public class _02_2stack_deque_02 {
     /**
      * Initialize your data structure here.
      */
-    public _02_2stack_deque_02() {
+    public _02_two_stack_queue_II() {
         stackPush = new Stack<>();
         stackPop = new Stack<>();
     }
