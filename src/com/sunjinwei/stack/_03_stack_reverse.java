@@ -26,7 +26,7 @@ public class _03_stack_reverse {
     }
 
     /**
-     * 递归二：实现获取最后一个元素 并且移除
+     * 递归二：将栈stack的栈底元素返回并移除。
      *
      * @param stack
      * @return
@@ -44,15 +44,18 @@ public class _03_stack_reverse {
     public static void main(String[] args) {
         _03_stack_reverse stack_reverse = new _03_stack_reverse();
         Stack<Integer> stack = new Stack<>();
-        stack.push(1);
+        stack.push(4);
         stack.push(2);
         stack.push(3);
 
         // 反转
-        stack_reverse.reverse(stack);
+        /*stack_reverse.reverse(stack);
         System.out.println(stack.pop());
         System.out.println(stack.pop());
-        System.out.println(stack.pop());
+        System.out.println(stack.pop());*/
+
+        System.out.println("栈底元素为:  " + stack_reverse.getLastElementAndRemove(stack));
+        System.out.println(stack.size());
     }
 
 }
