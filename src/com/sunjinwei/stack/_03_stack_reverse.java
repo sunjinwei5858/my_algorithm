@@ -20,8 +20,10 @@ public class _03_stack_reverse {
         if (stack.isEmpty()) {
             return;
         }
+        // 找到栈底元素并且移除
         int value = getLastElementAndRemove(stack);
         reverse(stack);
+        // 将找到的栈底元素依次push 实现了反转
         stack.push(value);
     }
 
@@ -49,13 +51,42 @@ public class _03_stack_reverse {
         stack.push(3);
 
         // 反转
-        /*stack_reverse.reverse(stack);
+       /* stack_reverse.reverse(stack);
         System.out.println(stack.pop());
         System.out.println(stack.pop());
         System.out.println(stack.pop());*/
 
-        System.out.println("栈底元素为:  " + stack_reverse.getLastElementAndRemove(stack));
-        System.out.println(stack.size());
+        // 找到stack中底部的元素
+        int bottomData = stack_reverse.getBottomData(stack);
+        System.out.println("底部元素：" + bottomData);
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+
     }
 
+    /**
+     * 如何找到栈底的元素 并且不移除栈底元素
+     */
+    private int getBottomData(Stack<Integer> stack) {
+        if (stack.isEmpty()) {
+            return -1;
+        }
+        Integer pop = stack.pop();
+        if (stack.isEmpty()) {
+            // 不移除栈底元素 就需要进行push
+            stack.push(pop);
+            return pop;
+        }
+        // 递归
+        int bottomData = getBottomData(stack);
+        // 将不是底部的元素继续推到stack中
+        stack.push(pop);
+        return bottomData;
+    }
+
+
 }
+
+
+
