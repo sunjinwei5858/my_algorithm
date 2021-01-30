@@ -112,5 +112,20 @@ public class _03__bst_arr_2_tree {
 
         TreeNode treeNode = arr_2_tree.posArr2Tree(arrLeft);
         TreeNode right = treeNode.right;
+
+
+        int a = 3;
+        int b = 4;
+
+        // 有溢出风险 因为是a+b
+        System.out.println("===" + (a + b) / 2);
+
+        // 保险的做法
+        System.out.println(a + (b - a) / 2);
+
+        //
+        System.out.println((b + a) >> 1);
+
+
     }
 }
