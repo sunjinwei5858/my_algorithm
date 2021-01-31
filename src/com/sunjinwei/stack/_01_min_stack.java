@@ -27,13 +27,9 @@ public class _01_min_stack {
      */
     public void push(int x) {
         stackData.push(x);
-        /*if (stackMin.isEmpty()) {
-            stackMin.push(x);
-        } else if (this.getMin() >= x) {
-            stackMin.push(x);
-        }*/
-
-        // 上面的代码可以重构
+        // 保证辅助栈的栈顶是最小值
+        // 1辅助栈为空 进行push
+        // 2辅助栈栈顶大于x 进行push
         if (stackMin.isEmpty() || this.getMin() >= x) {
             stackMin.push(x);
         }
@@ -42,6 +38,7 @@ public class _01_min_stack {
 
     public int pop() {
         Integer value = stackData.pop();
+        // 判断push的是不是最小值
         if (value == this.getMin()) {
             stackMin.pop();
         }
