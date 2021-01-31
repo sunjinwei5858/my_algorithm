@@ -16,7 +16,7 @@ public class _03__bst_arr_2_tree {
         if (arr.length == 0) {
             return null;
         }
-        return help_02(arr, 0, arr.length - 1);
+        return help_03(arr, 0, arr.length - 1);
     }
 
     /**
@@ -44,19 +44,18 @@ public class _03__bst_arr_2_tree {
         // 因为二叉搜索树的特点：左子树的值小于根节点 右子树的值大于根节点
         // 遍历 找到[i]的值第一次大于根节点的值
         int middle = -1;
-        for (int i = left; left < right; i++) {
-            if (arr[i] >= arr[right]) {
+        for (int i = left; i < right; i++) {
+            if (arr[i] < arr[right]) {
                 middle = i;
-                break;
             }
         }
         // 开始进行判断：正常的二叉树 左斜树 右斜树
         if (middle == -1) {
-            // 说明是左斜树
-            root.left = help(arr, left, right - 1);
-        } else if (middle == left) {
             // 说明是右斜树
             root.right = help(arr, left, right - 1);
+        } else if (middle == right - 1) {
+            // 说明是左斜树
+            root.left = help(arr, left, right - 1);
         } else {
             root.left = help(arr, left, middle - 1);
             root.right = help(arr, middle, right - 1);
@@ -86,17 +85,47 @@ public class _03__bst_arr_2_tree {
         }
         // 只要把分界点初始值设置为： left-1
         int middle = left - 1;
-        for (int i = left; left < right; i++) {
-            if (arr[i] >= arr[right]) {
+        for (int i = left; i < right; i++) {
+            if (arr[i] < arr[right]) {
                 middle = i;
-                break;
             }
         }
         // 不需要考虑：1正常的二叉树 2左斜树 3右斜树
         // 假设是左斜树 此时左子树全部小于根节点 此时middle不变 还是为left-1
-        //
         root.left = help_02(arr, left, middle - 1);
         root.right = help_02(arr, middle, right - 1);
+        return root;
+    }
+
+    /**
+     * 方式三：二分找分界点
+     *
+     * @param arr
+     */
+    private TreeNode help_03(int[] arr, int left, int right) {
+        if (left > right) {
+            return null;
+        }
+        TreeNode root = new TreeNode(arr[right]);
+        if (left == right) {
+            return root;
+        }
+        int middle = left - 1;
+        int l = left;
+        int r = right - 1;
+        // 二分
+        while (l <= r) {
+            // 使用位运算寻找[l,r-1]的中点索引
+            int m = l + ((r - l) >> 1);
+            if (arr[m] < arr[r]) {
+                middle = m;
+                l = m + 1;
+            } else {
+                r = m - 1;
+            }
+        }
+        root.left = help_03(arr, left, middle);
+        root.right = help_03(arr, middle + 1, right - 1);
         return root;
     }
 
@@ -113,7 +142,6 @@ public class _03__bst_arr_2_tree {
         TreeNode treeNode = arr_2_tree.posArr2Tree(arrLeft);
         TreeNode right = treeNode.right;
 
-
         int a = 3;
         int b = 4;
 
@@ -126,6 +154,7 @@ public class _03__bst_arr_2_tree {
         //
         System.out.println((b + a) >> 1);
 
-
+        // 求10的中点
+        System.out.println(10 >> 1);
     }
 }
