@@ -53,7 +53,15 @@ public class _05_max_sliding_window {
     }
 
     /**
-     * 方法二：使用双端队列，即单调队列，写法一
+     * 方法二：使用双端队列，即单调队列，写法一，左神
+     * <p>
+     * 执行用时：36 ms, 在所有 Java 提交中击败了53.34%的用户
+     * 内存消耗：50.1 MB, 在所有 Java 提交中击败了77.85%的用户
+     * <p>
+     * 满足的条件：
+     * 1。保证单调性，队尾和当前元素相比较
+     * 2。保证队头的元素是窗口中的元素
+     * 3。保证刚好是窗口大小时，队首就是最大值
      *
      * @param nums 整型数组
      * @param k    窗口大小
@@ -65,38 +73,38 @@ public class _05_max_sliding_window {
             return nums;
         }
         // 双向队列 保存当前窗口最大值的数组位置 保证队列中数组位置的数值按从大到小排序
-        LinkedList<Integer> queue = new LinkedList();
+        Deque<Integer> queue = new LinkedList();
         // 结果数组 也就是滑动窗口保存最大值的数组 长度就是 原数组长度-窗口长度+1 即有多少个窗口
         int[] result = new int[nums.length - k + 1];
         // 遍历nums数组
         for (int i = 0; i < nums.length; i++) {
-            // 保证从大到小 如果前面数小则需要依次弹出，直至满足要求
-            // 目的就是维护一个单调递减的队列!!!!
-            // 关键步骤1
+            // 关键步骤1：保证单调性
             while (!queue.isEmpty() && nums[queue.peekLast()] <= nums[i]) {
                 queue.pollLast();
             }
-            // 添加当前值对应的数组下标
+            // 添加数组下标
             queue.addLast(i);
-            // 判断当前队列中队首的值是否有效 也就是保证队列中的元素是窗口中的元素 不然需要推出!!!! 必不可少的判断
-            // 关键步骤2
-            if (queue.peek() <= i - k) {
+            // 关键步骤2：保证队列中的元素是窗口中的元素 其实就是判断队头的元素
+            if (queue.peek() <= (i - k)) {
                 queue.poll();
             }
-            // 当窗口长度为k时 保存当前窗口中最大值
-            // 关键步骤3
-            if (i + 1 >= k) {
-                result[i + 1 - k] = nums[queue.peek()];
+            // 关键步骤3：当窗口长度为k时 保存当前窗口中最大值
+            // i-k+1是递增的
+            if (i - k + 1 >= 0) {
+                result[i - k + 1] = nums[queue.peek()];
             }
         }
         return result;
     }
 
     /**
-     * 方法三：单调队列的第二种写法，写法二
+     * 方法三：单调队列的第二种写法，写法二，力扣题解
      * <p>
      * 执行用时：30 ms, 在所有 Java 提交中击败了90.40%的用户
      * 内存消耗：49.7 MB, 在所有 Java 提交中击败了82.15%的用户
+     * <p>
+     * 思路：
+     * 思路其实和写法一，是一样的，只不过这里是先构造出了第一个滑动窗口，并且队列保存的是值，写法一保存的是索引
      *
      * @param nums
      * @param k
