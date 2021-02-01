@@ -53,7 +53,7 @@ public class _05_max_sliding_window {
     }
 
     /**
-     * 方法二：使用双端队列，即单调队列，写法一，左神
+     * 方法二：单调队列，左神思路，队列存储的是索引
      * <p>
      * 执行用时：36 ms, 在所有 Java 提交中击败了53.34%的用户
      * 内存消耗：50.1 MB, 在所有 Java 提交中击败了77.85%的用户
@@ -69,11 +69,11 @@ public class _05_max_sliding_window {
      */
     public int[] maxSlidingWindow_02(int[] nums, int k) {
         // 鲁棒性
-        if (nums == null || nums.length < 2) {
-            return nums;
+        if (nums == null || nums.length == 0 || k < 1) {
+            return null;
         }
         // 双向队列 保存当前窗口最大值的数组位置 保证队列中数组位置的数值按从大到小排序
-        Deque<Integer> queue = new LinkedList();
+        LinkedList<Integer> queue = new LinkedList();
         // 结果数组 也就是滑动窗口保存最大值的数组 长度就是 原数组长度-窗口长度+1 即有多少个窗口
         int[] result = new int[nums.length - k + 1];
         // 遍历nums数组
@@ -146,6 +146,41 @@ public class _05_max_sliding_window {
             arr_index++;
         }
         return arr;
+    }
+
+    /**
+     * 方法四：抽取了一个单调队列
+     * <p>
+     * 执行用时：7 ms, 在所有 Java 提交中击败了89.43%的用户
+     * 内存消耗：47.4 MB, 在所有 Java 提交中击败了23.01%的用户
+     */
+    private SingleDeque singleDeque;
+
+    public int[] maxSlidingWindow_04(int[] nums, int k) {
+        // 鲁棒性
+        if (nums == null || nums.length < 2 || k < 1) {
+            return new int[0];
+        }
+        singleDeque = new SingleDeque();
+        // 窗口数组
+        int[] result = new int[nums.length - k + 1];
+        // 第一个窗口
+        for (int i = 0; i < k; i++) {
+            singleDeque.push(nums[i]);
+        }
+        // 将第一个窗口的最大值放入数组
+        int index = 0;
+        result[index] = singleDeque.max();
+        index++;
+        // 处理：剩余的窗口
+        for (int i = k; i < nums.length; i++) {
+            // 判断队列的头部元素是不是在窗口中
+            singleDeque.pop(nums[i - k]);
+            singleDeque.push(nums[i]);
+            result[index] = singleDeque.max();
+            index++;
+        }
+        return result;
     }
 
     public static void main(String[] args) {
