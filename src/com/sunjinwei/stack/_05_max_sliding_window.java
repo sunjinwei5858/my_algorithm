@@ -1,8 +1,6 @@
 package com.sunjinwei.stack;
 
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.*;
 
 /**
  * 窗口滑动：
@@ -151,34 +149,33 @@ public class _05_max_sliding_window {
     /**
      * 方法四：抽取了一个单调队列
      * <p>
-     * 执行用时：7 ms, 在所有 Java 提交中击败了89.43%的用户
-     * 内存消耗：47.4 MB, 在所有 Java 提交中击败了23.01%的用户
+     * 执行用时：31 ms, 在所有 Java 提交中击败了88.66%的用户
+     * 内存消耗：49.6 MB, 在所有 Java 提交中击败了82.63%的用户
      */
-    private SingleDeque singleDeque;
-
     public int[] maxSlidingWindow_04(int[] nums, int k) {
         // 鲁棒性
         if (nums == null || nums.length < 2 || k < 1) {
             return new int[0];
         }
-        singleDeque = new SingleDeque();
+        // 创建单调队列
+        SingleDeque singleDeque = new SingleDeque();
         // 窗口数组
         int[] result = new int[nums.length - k + 1];
-        // 第一个窗口
-        for (int i = 0; i < k; i++) {
-            singleDeque.push(nums[i]);
-        }
-        // 将第一个窗口的最大值放入数组
         int index = 0;
-        result[index] = singleDeque.max();
-        index++;
-        // 处理：剩余的窗口
-        for (int i = k; i < nums.length; i++) {
-            // 判断队列的头部元素是不是在窗口中
-            singleDeque.pop(nums[i - k]);
-            singleDeque.push(nums[i]);
-            result[index] = singleDeque.max();
-            index++;
+        for (int i = 0; i < nums.length; i++) {
+            if (i < k - 1) {
+                // 先把窗口的前k-1个元素填满
+                singleDeque.push(nums[i]);
+            } else {
+                // 此时开始移动窗口
+                // 移入新元素 第一个窗口形成 接着开始移动 第二个窗口 第三个窗口
+                singleDeque.push(nums[i]);
+                // 获取窗口的最大值
+                result[index++] = singleDeque.max();
+                // 判断队头的元素是不是窗口的第一个元素
+                // 窗口第一个元素索引[i-k+1]
+                singleDeque.pop(nums[i - k + 1]);
+            }
         }
         return result;
     }
