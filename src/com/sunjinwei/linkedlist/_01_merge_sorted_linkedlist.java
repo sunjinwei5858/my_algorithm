@@ -41,17 +41,54 @@ public class _01_merge_sorted_linkedlist {
         return mergeNode;
     }
 
+    /**
+     * 方法二：使用迭代
+     * 执行用时：1 ms, 在所有 Java 提交中击败了99.46%的用户
+     * 内存消耗：38.8 MB, 在所有 Java 提交中击败了8.84%的用户
+     *
+     * @param l1
+     * @param l2
+     */
+    public ListNode mergeTwoLists_02(ListNode l1, ListNode l2) {
+        // 哨兵节点
+        ListNode shaobing = new ListNode(0);
+        // 当前节点
+        ListNode cur = shaobing;
+        // 如果l1和l2都不为空 才进入迭代
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                cur.next = l1;
+                l1 = l1.next;
+            } else {
+                cur.next = l2;
+                l2 = l2.next;
+            }
+            // 此时将cur的next赋值到cur
+            cur = cur.next;
+        }
+        // 判断哪个链表先为null
+        if (l1 == null) {
+            cur.next = l2;
+        } else {
+            cur.next = l1;
+        }
+        return shaobing.next;
+    }
+
+
     public static void main(String[] args) {
         ListNode one = new ListNode(1);
         ListNode second = new ListNode(2);
         ListNode third = new ListNode(3);
         ListNode fourth = new ListNode(4);
+        ListNode fifth = new ListNode(5);
         one.next = second;
         third.next = fourth;
+        fourth.next = fifth;
 
         _01_merge_sorted_linkedlist mergeSortedLinkedlist = new _01_merge_sorted_linkedlist();
 
-        ListNode listNode = mergeSortedLinkedlist.mergeTwoLists(one, third);
+        ListNode listNode = mergeSortedLinkedlist.mergeTwoLists_02(one, third);
 
         while (listNode != null) {
             System.out.println("========" + listNode.val);

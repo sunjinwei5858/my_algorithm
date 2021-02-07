@@ -6,7 +6,7 @@ import com.sunjinwei.domain.ListNode;
  * 打印两个有序链表的公共部分，难度：简单
  * 注意：链表是有序的
  */
-public class _01_print_sorted_linkedlist_common {
+public class _01_print_common_sorted_linkedlist {
 
     /**
      * 打印有序链表的公共部分,逻辑还是比较简单的：
