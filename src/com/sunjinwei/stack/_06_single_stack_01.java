@@ -8,7 +8,7 @@ import java.util.Stack;
  * 单调栈:情景1：输入一个数组nums={2,1,2,4,3}, 返回[4,2,4,-1,-1]
  * 找到比当前元素更大的下一个元素
  */
-public class _06_single_stack {
+public class _06_single_stack_01 {
 
     /**
      * 方法一：倒序遍历，先保存的是当前元素的对应关系
@@ -35,7 +35,7 @@ public class _06_single_stack {
     }
 
     /**
-     * 方法二：正序遍历，先保存的是上一个元素的对应关系
+     * 方法二：正序遍历，先保存的是上一个元素的对应关系，存储值
      * <p>
      * 我们首先把第一个元素nums2[1] 放入栈，随后对于第二个元素nums2[2]，
      * 如果 nums2[2] > nums2[1]，那么我们就找到了 nums2[1] 的下一个更大元素nums2[2]
@@ -69,11 +69,33 @@ public class _06_single_stack {
         return result;
     }
 
+    /**
+     * 写法三：直接存储索引，需要注意的是：防止索引越界
+     *
+     * @param nums
+     */
+    public int[] nextGreaterElement_03(int[] nums) {
+
+        Stack<Integer> stack = new Stack<>();
+        int[] result = new int[nums.length];
+        Arrays.fill(result, -1);
+        for (int i = 0; i < nums.length; i++) {
+            // 1此时如果当前元素大于栈顶的元素，说明栈顶元素的下一个最大值就是此时的当前元素
+            // 将对应关系存储到数组中
+            while (!stack.isEmpty() && nums[i] > nums[stack.peek()]) {
+                result[stack.pop()] = nums[i];
+            }
+            // 2将当前元素的索引进栈
+            stack.push(i);
+        }
+        return result;
+    }
+
 
     public static void main(String[] args) {
-        _06_single_stack singleStack = new _06_single_stack();
+        _06_single_stack_01 singleStack = new _06_single_stack_01();
         int[] arr = new int[]{2, 1, 2, 4, 3};
-        int[] elements = singleStack.nextGreaterElement(arr);
+        int[] elements = singleStack.nextGreaterElement_03(arr);
         System.out.println(Arrays.toString(elements));
     }
 }

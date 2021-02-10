@@ -19,7 +19,7 @@ import java.util.Stack;
  * 对于num1中的数字1，第二个数组中数字1右边的下一个较大数字是3 。
  * 对于num1中的数字2，第二个数组中没有下一个更大的数字，因此输出 -1 。
  */
-public class _06_single_stack_I {
+public class _06_single_stack_02 {
 
     /**
      * 方法一：倒序遍历 不太容易理解
@@ -57,8 +57,8 @@ public class _06_single_stack_I {
     }
 
     /**
-     * 方法二: 正序遍历+hashmap存储
-     *
+     * 方法二: 正序遍历+hashmap存储,比较好理解
+     * <p>
      * 执行用时：6 ms, 在所有 Java 提交中击败了40.18%的用户
      * 内存消耗：38.6 MB, 在所有 Java 提交中击败了65.74%的用户
      *
@@ -85,9 +85,8 @@ public class _06_single_stack_I {
         return result;
     }
 
-
     public static void main(String[] args) {
-        _06_single_stack_I stack_i = new _06_single_stack_I();
+        _06_single_stack_02 stack_i = new _06_single_stack_02();
         int[] first = {4, 1, 2};
         int[] second = {1, 3, 4, 2};
 

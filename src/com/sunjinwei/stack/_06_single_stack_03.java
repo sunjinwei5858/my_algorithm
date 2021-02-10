@@ -18,7 +18,7 @@ import java.util.Stack;
  * 数字 2 找不到下一个更大的数；
  * 第二个 1 的下一个最大的数需要循环搜索，结果也是 2。
  */
-public class _06_single_stack_II {
+public class _06_single_stack_03 {
 
     /**
      * 循环数组：最后一个元素的下一个元素是数组的第一个元素
@@ -55,7 +55,7 @@ public class _06_single_stack_II {
 
     public static void main(String[] args) {
         int[] arr = new int[]{100, 1, 11, 1, 120, 111, 123, 1, -1, -100};
-        _06_single_stack_II stack_ii = new _06_single_stack_II();
+        _06_single_stack_03 stack_ii = new _06_single_stack_03();
         int[] elements = stack_ii.nextGreaterElements(arr);
         System.out.println(Arrays.toString(elements));
     }
