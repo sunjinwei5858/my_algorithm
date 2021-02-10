@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * 反转单链表
  */
-public class ReverseLinkedList {
+public class _04_reverse_linkedlist {
 
     /**
      * 方法1：使用while
