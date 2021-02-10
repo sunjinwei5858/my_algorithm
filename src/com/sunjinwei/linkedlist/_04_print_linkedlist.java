@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * 从后往前输出链表
  */
-public class InvertedOrder {
+public class _04_print_linkedlist {
 
     /**
      * 方法1：使用stack
@@ -52,8 +52,8 @@ public class InvertedOrder {
         listNode02.next = listNode03;
         listNode03.next = listNode04;
         listNode04.next = listNode05;
-        InvertedOrder invertedOrder = new InvertedOrder();
-        invertedOrder.invert_02(listNode);
+        _04_print_linkedlist a04invertedlinkedlist = new _04_print_linkedlist();
+        a04invertedlinkedlist.invert_02(listNode);
 
     }
 
