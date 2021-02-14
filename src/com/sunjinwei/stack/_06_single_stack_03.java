@@ -46,6 +46,7 @@ public class _06_single_stack_03 {
                 result[stack.pop()] = nums[index];
             }
             // 将第一个数组的索引进栈 循环数组的第二个数组的索引不需要进栈
+            // 也可以直接push(index)
             if (i < nums.length) {
                 stack.push(i);
             }
