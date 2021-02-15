@@ -4,6 +4,7 @@ import com.sunjinwei.domain.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 回文链表 234 难度 简单
@@ -89,6 +90,34 @@ public class _05_huiwen_linkedlist {
         }
         return true;
     }
+
+    /**
+     * 方法3：将链表遍历压入栈中
+     * <p>
+     * 执行用时：2 ms, 在所有 Java 提交中击败了59.58%的用户
+     * 内存消耗：41.7 MB, 在所有 Java 提交中击败了50.34%的用户
+     *
+     * @param head
+     */
+    public boolean isPalindrome_03(ListNode head) {
+        // 遍历链表
+        ListNode curr = head;
+        Stack<ListNode> stack = new Stack<>();
+        while (curr != null) {
+            stack.push(curr);
+            curr = curr.next;
+        }
+        // 比较链表和栈中弹出的元素
+        curr = head;
+        while (curr != null) {
+            if (curr.val != stack.pop().val) {
+                return false;
+            }
+            curr = curr.next;
+        }
+        return true;
+    }
+
 
     public static void main(String[] args) {
         _05_huiwen_linkedlist huiwenLinkedlist = new _05_huiwen_linkedlist();
