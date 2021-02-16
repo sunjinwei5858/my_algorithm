@@ -14,6 +14,7 @@ public class _05_huiwen_linkedlist {
 
     /**
      * 方法1：先找到链表的中点，然后判断前半部分和后半部分是不是相同 【进阶的做法 时间复杂度为O(n)，空间复杂度为O(1)】
+     * 该方法破坏了链表结构
      * <p>
      * 执行用时：1 ms, 在所有 Java 提交中击败了99.96%的用户
      * 内存消耗：41 MB, 在所有 Java 提交中击败了81.10%的用户
@@ -30,10 +31,16 @@ public class _05_huiwen_linkedlist {
             slow = slow.next;
             fast = fast.next.next;
         }
-        ListNode first = head;
-        ListNode second = null;
 
-        second = reverse(slow);
+        ListNode first = head;
+        // 快慢指针怎么判断链表个数的奇偶
+        // 判断链表节点个数是奇数还是偶数
+        // 如果fast此时为null 说明是偶数；
+        // 如果fast不为null 那么就fast.next为null 说明是奇数 此时的slow为中点位置
+        if (fast != null) {
+            slow = slow.next;
+        }
+        ListNode second = reverse(slow);
         while (first != null && second != null) {
             if (first.val != second.val) {
                 return false;
@@ -92,7 +99,7 @@ public class _05_huiwen_linkedlist {
     }
 
     /**
-     * 方法3：将链表遍历压入栈中
+     * 方法3：将链表遍历压入栈中 时间复杂度为O(n),空间复杂度为O(n) 因为新建了栈的结构并且将所有节点都压入了栈中
      * <p>
      * 执行用时：2 ms, 在所有 Java 提交中击败了59.58%的用户
      * 内存消耗：41.7 MB, 在所有 Java 提交中击败了50.34%的用户
