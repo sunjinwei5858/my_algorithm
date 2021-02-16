@@ -3,6 +3,8 @@ package com.sunjinwei.linkedlist;
 
 import com.sunjinwei.domain.ListNode;
 
+import java.util.Stack;
+
 /**
  * 1。给链表节点的值 删除该节点 【剑指offer18 删除链表的节点 简单】
  * 2。给链表节点 删除该节点 O(1)时间完成
@@ -44,6 +46,64 @@ public class _03_delete_node_by_val {
         return head;
     }
 
+
+    /**
+     * 方法2：使用栈，时间复杂度和空间复杂度都为O(n)
+     * 1将不等于val的进栈 2然后将栈底的节点作为新的头节点返回
+     *
+     * @param head
+     * @param val
+     */
+    public ListNode deleteNodeByVal_02(ListNode head, int val) {
+        Stack<ListNode> stack = new Stack<>();
+        // 1将不需要删除的节点进栈
+        while (head != null) {
+            if (head.val != val) {
+                stack.push(head);
+            }
+            head = head.next;
+        }
+        // 2将栈底的节点作为新的头节点返回
+        // 这段代码的处理也是妙哉啊!!!!!
+        // 完美的让节点从头开始 而不是反转了
+        head = returnSame(stack);
+        return head;
+    }
+
+
+    /**
+     * 栈实现链表的反转
+     *
+     * @param stack
+     */
+    private ListNode reverse(Stack<ListNode> stack) {
+        ListNode shaobing = new ListNode(-1);
+        ListNode curr = shaobing;
+        while (!stack.isEmpty()) {
+            ListNode pop = stack.pop();
+            curr.next = pop;
+            curr = pop;
+        }
+        curr.next = null;
+        return shaobing.next;
+    }
+
+    /**
+     * 栈实现原链表的输出
+     *
+     * @param stack
+     */
+    private ListNode returnSame(Stack<ListNode> stack) {
+        ListNode head = null;
+        while (!stack.isEmpty()) {
+            ListNode pop = stack.pop();
+            pop.next = head;
+            head = pop;
+        }
+        return head;
+    }
+
+
     public static void main(String[] args) {
         ListNode first = new ListNode(1);
         ListNode second = new ListNode(2);
@@ -54,7 +114,7 @@ public class _03_delete_node_by_val {
         third.next = forth;
 
         _03_delete_node_by_val delete_node = new _03_delete_node_by_val();
-        ListNode listNode = delete_node.deleteNodeByVal(first, 3);
+        ListNode listNode = delete_node.deleteNodeByVal_02(first, 3);
         ListNode next = listNode.next;
 
 

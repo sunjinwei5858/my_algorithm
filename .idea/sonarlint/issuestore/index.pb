@@ -5,17 +5,9 @@ V
 &src/com/sunjinwei/domain/TreeNode.java,e/4/e42da83975ef6d08d8c5097c70ca874eebfec4a2
 T
 $.idea/codeStyles/codeStyleConfig.xml,d/d/dd7b3350c29c49497756c7f32c69a3bed18b1cba
-d
-4src/com/sunjinwei/bfs_dfs_huisu/_02_quan_pailie.java,b/f/bf61811f5c8cc4cc84327a086192e0721add40a3
-c
-3src/com/sunjinwei/bfs_dfs_huisu/_03_tree_depth.java,b/f/bfce60f3bd7fa4ec88985a25805d7595064a2b71
 [
 +src/com/sunjinwei/dp/_03_max_envelopes.java,7/d/7d09a4cbdeb568d6c5df2172169ab2c789bfd50a
 ^
 .src/com/sunjinwei/dp/_03_max_sum_subarray.java,d/3/d373ba0196b27479e87e8a36345f699123b0b2f7
 [
 +src/com/sunjinwei/dp/_04_edit_instance.java,1/2/1233e62c7fa93138dda4d47a6a5280068692375d
-d
-4src/com/sunjinwei/dp/_04_triangle_minimum_total.java,8/b/8b9dae04c8b047ae8060ea40ab5938237ff09a17
-h
-8src/com/sunjinwei/dp/_04_longest_common_subsequence.java,c/4/c4662fc21c0204fb141e6006bb35f713b6e7ed4d
