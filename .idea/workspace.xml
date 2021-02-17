@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c622fff3-95cd-466b-9e7d-d2fbe6e9110c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_III.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_I.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_I.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,17 +23,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_II.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+            <state relative-caret-position="-71">
+              <caret line="39" column="33" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_III.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="86" column="43" lean-forward="true" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_I.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="122" column="40" lean-forward="true" selection-start-line="118" selection-start-column="7" selection-end-line="122" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_I.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="66" column="37" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="37" />
+            <state relative-caret-position="464">
+              <caret line="82" column="24" lean-forward="true" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -76,6 +97,7 @@
         <option value="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_I.java" />
         <option value="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_II.java" />
         <option value="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_I.java" />
+        <option value="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_III.java" />
       </list>
     </option>
   </component>
@@ -128,13 +150,6 @@
               <item name="sunjinwei" type="462c0819:PsiDirectoryNode" />
               <item name="linkedlist" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="my_algorithm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my_algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sunjinwei" type="462c0819:PsiDirectoryNode" />
-              <item name="stack" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -147,7 +162,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1613567111371" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1613604307773" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -170,7 +185,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application._06_associate_linkedlist_I">
+  <component name="RunManager" selected="Application._06_associate_linkedlist_III">
     <configuration name="_02_2stack_deque" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.sunjinwei.stack._02_2stack_deque" />
       <module name="my_algorithm" />
@@ -210,12 +225,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="_06_zuhei" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.sunjinwei.bfs_dfs_huisu._06_zuhei" />
+    <configuration name="_06_associate_linkedlist_III" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sunjinwei.linkedlist._06_associate_linkedlist_III" />
       <module name="my_algorithm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sunjinwei.bfs_dfs_huisu.*" />
+          <option name="PATTERN" value="com.sunjinwei.linkedlist.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -238,11 +253,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application._06_associate_linkedlist_III" />
         <item itemvalue="Application._06_associate_linkedlist_I" />
         <item itemvalue="Application._03_delete_node_by_val" />
         <item itemvalue="Application._02_2stack_deque" />
         <item itemvalue="Application._07_n_queens" />
-        <item itemvalue="Application._06_zuhei" />
       </list>
     </recent_temporary>
   </component>
@@ -260,7 +275,7 @@
       <workItem from="1608598351196" duration="47000" />
       <workItem from="1609770628425" duration="37651000" />
       <workItem from="1612224453858" duration="1446000" />
-      <workItem from="1613473831927" duration="18830000" />
+      <workItem from="1613473831927" duration="25462000" />
     </task>
     <task id="LOCAL-00001" summary="回文子串和回文子序列，最长回文子串，最长回文子序列">
       <created>1609809611180</created>
@@ -325,11 +340,18 @@
       <option name="project" value="LOCAL" />
       <updated>1613557983804</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="链表：反转链表，使用栈来反转，必须要的鲁棒性条件，stack的pop只有不为空的情况才能使用">
+      <created>1613567175463</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1613567175463</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64562000" />
+    <option name="totallyTimeSpent" value="71194000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="974" extended-state="6" />
@@ -343,7 +365,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3282887" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30616996" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3993015" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -421,7 +443,9 @@
     <MESSAGE value="删除链表节点：根据stack的方法，总结出链表使用栈完成反转或者正序输出，第一次发现入栈的节点也可以实现正序输出" />
     <MESSAGE value="链表：链表成环题目1：判断是否成环，返回布尔值的三种解法，还有自己的错误理解导致的错误解法" />
     <MESSAGE value="链表：链表成环题目2：判断是否成环，返回环的第一个节点，两种解法，双指针法用到了环形链表的一个性质，非常好，可以用数学公式证明，最好的理解还是画图理解" />
-    <option name="LAST_COMMIT_MESSAGE" value="链表：链表成环题目2：判断是否成环，返回环的第一个节点，两种解法，双指针法用到了环形链表的一个性质，非常好，可以用数学公式证明，最好的理解还是画图理解" />
+    <MESSAGE value="链表：反转链表，使用栈来反转，必须要的鲁棒性条件，stack的pop只有不为空的情况才能使用" />
+    <MESSAGE value="链表相交：1判断两个无环链表是否相交 2如果相交，返回相交的第一个节点，自己的做法 代码比较冗余 需要优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="链表相交：1判断两个无环链表是否相交 2如果相交，返回相交的第一个节点，自己的做法 代码比较冗余 需要优化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -444,17 +468,16 @@
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_III.java</url>
+          <line>121</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_02_quan_pailie.java" />
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_03_max_envelopes.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -675,27 +698,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_I.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="82" column="24" lean-forward="true" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_II.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-71">
+          <caret line="39" column="33" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_I.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="91" column="7" lean-forward="true" selection-start-line="91" selection-start-column="7" selection-end-line="91" selection-end-column="7" />
+        <state relative-caret-position="320">
+          <caret line="122" column="40" lean-forward="true" selection-start-line="118" selection-start-column="7" selection-end-line="122" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_II.java">
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_III.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_I.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="66" column="37" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="37" />
+        <state relative-caret-position="540">
+          <caret line="86" column="43" lean-forward="true" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
         </state>
       </provider>
     </entry>
