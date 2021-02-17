@@ -35,6 +35,7 @@ public class _04_reverse_linkedlist_I {
      * 方法2：使用stack栈 注意事项就是 防止成环
      */
     public ListNode reverse_02(ListNode head) {
+        // 鲁棒性1：需要这个判断 因为 stack.pop() 如果stack为空 调用pop会报空指针异常 所以需要提前return
         if (head == null) {
             return null;
         }
@@ -53,7 +54,7 @@ public class _04_reverse_linkedlist_I {
             temp.next = stack.pop();
             temp = temp.next;
         }
-        // 防止成环!!!! 必不可少
+        // 鲁棒性2： 防止成环!!!! 必不可少
         temp.next = null;
         return reverse;
     }
