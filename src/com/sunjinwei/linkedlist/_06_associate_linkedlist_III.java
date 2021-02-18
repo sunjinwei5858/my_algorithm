@@ -168,13 +168,47 @@ public class _06_associate_linkedlist_III {
         return null;*/
 
         // 写法2 左神的写法 更加简洁
-        while (lastA != lastB){
+        while (lastA != lastB) {
             lastA = lastA.next;
             lastB = lastB.next;
         }
         return lastA;
     }
 
+
+    /**
+     * 最最优的解法：双指针
+     * 执行用时：1 ms, 在所有 Java 提交中击败了100.00%的用户
+     * 内存消耗：41.5 MB, 在所有 Java 提交中击败了17.24%的用户
+     * <p>
+     * 通过画图：
+     * 假设链表a的长度为a，链表b的长度为b，链表a走了c步到达了第一个相交的节点，链表b走了d步到达了第一个相交的节点
+     * 此时有公式 b-d = a-c  转换则 a+d = b+c
+     * 说明：链表a走完了，再走链表b；同理链表b走完了，再走链表a，那么肯定是会相遇的
+     *
+     * @param headA
+     * @param headB
+     */
+    public ListNode getIntersectionNode_03(ListNode headA, ListNode headB) {
+
+        // 指针1
+        ListNode p1 = headA;
+        // 指针2
+        ListNode p2 = headB;
+        while (p1 != p2) {
+            if (p1 == null) {
+                p1 = headB;
+            } else {
+                p1 = p1.next;
+            }
+            if (p2 == null) {
+                p2 = headA;
+            } else {
+                p2 = p2.next;
+            }
+        }
+        return p1;
+    }
 
     public static void main(String[] args) {
         _06_associate_linkedlist_III linkedlist_iii = new _06_associate_linkedlist_III();
