@@ -28,6 +28,8 @@ public class _06_associate_linkedlist_III {
      * <p>
      * 执行用时：1 ms, 在所有 Java 提交中击败了100.00%的用户
      * 内存消耗：41.6 MB, 在所有 Java 提交中击败了13.99%的用户
+     * <p>
+     * 【做法一：左神思路 自己的写法 冗余代码多 需要优化】
      *
      * @param headA
      * @param headB
@@ -105,6 +107,74 @@ public class _06_associate_linkedlist_III {
         }
         return null;
     }
+
+    /**
+     * 优化上面的代码 简化
+     * 执行用时：1 ms, 在所有 Java 提交中击败了100.00%的用户
+     * 内存消耗：41.1 MB, 在所有 Java 提交中击败了80.11%的用户
+     * <p>
+     * 时间复杂度：都对headA和headB进行了遍历，所以为O(n)
+     * 空间复杂度：申请了三个变量：长度 尾节点A 尾节点B 所以空间复杂度为O(1)
+     *
+     * @param headA
+     * @param headB
+     */
+    public ListNode getIntersectionNode_02(ListNode headA, ListNode headB) {
+        // 鲁棒性1: 提前判空
+        if (headA == null || headB == null) {
+            return null;
+        }
+        // 判断是否相交
+        // 思路：判断两个链表最后一个节点是不是相等 并且声明长度 只声明一个长度变量 不需要各自一个
+        int len = 0;
+        ListNode lastA = headA;
+        ListNode lastB = headB;
+        while (lastA.next != null) {
+            len++;
+            lastA = lastA.next;
+        }
+        while (lastB.next != null) {
+            len--;
+            lastB = lastB.next;
+        }
+        if (lastA != lastB) {
+            return null;
+        }
+        // 找出相交的第一个节点
+        lastA = headA;
+        lastB = headB;
+        if (len > 0) {
+            // 说明链表A更长
+            while (len > 0) {
+                len--;
+                lastA = lastA.next;
+            }
+        } else if (len < 0) {
+            // 说明链表B更长
+            while (len < 0) {
+                len++;
+                lastB = lastB.next;
+            }
+        }
+        // 开始一起遍历 判断节点是否相等
+        // 写法1
+        /*while (lastA != null && lastB != null) {
+            if (lastA == lastB) {
+                return lastA;
+            }
+            lastA = lastA.next;
+            lastB = lastB.next;
+        }
+        return null;*/
+
+        // 写法2 左神的写法 更加简洁
+        while (lastA != lastB){
+            lastA = lastA.next;
+            lastB = lastB.next;
+        }
+        return lastA;
+    }
+
 
     public static void main(String[] args) {
         _06_associate_linkedlist_III linkedlist_iii = new _06_associate_linkedlist_III();
