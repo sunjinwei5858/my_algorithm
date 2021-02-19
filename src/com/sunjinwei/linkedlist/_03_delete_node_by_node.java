@@ -4,10 +4,9 @@ package com.sunjinwei.linkedlist;
 import com.sunjinwei.domain.ListNode;
 
 /**
- * 1。给链表节点的值 删除该节点 【剑指offer18 删除链表的节点 简单】
- * 2。给链表节点 删除该节点 O(1)时间完成
+ * 给链表节点 删除该节点 O(1)时间完成
  */
-public class _03_delete_node_o1_by_node {
+public class _03_delete_node_by_node {
 
 
     /**
