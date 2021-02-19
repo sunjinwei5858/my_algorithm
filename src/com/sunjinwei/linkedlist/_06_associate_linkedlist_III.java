@@ -190,7 +190,11 @@ public class _06_associate_linkedlist_III {
      * @param headB
      */
     public ListNode getIntersectionNode_03(ListNode headA, ListNode headB) {
-        // 1鲁棒性：必须先判断是不是相交 如果不相交 该程序是要崩溃的
+        // 鲁棒性1: 提前判空
+        if (headA == null || headB == null) {
+            return null;
+        }
+        // 鲁棒性2：必须先判断是不是相交 如果不相交 该程序是要崩溃的
         boolean isIntersect = judgeListNodeIsIntersect(headA, headB);
         if (!isIntersect) {
             return null;

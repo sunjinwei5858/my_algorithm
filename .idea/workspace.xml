@@ -32,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_III.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="198" column="28" lean-forward="true" selection-start-line="198" selection-start-column="28" selection-end-line="198" selection-end-column="28" />
+            <state relative-caret-position="862">
+              <caret line="155" column="35" lean-forward="true" selection-start-line="155" selection-start-column="35" selection-end-line="155" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -41,7 +41,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_03_delete_node_by_val.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
+            <state relative-caret-position="438">
               <caret line="40" column="19" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="19" />
             </state>
           </provider>
@@ -180,7 +180,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1613695078941" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1613695662407" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -293,7 +293,7 @@
       <workItem from="1608598351196" duration="47000" />
       <workItem from="1609770628425" duration="37651000" />
       <workItem from="1612224453858" duration="1446000" />
-      <workItem from="1613473831927" duration="34814000" />
+      <workItem from="1613473831927" duration="35397000" />
     </task>
     <task id="LOCAL-00001" summary="回文子串和回文子序列，最长回文子串，最长回文子序列">
       <created>1609809611180</created>
@@ -386,11 +386,18 @@
       <option name="project" value="LOCAL" />
       <updated>1613610947189</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="链表相交：无环链表相交返回第一个交点：必须的鲁棒性就是必须先提前判断是否会相交，提高程序的鲁棒性和健壮性，防止程序崩溃">
+      <created>1613695190900</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1613695190900</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80546000" />
+    <option name="totallyTimeSpent" value="81129000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="974" extended-state="0" />
@@ -496,7 +503,8 @@
     <MESSAGE value="链表相交：1判断两个无环链表是否相交 2如果相交，返回相交的第一个节点，自己的做法 代码比较冗余 需要优化" />
     <MESSAGE value="链表相交：1判断两个无环链表是否相交 2如果相交，返回相交的第一个节点。【进行优化之后的代码】" />
     <MESSAGE value="链表相交：1判断两个无环链表是否相交 2如果相交，返回相交的第一个节点。【画图最最最优的解法】" />
-    <option name="LAST_COMMIT_MESSAGE" value="链表相交：1判断两个无环链表是否相交 2如果相交，返回相交的第一个节点。【画图最最最优的解法】" />
+    <MESSAGE value="链表相交：无环链表相交返回第一个交点：必须的鲁棒性就是必须先提前判断是否会相交，提高程序的鲁棒性和健壮性，防止程序崩溃" />
+    <option name="LAST_COMMIT_MESSAGE" value="链表相交：无环链表相交返回第一个交点：必须的鲁棒性就是必须先提前判断是否会相交，提高程序的鲁棒性和健壮性，防止程序崩溃" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -521,7 +529,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_III.java</url>
-          <line>252</line>
+          <line>256</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
@@ -768,15 +776,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_03_delete_node_by_val.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
+        <state relative-caret-position="438">
           <caret line="40" column="19" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_III.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="198" column="28" lean-forward="true" selection-start-line="198" selection-start-column="28" selection-end-line="198" selection-end-column="28" />
+        <state relative-caret-position="862">
+          <caret line="155" column="35" lean-forward="true" selection-start-line="155" selection-start-column="35" selection-end-line="155" selection-end-column="35" />
         </state>
       </provider>
     </entry>
