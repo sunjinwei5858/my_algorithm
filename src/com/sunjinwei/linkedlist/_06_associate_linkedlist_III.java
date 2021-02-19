@@ -177,7 +177,7 @@ public class _06_associate_linkedlist_III {
 
 
     /**
-     * 最最优的解法：双指针
+     * 最最优的解法：双指针 但是如果不先判断有没有相交的话 默认相交的话 会一直陷入死循环中 所以更加完善的做法还是需要先提前判断是不是会相交
      * 执行用时：1 ms, 在所有 Java 提交中击败了100.00%的用户
      * 内存消耗：41.5 MB, 在所有 Java 提交中击败了17.24%的用户
      * <p>
@@ -190,7 +190,11 @@ public class _06_associate_linkedlist_III {
      * @param headB
      */
     public ListNode getIntersectionNode_03(ListNode headA, ListNode headB) {
-
+        // 1鲁棒性：必须先判断是不是相交 如果不相交 该程序是要崩溃的
+        boolean isIntersect = judgeListNodeIsIntersect(headA, headB);
+        if (!isIntersect) {
+            return null;
+        }
         // 指针1
         ListNode p1 = headA;
         // 指针2
@@ -209,6 +213,29 @@ public class _06_associate_linkedlist_III {
         }
         return p1;
     }
+
+    /**
+     * 判断两个无环链表是不是相交，返回布尔值
+     *
+     * @param headA
+     * @param headB
+     */
+    private boolean judgeListNodeIsIntersect(ListNode headA, ListNode headB) {
+        // 第一种方式：看最后一个节点是不是相等
+        ListNode node1 = headA;
+        ListNode node2 = headB;
+        while (node1.next != null) {
+            node1 = node1.next;
+        }
+        while (node2.next != null) {
+            node2 = node2.next;
+        }
+        if (node1 == node2) {
+            return true;
+        }
+        return false;
+    }
+
 
     public static void main(String[] args) {
         _06_associate_linkedlist_III linkedlist_iii = new _06_associate_linkedlist_III();
