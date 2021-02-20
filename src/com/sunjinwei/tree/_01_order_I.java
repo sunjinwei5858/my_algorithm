@@ -1,4 +1,4 @@
-package com.sunjinwei._tree;
+package com.sunjinwei.tree;
 
 import com.sunjinwei.domain.TreeNode;
 
@@ -8,8 +8,9 @@ import java.util.Stack;
 
 /**
  * 前序遍历 先根节点 左子树 右子树
+ * 方法：递归和非递归
  */
-public class _02_pre_order {
+public class _01_order_I {
 
     private List<Integer> result = new ArrayList<>();
 
