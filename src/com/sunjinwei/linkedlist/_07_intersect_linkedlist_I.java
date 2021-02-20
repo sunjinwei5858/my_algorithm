@@ -3,23 +3,12 @@ package com.sunjinwei.linkedlist;
 import com.sunjinwei.domain.ListNode;
 
 /**
- * 两个单链表相交的一系列问题
- * <p>
- * 在本题中，单链表可能有环，也可能无环。给定两个单链表的头节点 head1 和head2，这两个链表可能相交，也可能不相交。
- * 请实现一个函数，如果两个链表相交，请返回相交的第一个节点；如果不相交，返回null即可。
- * 要求：如果链表1的长度为N，链表2的长度为M，时间复杂度请达到O（N+M），额外空间复杂度请达到O（1）。
- * 难度：困难
- * 拆成下面三个子问题，每个问题都可以作为一道独立的算法题：
- * 1。问题一：如何判断一个链表是否有环，如果有，则返回第一个进入环的节点，没有则返回null。
- * 2。问题二：如何判断两个无环链表是否相交，相交则返回第一个相交节点，不相交则返回null。
- * 3。问题三：如何判断两个有环链表是否相交，相交则返回第一个相交节点，不相交则返回null。
- * <p>
- * <p>
- * 如何判断两个无环链表是否相交，相交则返回第一个相交节点，不相交则返回null。
- * 力扣：160 剑指offer：52 难度都是简单
+ * 问题一：无环链表相交
+ * 如何判断两个无环链表是否相交，相交则返回第一个相交节点，不相交则返回null。【no_loop】
+ * 力扣：160 剑指offer：52 难度:简单
  * 程序尽量满足 O(n) 时间复杂度，且仅用 O(1) 内存。
  */
-public class _06_associate_linkedlist_III {
+public class _07_intersect_linkedlist_I {
 
     /**
      * 给定两个（单向）链表，判定它们是否相交并返回交点。
@@ -242,7 +231,7 @@ public class _06_associate_linkedlist_III {
 
 
     public static void main(String[] args) {
-        _06_associate_linkedlist_III linkedlist_iii = new _06_associate_linkedlist_III();
+        _07_intersect_linkedlist_I linkedlist_iii = new _07_intersect_linkedlist_I();
         ListNode three = new ListNode(3);
         ListNode one = new ListNode(1);
         ListNode two = new ListNode(2);
