@@ -26,12 +26,8 @@ public class _01_order_I {
             return result;
         }
         result.add(node.val);
-        if (node.left != null) {
-            preOrder(node.left);
-        }
-        if (node.right != null) {
-            preOrder(node.right);
-        }
+        preOrder(node.left);
+        preOrder(node.right);
         return result;
     }
 
