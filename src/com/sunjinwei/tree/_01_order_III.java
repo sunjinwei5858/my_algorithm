@@ -101,8 +101,13 @@ public class _01_order_III {
     /**
      * 非递归：第三种写法 【使用一个栈的写法 炫技】
      * 思路：
-     * 使用一个指针记录上次处理的节点 h
+     * 使用一个指针记录上一次处理的节点 h
      * 使用一个指针记录当前处理的节点 c
+     * 所以，
+     * 1如果h等于c的左孩子节点，说明c的左子树已经处理完毕，不应该将c的左孩子节点放入栈中，否则，说明左子树还没处理过，那么此时将c的左孩子节点压入stack中。
+     * 2如果h等于c的右孩子节点，说明c的右子树已经处理完毕，不应该将c的右孩子节点放入栈中，否则，说明右子树还没处理过，那么此时将c的右孩子节点压入stack中。
+     * 3如果上面1和2都不满足，说明c的左子树和右子树都已经处理完毕，那么处理c：弹出并打印，最后令h=c
+     * 一直重复以上过程，直到栈为空
      * <p>
      */
     public List<Integer> orderAfter_04(TreeNode root) {
@@ -110,21 +115,26 @@ public class _01_order_III {
             return result;
         }
         Stack<TreeNode> stack = new Stack<>();
+        // pre: 上一次弹出并且处理过的节点
         TreeNode pre = root;
+        // curr：当前需要处理的节点
         TreeNode curr = null;
         stack.push(pre);
         while (!stack.isEmpty()) {
+            // 每次令curr等于当前stack的栈顶节点，但是不从stack中弹出
             curr = stack.peek();
-            // 1先判断左树有没有处理 也就是判断当前节点的左节点等于上一个处理的节点&&当前节点的右节点等于上一个处理的节点
-            // 2然后判断右树有没有处理
-            // 3如果左树和右树都已经处理了
+            // 此时分以下三种情况：
+            // 1先判断curr的左孩子有没有处理
+            // 2然后判断curr的右孩子有没有处理
+            // 3如果上面1和2都不满足，说明curr的左孩子和右孩子都已经处理了，此时处理curr，然后pre=curr
             if (curr.left != null && curr.left != pre && curr.right != pre) {
-                // 左树没有处理的条件：左树不为空并且左树和右树都没处理
+                // 左孩子未处理条件：如果curr的左孩子不为null，并且pre不等于curr的左孩子，也不等于curr的右孩子，则把curr的左孩子压入stack中
                 stack.push(curr.left);
             } else if (curr.right != null && curr.right != pre) {
-                // 右树没有处理的条件：右树不为空并且右树没有处理
+                // 右孩子未处理条件：如果条件1不成立，curr的右孩子不为null，并且pre不等于curr的右孩子
                 stack.push(curr.right);
             } else {
+                // 如果条件1和条件2都未成立 说明curr的左孩子和右孩子都已经处理过了 此时直接处理curr 弹出并打印 最后设置pre=curr
                 curr = stack.pop();
                 result.add(curr.val);
                 pre = curr;
