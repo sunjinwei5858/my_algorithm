@@ -1,4 +1,4 @@
-package com.sunjinwei._tree;
+package com.sunjinwei.tree;
 
 
 import com.sunjinwei.domain.TreeNode;
@@ -6,7 +6,7 @@ import com.sunjinwei.domain.TreeNode;
 /**
  * 验证二叉搜索树 力扣98
  */
-public class _01_is_valid_bst {
+public class _04_is_valid_bst {
 
     /**
      * 二叉搜索树 错误写法

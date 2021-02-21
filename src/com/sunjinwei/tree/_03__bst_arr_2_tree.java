@@ -1,4 +1,4 @@
-package com.sunjinwei._tree;
+package com.sunjinwei.tree;
 
 import com.sunjinwei.domain.TreeNode;
 

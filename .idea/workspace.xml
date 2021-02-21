@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c622fff3-95cd-466b-9e7d-d2fbe6e9110c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_07_intersect_linkedlist_II.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_07_intersect_linkedlist_III.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_I.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_loop_linkedlist_I.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_II.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_loop_linkedlist_II.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_associate_linkedlist_III.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_07_intersect_linkedlist_I.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sunjinwei/_tree/_01_is_valid_bst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sunjinwei/tree/_04_is_valid_bst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sunjinwei/_tree/_03__bst_arr_2_tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sunjinwei/tree/_03__bst_arr_2_tree.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,82 +25,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_loop_linkedlist_II.java">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_I.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="11" column="35" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="35" />
+            <state relative-caret-position="78">
+              <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_07_intersect_linkedlist_I.java">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_II.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="39" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_07_intersect_linkedlist_II.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_07_intersect_linkedlist_III.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="38" column="21" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_03_delete_node_by_val.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-570">
-              <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_02_delete_k_node_from_end.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="753">
-              <caret line="93" column="36" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_03_delete_node_by_node.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="67" column="31" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_06_loop_linkedlist_I.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-748">
-              <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+            <state relative-caret-position="242">
+              <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,10 +46,97 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_print_linkedlist.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_I.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
+            <state relative-caret-position="1360">
               <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_II.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_III.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_01_merge_sorted_linkedlist.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_01_print_common_sorted_linkedlist.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_02_delete_k_node_from_end.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_III.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="473">
+              <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_IV.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs/_04_tree_level_order.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="37" column="28" lean-forward="true" selection-start-line="37" selection-end-line="38" />
             </state>
           </provider>
         </entry>
@@ -162,6 +186,13 @@
         <option value="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_07_intersect_linkedlist_I.java" />
         <option value="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_07_intersect_linkedlist_II.java" />
         <option value="$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_07_intersect_linkedlist_III.java" />
+        <option value="$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_pre.java" />
+        <option value="$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_in.java" />
+        <option value="$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_middle.java" />
+        <option value="$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_I.java" />
+        <option value="$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_II.java" />
+        <option value="$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_IV.java" />
+        <option value="$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_III.java" />
       </list>
     </option>
   </component>
@@ -189,6 +220,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -212,21 +245,26 @@
               <item name="my_algorithm" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sunjinwei" type="462c0819:PsiDirectoryNode" />
-              <item name="linkedlist" type="462c0819:PsiDirectoryNode" />
+              <item name="bfs_dfs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="my_algorithm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my_algorithm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sunjinwei" type="462c0819:PsiDirectoryNode" />
+              <item name="tree" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1613783049131" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1613897256839" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -234,6 +272,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sunjinwei.tree" />
       <recent name="com.sunjinwei.linkedlist" />
     </key>
   </component>
@@ -339,7 +378,8 @@
       <workItem from="1608598351196" duration="47000" />
       <workItem from="1609770628425" duration="37651000" />
       <workItem from="1612224453858" duration="1446000" />
-      <workItem from="1613473831927" duration="52381000" />
+      <workItem from="1613473831927" duration="64529000" />
+      <workItem from="1613830315663" duration="14522000" />
     </task>
     <task id="LOCAL-00001" summary="回文子串和回文子序列，最长回文子串，最长回文子序列">
       <created>1609809611180</created>
@@ -453,17 +493,93 @@
       <option name="project" value="LOCAL" />
       <updated>1613702034738</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="链表：两个无环链表和两个有环链表如何寻找交点">
+      <created>1613783044960</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1613783044960</updated>
+    </task>
+    <task id="LOCAL-00018" summary="链表：综合题，两个单链表相交的一系列问题，非常好的一道题目">
+      <created>1613783090672</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1613783090672</updated>
+    </task>
+    <task id="LOCAL-00019" summary="二叉树：前序遍历，递归和非递归做法">
+      <created>1613828926159</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1613828926159</updated>
+    </task>
+    <task id="LOCAL-00020" summary="二叉树：前序遍历，递归做法 去掉多余的if判断">
+      <created>1613833497700</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1613833497701</updated>
+    </task>
+    <task id="LOCAL-00021" summary="二叉树：中序遍历，递归和非递归做法">
+      <created>1613833878460</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1613833878460</updated>
+    </task>
+    <task id="LOCAL-00022" summary="二叉树：前序遍历，非递归的其他写法，总共有三种写法">
+      <created>1613886990369</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1613886990369</updated>
+    </task>
+    <task id="LOCAL-00023" summary="二叉树：中序遍历，非递归写法原则：第二次遇到就打印">
+      <created>1613887077765</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1613887077765</updated>
+    </task>
+    <task id="LOCAL-00024" summary="二叉树：后序遍历，非递归实现：使用两个栈实现，利用前序遍历的思想 进行反转">
+      <created>1613887260465</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1613887260465</updated>
+    </task>
+    <task id="LOCAL-00025" summary="二叉树：后序遍历，非递归实现：使用一个栈实现">
+      <created>1613889514363</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1613889514363</updated>
+    </task>
+    <task id="LOCAL-00026" summary="二叉树：后序遍历，非递归实现：使用一个栈实现，详细注释">
+      <created>1613897203574</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1613897203574</updated>
+    </task>
+    <task id="LOCAL-00027" summary="二叉树：层序遍历，广度优先遍历实现">
+      <created>1613897249760</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1613897249760</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98113000" />
+    <option name="totallyTimeSpent" value="124783000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="974" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49829352" visible="true" weight="0.26373628" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49829352" visible="true" weight="0.26678878" />
       <window_info id="Structure" order="1" sideWeight="0.5017065" side_tool="true" weight="0.26399395" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -551,9 +667,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="回文子串和回文子序列，最长回文子串，最长回文子序列" />
-    <MESSAGE value="回文串学习的第三天 还是有点蒙蔽" />
-    <MESSAGE value="组合问题，力扣77，自己ac出来了，回溯算法的模板真爽" />
     <MESSAGE value="N皇后" />
     <MESSAGE value="栈：getMin的两种解法" />
     <MESSAGE value="栈：两个栈实现一个队列" />
@@ -567,7 +680,19 @@
     <MESSAGE value="链表相交：无环链表相交返回第一个交点：必须的鲁棒性就是必须先提前判断是否会相交，提高程序的鲁棒性和健壮性，防止程序崩溃" />
     <MESSAGE value="链表相交：无环链表相交返回第一个交点：提高鲁棒性的两个方面：1对链表a和b判空 2判断两个链表是否相交" />
     <MESSAGE value="链表：根据val删除节点，第二种思路：使用哨兵节点，意想不到的方便!!!多领悟这种技巧，非常好" />
-    <option name="LAST_COMMIT_MESSAGE" value="链表：根据val删除节点，第二种思路：使用哨兵节点，意想不到的方便!!!多领悟这种技巧，非常好" />
+    <MESSAGE value="链表：两个无环链表和两个有环链表如何寻找交点" />
+    <MESSAGE value="链表：综合题，两个单链表相交的一系列问题，非常好的一道题目" />
+    <MESSAGE value="二叉树：前序遍历，递归和非递归做法" />
+    <MESSAGE value="二叉树：前序遍历，递归做法 去掉多余的if判断" />
+    <MESSAGE value="二叉树：中序遍历，递归和非递归做法" />
+    <MESSAGE value="二叉树：前序遍历，非递归的其他写法，总共有三种写法" />
+    <MESSAGE value="二叉树：中序遍历，非递归写法原则：第二次遇到就打印" />
+    <MESSAGE value="二叉树：后序遍历，非递归写法原则：使用前序遍历的思想 两个栈实现" />
+    <MESSAGE value="二叉树：后序遍历，非递归实现：使用两个栈实现，利用前序遍历的思想 进行反转" />
+    <MESSAGE value="二叉树：后序遍历，非递归实现：使用一个栈实现" />
+    <MESSAGE value="二叉树：后序遍历，非递归实现：使用一个栈实现，详细注释" />
+    <MESSAGE value="二叉树：层序遍历，广度优先遍历实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="二叉树：层序遍历，广度优先遍历实现" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -600,40 +725,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_triangle_minimum_total.java" />
-    <entry file="file://$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/domain/TreeNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_03_tree_depth.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_07_rob_III.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2980">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_07_rob_I.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-139">
-          <caret line="96" column="32" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_huiwen_string.java" />
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_long_huiwen_length.java" />
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_long_huiwen_string.java" />
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_long_common_subsequence.java">
@@ -679,20 +770,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/ReverseLinkedList.java" />
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/InvertedOrder.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/_tree/_01_is_valid_bst.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/_tree/_02_pre_order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_05_ziji_I.java" />
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_05_ziji_II.java" />
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_06_zuhei.java" />
@@ -763,45 +840,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_III.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_II.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1303">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_05_huiwen_linkedlist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="119" column="46" lean-forward="true" selection-start-line="119" selection-start-column="46" selection-end-line="119" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_I.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_02_delete_k_node_from_end.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="93" column="36" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -836,13 +878,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_07_intersect_linkedlist_II.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_07_intersect_linkedlist_I.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -850,10 +885,131 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_05_huiwen_linkedlist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1399">
+          <caret line="119" column="20" selection-start-line="119" selection-start-column="16" selection-end-line="119" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_07_intersect_linkedlist_II.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_07_intersect_linkedlist_III.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="21" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="21" />
+        <state relative-caret-position="398">
+          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_04_is_valid_bst.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_02_get_k_node_from_end.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_print_linkedlist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_I.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_II.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_04_reverse_linkedlist_III.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_01_merge_sorted_linkedlist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_01_print_common_sorted_linkedlist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/_02_delete_k_node_from_end.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_I.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_II.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs/_04_tree_level_order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="37" column="28" lean-forward="true" selection-start-line="37" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_III.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_01_order_IV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
