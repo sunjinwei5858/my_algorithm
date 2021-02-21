@@ -98,5 +98,40 @@ public class _01_order_III {
         return result;
     }
 
+    /**
+     * 非递归：第三种写法 【使用一个栈的写法 炫技】
+     * 思路：
+     * 使用一个指针记录上次处理的节点 h
+     * 使用一个指针记录当前处理的节点 c
+     * <p>
+     */
+    public List<Integer> orderAfter_04(TreeNode root) {
+        if (root == null) {
+            return result;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode pre = root;
+        TreeNode curr = null;
+        stack.push(pre);
+        while (!stack.isEmpty()) {
+            curr = stack.peek();
+            // 1先判断左树有没有处理 也就是判断当前节点的左节点等于上一个处理的节点&&当前节点的右节点等于上一个处理的节点
+            // 2然后判断右树有没有处理
+            // 3如果左树和右树都已经处理了
+            if (curr.left != null && curr.left != pre && curr.right != pre) {
+                // 左树没有处理的条件：左树不为空并且左树和右树都没处理
+                stack.push(curr.left);
+            } else if (curr.right != null && curr.right != pre) {
+                // 右树没有处理的条件：右树不为空并且右树没有处理
+                stack.push(curr.right);
+            } else {
+                curr = stack.pop();
+                result.add(curr.val);
+                pre = curr;
+            }
+        }
+        return result;
+    }
+
 
 }
