@@ -32,33 +32,26 @@ public class _01_order_II {
     }
 
     /**
-     * 非递归：使用栈
+     * 非递归：第一种写法 【对应着前序遍历的一种写法 只是打印的位置变了 第二次遇到就打印】
      * <p>
      * 执行用时：1 ms, 在所有 Java 提交中击败了41.44%的用户
      * 内存消耗：36.5 MB, 在所有 Java 提交中击败了85.67%的用户
      */
-    public List<Integer> orderMiddle_02(TreeNode head) {
-        if (head == null) {
-            return result;
-        }
+    public List<Integer> orderMiddle_02(TreeNode root) {
         // 使用栈
-
         Stack<TreeNode> stack = new Stack<>();
-        while (head != null || !stack.isEmpty()) {
-            if (head != null) {
-                // 刚开始先是根节点，左节点进栈
-                // 后面走了else代码逻辑之后 右节点进栈
-                stack.push(head);
-                head = head.left;
+        while (root != null || !stack.isEmpty()) {
+            // 1 一进来 就把二叉树的左边界压到栈里面去【整条左边界 依次入栈】
+            if (root != null) {
+                // 第一次碰到
+                stack.push(root);
+                root = root.left;
             } else {
-                // 出栈
-                // 刚开始是左节点 根节点出栈
-                // 后面是右节点出栈
-                head = stack.pop();
-                // 先将左节点 根节点 添加到结果集
-                result.add(head.val);
-                // 然后开始右节点的处理
-                head = head.right;
+                // 2 1的逻辑无法继续了 左边界处理完之后 然后处理右节点 【弹出节点 就打印】
+                root = stack.pop();
+                // 联想：中序遍历原则，第二次碰到就打印
+                result.add(root.val);
+                root = root.right;
             }
         }
         return result;
