@@ -6,9 +6,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 二叉树的序列化和反序列化
+ * 二叉树的序列化和反序列化: 前序遍历的方式
+ * 序列化：直接使用前序遍历模板
+ * 反序列化：使用单向队列即可，队列的第一个元素是根节点，然后处理左子树 然后处理右子树
  */
-public class _03_serialize_deserialize {
+public class _03_serialize_deserialize_I {
 
     /**
      * 序列化: 将二叉树序列化为一个字符串
@@ -19,7 +21,7 @@ public class _03_serialize_deserialize {
      * @param root
      * @return
      */
-    public String serialByPre(TreeNode root) {
+    public String serializeByPre(TreeNode root) {
         if (root == null) {
             return "#!";
         }
@@ -37,7 +39,23 @@ public class _03_serialize_deserialize {
     }
 
     /**
-     * 反序列化
+     * 第二种方式：直接套用前序遍历模板
+     *
+     * @param root
+     * @return
+     */
+    private String doSerializeByPre_02(TreeNode root) {
+        if (root == null) {
+            return "#!";
+        }
+        String s = root.val + "!";
+        s += doSerializeByPre_02(root.left);
+        s += doSerializeByPre_02(root.right);
+        return s;
+    }
+
+    /**
+     * 反序列化：利用LinkedList队列将字符串转换为数组 再将数组换位队列进行存储 先进先出
      *
      * @param data
      */
@@ -69,7 +87,7 @@ public class _03_serialize_deserialize {
     }
 
     public static void main(String[] args) {
-        _03_serialize_deserialize serializeDeserialize = new _03_serialize_deserialize();
+        _03_serialize_deserialize_I serializeDeserialize = new _03_serialize_deserialize_I();
         TreeNode root = new TreeNode(1);
         TreeNode left = new TreeNode(2);
         TreeNode right = new TreeNode(3);
@@ -83,7 +101,7 @@ public class _03_serialize_deserialize {
         right.right = right3;
 
 
-        String s = serializeDeserialize.serialByPre(root);
+        String s = serializeDeserialize.serializeByPre(root);
         System.out.println(s);
 
         TreeNode treeNode = serializeDeserialize.deSerializeByPre(s);
