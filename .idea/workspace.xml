@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java" line="43" mnemonic="6" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_I.java" line="61" mnemonic="6" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c622fff3-95cd-466b-9e7d-d2fbe6e9110c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_II.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_I.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,18 +76,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_huiwen_list_judge.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="158" column="24" selection-start-line="158" selection-start-column="24" selection-end-line="158" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1000">
@@ -127,13 +116,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_I.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+            <state relative-caret-position="100">
+              <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_II.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -203,6 +201,8 @@
         <option value="$PROJECT_DIR$/src/com/sunjinwei/tree/_02_print_II.java" />
         <option value="$PROJECT_DIR$/src/com/sunjinwei/tree/_02_print_III.java" />
         <option value="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java" />
+        <option value="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_I.java" />
+        <option value="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_II.java" />
       </list>
     </option>
   </component>
@@ -267,7 +267,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614041916228" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614093458671" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -291,7 +291,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application._03_serialize_deserialize">
+  <component name="RunManager" selected="Application._03_serialize_deserialize_II">
     <configuration name="_02_print_III" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.sunjinwei.tree._02_print_III" />
       <module name="my_algorithm" />
@@ -318,8 +318,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="_03_serialize_deserialize" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.sunjinwei.tree._03_serialize_deserialize" />
+    <configuration name="_03_serialize_deserialize_I" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sunjinwei.tree._03_serialize_deserialize_I" />
       <module name="my_algorithm" />
       <extension name="coverage">
         <pattern>
@@ -331,12 +331,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="_06_loop_linkedlist_I" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.sunjinwei.linkedlist._06_loop_linkedlist_I" />
+    <configuration name="_03_serialize_deserialize_II" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sunjinwei.tree._03_serialize_deserialize_II" />
       <module name="my_algorithm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sunjinwei.linkedlist.*" />
+          <option name="PATTERN" value="com.sunjinwei.tree.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -359,11 +359,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application._03_serialize_deserialize" />
+        <item itemvalue="Application._03_serialize_deserialize_II" />
+        <item itemvalue="Application._03_serialize_deserialize_I" />
         <item itemvalue="Application._02_print_III" />
         <item itemvalue="Application._03_delete_node_by_val" />
         <item itemvalue="Application._07_intersect_linkedlist_I" />
-        <item itemvalue="Application._06_loop_linkedlist_I" />
       </list>
     </recent_temporary>
   </component>
@@ -594,11 +594,18 @@
       <option name="project" value="LOCAL" />
       <updated>1614041635220</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="二叉树：序列化和反序列化，使用前序遍历序列化，反序列化使用队列进行处理元素">
+      <created>1614042614441</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1614042614441</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141470000" />
+    <option name="totallyTimeSpent" value="144825000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -691,7 +698,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="栈：两个栈实现一个队列" />
     <MESSAGE value="删除链表节点：根据stack的方法，总结出链表使用栈完成反转或者正序输出，第一次发现入栈的节点也可以实现正序输出" />
     <MESSAGE value="链表：链表成环题目1：判断是否成环，返回布尔值的三种解法，还有自己的错误理解导致的错误解法" />
     <MESSAGE value="链表：链表成环题目2：判断是否成环，返回环的第一个节点，两种解法，双指针法用到了环形链表的一个性质，非常好，可以用数学公式证明，最好的理解还是画图理解" />
@@ -716,7 +722,8 @@
     <MESSAGE value="二叉树：层序遍历，广度优先遍历实现" />
     <MESSAGE value="二叉树：剑指offer32，从上到下打印二叉树，同一层的节点按照从左到右的顺序打印。" />
     <MESSAGE value="二叉树：序列化和反序列化，使用前序遍历，序列化ok，反序列化的错误方式，只使用数组是不行的，要用队列" />
-    <option name="LAST_COMMIT_MESSAGE" value="二叉树：序列化和反序列化，使用前序遍历，序列化ok，反序列化的错误方式，只使用数组是不行的，要用队列" />
+    <MESSAGE value="二叉树：序列化和反序列化，使用前序遍历序列化，反序列化使用队列进行处理元素" />
+    <option name="LAST_COMMIT_MESSAGE" value="二叉树：序列化和反序列化，使用前序遍历序列化，反序列化使用队列进行处理元素" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -746,17 +753,21 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java</url>
+          <url>file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_I.java</url>
           <line>89</line>
           <properties />
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_II.java</url>
+          <line>89</line>
+          <properties />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/ReverseLinkedList.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/linkedlist/InvertedOrder.java" />
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_05_ziji_I.java" />
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_05_ziji_II.java" />
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/bfs_dfs_huisu/_06_zuhei.java" />
@@ -1058,10 +1069,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java">
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/dp/_04_huiwen_list_judge.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+        <state relative-caret-position="75">
+          <caret line="158" column="24" selection-start-line="158" selection-start-column="24" selection-end-line="158" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_II.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_I.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
