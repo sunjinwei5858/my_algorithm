@@ -2,6 +2,9 @@ package com.sunjinwei.tree;
 
 import com.sunjinwei.domain.TreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 二叉树的序列化和反序列化
  */
@@ -36,27 +39,32 @@ public class _03_serialize_deserialize {
     /**
      * 反序列化
      *
-     * @param s
+     * @param data
      */
-    public TreeNode deSerializeByPre(String s) {
-        if (s == null || s.length() == 0) {
+    public TreeNode deSerializeByPre(String data) {
+        if (data == null || data.length() == 0) {
             return null;
         }
-        String[] arr = s.split("!");
-        return dodeSerializeByPre(arr, 0);
+        String[] arr = data.split("!");
+        // 将数组转换成队列存储
+        Queue<String> queue = new LinkedList<>();
+        for (String s1 : arr) {
+            queue.offer(s1);
+        }
+        return dodeSerializeByPre(queue);
     }
 
-    private TreeNode dodeSerializeByPre(String[] arr, int index) {
-        if (index == arr.length) {
+    private TreeNode dodeSerializeByPre(Queue<String> queue) {
+        if (queue.isEmpty()) {
             return null;
         }
-        if (arr[index].equals("#")) {
+        String s = queue.poll();
+        if (s.equals("#")) {
             return null;
         }
-        String s = arr[index];
         TreeNode treeNode = new TreeNode(Integer.parseInt(s));
-        treeNode.left = dodeSerializeByPre(arr, index++);
-        treeNode.right = dodeSerializeByPre(arr, index++);
+        treeNode.left = dodeSerializeByPre(queue);
+        treeNode.right = dodeSerializeByPre(queue);
         return treeNode;
     }
 

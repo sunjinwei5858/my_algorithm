@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java" line="43" mnemonic="6" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c622fff3-95cd-466b-9e7d-d2fbe6e9110c" name="Default Changelist" comment="栈：两个栈实现一个队列">
-      <change afterPath="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java" afterDir="false" />
+    <list default="true" id="c622fff3-95cd-466b-9e7d-d2fbe6e9110c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -126,8 +129,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+            <state relative-caret-position="136">
+              <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -261,7 +267,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614041544537" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614041916228" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -581,11 +587,18 @@
       <option name="project" value="LOCAL" />
       <updated>1613902455968</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="二叉树：序列化和反序列化，使用前序遍历，序列化ok，反序列化的错误方式，只使用数组是不行的，要用队列">
+      <created>1614041635220</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1614041635220</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140482000" />
+    <option name="totallyTimeSpent" value="141470000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -678,7 +691,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="栈：getMin的两种解法" />
     <MESSAGE value="栈：两个栈实现一个队列" />
     <MESSAGE value="删除链表节点：根据stack的方法，总结出链表使用栈完成反转或者正序输出，第一次发现入栈的节点也可以实现正序输出" />
     <MESSAGE value="链表：链表成环题目1：判断是否成环，返回布尔值的三种解法，还有自己的错误理解导致的错误解法" />
@@ -703,7 +715,8 @@
     <MESSAGE value="二叉树：后序遍历，非递归实现：使用一个栈实现，详细注释" />
     <MESSAGE value="二叉树：层序遍历，广度优先遍历实现" />
     <MESSAGE value="二叉树：剑指offer32，从上到下打印二叉树，同一层的节点按照从左到右的顺序打印。" />
-    <option name="LAST_COMMIT_MESSAGE" value="二叉树：剑指offer32，从上到下打印二叉树，同一层的节点按照从左到右的顺序打印。" />
+    <MESSAGE value="二叉树：序列化和反序列化，使用前序遍历，序列化ok，反序列化的错误方式，只使用数组是不行的，要用队列" />
+    <option name="LAST_COMMIT_MESSAGE" value="二叉树：序列化和反序列化，使用前序遍历，序列化ok，反序列化的错误方式，只使用数组是不行的，要用队列" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -734,7 +747,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java</url>
-          <line>81</line>
+          <line>89</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
@@ -1047,8 +1060,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+        <state relative-caret-position="136">
+          <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
