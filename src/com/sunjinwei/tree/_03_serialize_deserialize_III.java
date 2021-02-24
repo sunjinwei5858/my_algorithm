@@ -21,26 +21,50 @@ public class _03_serialize_deserialize_III {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         String s = "";
+        // 第一种方式进行处理：空节点也加入到队列
+        handleQueue_01(queue, s);
+        // 第二种处理方式：空节点不加入队列 直接拼接到字符串中
+        //handleQueue_02(queue,s);
+        return s;
+    }
+
+    /**
+     * 第一种处理方式：队列中存放空节点
+     */
+    private void handleQueue_01(Queue<TreeNode> queue, String s) {
         while (!queue.isEmpty()) {
-            TreeNode poll = queue.poll();
-            if (poll == null) {
+            TreeNode treeNode = queue.poll();
+            if (treeNode != null) {
+                s += treeNode.val + "!";
+            } else {
                 s += "#!";
+                // 到达叶子节点之后 直接continue 叶子节点已经为空 不需要再进行加入任何空的节点
                 continue;
-            } else {
-                s += poll.val + "!";
             }
-            if (poll.left != null) {
-                queue.offer(poll.left);
+            queue.offer(treeNode.left);
+            queue.offer(treeNode.right);
+        }
+    }
+
+
+    /**
+     * 第二种处理方式：队列中不放空节点
+     */
+    private void handleQueue_02(Queue<TreeNode> queue, String s) {
+        while (!queue.isEmpty()) {
+            TreeNode treeNode = queue.poll();
+            s += treeNode.val + "!";
+            if (treeNode.left != null) {
+                queue.offer(treeNode.left);
             } else {
-                queue.offer(null);
+                s += "#!";
             }
-            if (poll.right != null) {
-                queue.offer(poll.right);
+            if (treeNode.right != null) {
+                queue.offer(treeNode.right);
             } else {
-                queue.offer(null);
+                s += "#!";
             }
         }
-        return s;
     }
 
     /**
