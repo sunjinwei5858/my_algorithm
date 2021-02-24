@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c622fff3-95cd-466b-9e7d-d2fbe6e9110c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_III.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sunjinwei/tree/_03__bst_arr_2_tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sunjinwei/tree/_07__bst_arr_2_tree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_III.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_III.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -121,8 +120,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_II.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="59" column="38" lean-forward="true" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+            <state relative-caret-position="375">
+              <caret line="83" lean-forward="true" selection-start-line="72" selection-start-column="7" selection-end-line="83" />
             </state>
           </provider>
         </entry>
@@ -130,8 +129,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_III.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="52" column="29" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+            <state relative-caret-position="206">
+              <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -271,7 +270,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614124719174" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614128258313" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -295,7 +294,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application._03_serialize_deserialize_II">
+  <component name="RunManager" selected="Application._03_serialize_deserialize_III">
     <configuration name="_02_print_III" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.sunjinwei.tree._02_print_III" />
       <module name="my_algorithm" />
@@ -348,12 +347,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="_07_intersect_linkedlist_I" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.sunjinwei.linkedlist._07_intersect_linkedlist_I" />
+    <configuration name="_03_serialize_deserialize_III" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sunjinwei.tree._03_serialize_deserialize_III" />
       <module name="my_algorithm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sunjinwei.linkedlist.*" />
+          <option name="PATTERN" value="com.sunjinwei.tree.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -363,11 +362,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application._03_serialize_deserialize_III" />
         <item itemvalue="Application._03_serialize_deserialize_II" />
         <item itemvalue="Application._03_serialize_deserialize_I" />
         <item itemvalue="Application._02_print_III" />
         <item itemvalue="Application._03_delete_node_by_val" />
-        <item itemvalue="Application._07_intersect_linkedlist_I" />
       </list>
     </recent_temporary>
   </component>
@@ -619,16 +618,24 @@
       <option name="project" value="LOCAL" />
       <updated>1614093546408</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="二叉树：序列化和反序列化：层序遍历实现，未完成">
+      <created>1614127264505</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1614127264505</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147692000" />
+    <option name="totallyTimeSpent" value="148693000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49829352" visible="true" weight="0.22390318" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49829352" visible="true" weight="0.22390318" />
       <window_info id="Structure" order="1" sideWeight="0.5017065" side_tool="true" weight="0.26399395" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -637,7 +644,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30716723" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30716723" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39761093" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -716,7 +723,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="链表：链表成环题目1：判断是否成环，返回布尔值的三种解法，还有自己的错误理解导致的错误解法" />
     <MESSAGE value="链表：链表成环题目2：判断是否成环，返回环的第一个节点，两种解法，双指针法用到了环形链表的一个性质，非常好，可以用数学公式证明，最好的理解还是画图理解" />
     <MESSAGE value="链表：反转链表，使用栈来反转，必须要的鲁棒性条件，stack的pop只有不为空的情况才能使用" />
     <MESSAGE value="链表相交：1判断两个无环链表是否相交 2如果相交，返回相交的第一个节点，自己的做法 代码比较冗余 需要优化" />
@@ -741,7 +747,8 @@
     <MESSAGE value="二叉树：序列化和反序列化，使用前序遍历，序列化ok，反序列化的错误方式，只使用数组是不行的，要用队列" />
     <MESSAGE value="二叉树：序列化和反序列化，使用前序遍历序列化，反序列化使用队列进行处理元素" />
     <MESSAGE value="二叉树：序列化和反序列化：后序遍历，双端队列进行反序列化，队列的尾巴根节点，然后右子树，最后左子树的还原顺序" />
-    <option name="LAST_COMMIT_MESSAGE" value="二叉树：序列化和反序列化：后序遍历，双端队列进行反序列化，队列的尾巴根节点，然后右子树，最后左子树的还原顺序" />
+    <MESSAGE value="二叉树：序列化和反序列化：层序遍历实现，未完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="二叉树：序列化和反序列化：层序遍历实现，未完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1108,15 +1115,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_II.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="59" column="38" lean-forward="true" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+        <state relative-caret-position="375">
+          <caret line="83" lean-forward="true" selection-start-line="72" selection-start-column="7" selection-end-line="83" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sunjinwei/tree/_03_serialize_deserialize_III.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="52" column="29" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+        <state relative-caret-position="206">
+          <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -25,14 +25,19 @@ public class _03_serialize_deserialize_III {
             TreeNode poll = queue.poll();
             if (poll == null) {
                 s += "#!";
+                continue;
             } else {
                 s += poll.val + "!";
             }
             if (poll.left != null) {
                 queue.offer(poll.left);
+            } else {
+                queue.offer(null);
             }
             if (poll.right != null) {
                 queue.offer(poll.right);
+            } else {
+                queue.offer(null);
             }
         }
         return s;
@@ -60,6 +65,24 @@ public class _03_serialize_deserialize_III {
 
             }
         }
+        return new TreeNode(1);
+    }
 
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        TreeNode left = new TreeNode(2);
+        TreeNode right = new TreeNode(3);
+        root.left = left;
+        root.right = right;
+
+        TreeNode left2 = new TreeNode(4);
+        TreeNode right3 = new TreeNode(5);
+
+        right.left = left2;
+        right.right = right3;
+
+        _03_serialize_deserialize_III deserialize_iii = new _03_serialize_deserialize_III();
+        String serialize = deserialize_iii.serialize(root);
+        System.out.println(serialize);
     }
 }
