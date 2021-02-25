@@ -11,33 +11,53 @@ import java.util.Queue;
 public class _03_serialize_deserialize_III {
 
     /**
-     * 序列化：层序遍历
+     * 序列化：层序遍历,方法一：空节点也进入队列
      */
     public String serialize(TreeNode root) {
-        if (root == null) {
-            return "#!";
-        }
         // 初始化队列
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         String s = "";
+        // 第一种方式进行处理：空节点也加入到队列
         while (!queue.isEmpty()) {
-            TreeNode poll = queue.poll();
-            if (poll == null) {
+            TreeNode treeNode = queue.poll();
+            if (treeNode != null) {
+                s += treeNode.val + "!";
+            } else {
                 s += "#!";
+                // 如果该节点为空 那么直接continue
                 continue;
-            } else {
-                s += poll.val + "!";
             }
-            if (poll.left != null) {
-                queue.offer(poll.left);
+            queue.offer(treeNode.left);
+            queue.offer(treeNode.right);
+        }
+        return s;
+    }
+
+    /**
+     * 序列化：层序遍历,方法二：空节点不进入队列，提前拼接到字符串中
+     */
+    public String serialize_02(TreeNode root) {
+        if (root == null) {
+            return "#!";
+        }
+        String s = root.val + "!";
+        Queue<TreeNode> queue = new LinkedList<>();
+        // 先处理头节点
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode treeNode = queue.poll();
+            if (treeNode.left != null) {
+                s += treeNode.left.val + "!";
+                queue.offer(treeNode.left);
             } else {
-                queue.offer(null);
+                s += "#!";
             }
-            if (poll.right != null) {
-                queue.offer(poll.right);
+            if (treeNode.right != null) {
+                s += treeNode.right.val + "!";
+                queue.offer(treeNode.right);
             } else {
-                queue.offer(null);
+                s += "#!";
             }
         }
         return s;
