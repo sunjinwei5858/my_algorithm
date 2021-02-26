@@ -64,6 +64,7 @@ public class _03_serialize_deserialize_III {
                 queue.offer(treeNode.right);
             } else {
                 s += "#!";
+
             }
         }
         return s;
