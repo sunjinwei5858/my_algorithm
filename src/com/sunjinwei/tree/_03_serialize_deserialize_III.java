@@ -7,83 +7,68 @@ import java.util.Queue;
 
 /**
  * 序列化和反序列化：层序遍历
- * <p>
+ * 注意：
+ * 1.每个节点都需要做一个标记，作为结束，使用!
+ * 2.序列化和反序列化：空节点都不进入队列中去
  */
 public class _03_serialize_deserialize_III {
 
     /**
-     * 序列化,方法一：空节点也进入队列
-     * 执行用时：117 ms, 在所有 Java 提交中击败了18.09%的用户
-     * 内存消耗：40.6 MB, 在所有 Java 提交中击败了40.42%的用户
+     * 后缀
      */
-    public String serialize(TreeNode root) {
-        // 初始化队列
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        String s = "";
-        // 第一种方式进行处理：空节点也加入到队列
-        while (!queue.isEmpty()) {
-            TreeNode treeNode = queue.poll();
-            if (treeNode != null) {
-                s += treeNode.val + "!";
-            } else {
-                s += "#!";
-                // 如果该节点为空 那么直接continue
-                continue;
-            }
-            queue.offer(treeNode.left);
-            queue.offer(treeNode.right);
-        }
-        return s;
-    }
+    private String suffix = "!";
+
+    private String nullMark = "#";
 
     /**
-     * 序列化：层序遍历,方法二：空节点不进入队列，提前拼接到字符串中
+     * 序列化：空节点不进入队列，提前拼接到字符串中
      * <p>
      * 执行用时：123 ms, 在所有 Java 提交中击败了17.85%的用户
      * 内存消耗：40.9 MB, 在所有 Java 提交中击败了35.60%的用户
      */
-    public String serialize_02(TreeNode root) {
+    public String serialize(TreeNode root) {
         if (root == null) {
-            return "#!";
+            return nullMark + suffix;
         }
-        String s = root.val + "!";
+        String s = root.val + suffix;
         Queue<TreeNode> queue = new LinkedList<>();
         // 先处理头节点
         queue.offer(root);
         while (!queue.isEmpty()) {
             TreeNode treeNode = queue.poll();
             if (treeNode.left != null) {
-                s += treeNode.left.val + "!";
+                s += treeNode.left.val + suffix;
                 queue.offer(treeNode.left);
             } else {
-                s += "#!";
+                s += nullMark + suffix;
             }
             if (treeNode.right != null) {
-                s += treeNode.right.val + "!";
+                s += treeNode.right.val + suffix;
                 queue.offer(treeNode.right);
             } else {
-                s += "#!";
-
+                s += nullMark + suffix;
             }
         }
         return s;
     }
 
     /**
-     * 反序列化：
+     * 反序列化：提前处理好了头节点，和序列化方法2 serialize_02 照相呼应 【左神做法】
      */
     public TreeNode deserialize(String data) {
-        if (data == null || data.equals("#!")) {
+        if (data == null || data.equals(nullMark + suffix)) {
             return null;
         }
-        String[] split = data.split("!");
+        String[] split = data.split(suffix);
         int index = 0;
         TreeNode root = transformString2TreeNode(split[index]);
         Queue<TreeNode> queue = new LinkedList<>();
         // 队列记录父节点
         queue.offer(root);
         TreeNode node = null;
+        /**
+         * 队列中只存放不为null的节点 所以可以保证[++index]不会索引越界
+         */
         while (!queue.isEmpty()) {
             // 队列中存放的都是父节点
             node = queue.poll();
@@ -102,7 +87,7 @@ public class _03_serialize_deserialize_III {
     }
 
     private TreeNode transformString2TreeNode(String s) {
-        if (s.equals("#")) {
+        if (nullMark.equals(s)) {
             return null;
         }
         return new TreeNode(Integer.parseInt(s));
