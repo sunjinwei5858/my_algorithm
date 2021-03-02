@@ -4,12 +4,12 @@ package com.sunjinwei.tree;
 import com.sunjinwei.domain.TreeNode;
 
 /**
- * 验证二叉搜索树 力扣98
+ * 根据根节点验证二叉搜索树 力扣98
  */
-public class _04_is_valid_bst {
+public class _04_is_bst_I {
 
     /**
-     * 二叉搜索树 错误写法
+     * 错误写法：
      * 根节点大于左子树的值
      * 根节点小于右子树的值
      *
@@ -30,22 +30,23 @@ public class _04_is_valid_bst {
     }
 
     /**
-     * 正确写法 使用辅助函数
+     * 正确写法： 使用辅助函数
      *
      * @param root
      * @return
      */
     public boolean isValidBST02(TreeNode root) {
 
+
         return isValidBST02(root, null, null);
     }
 
     /**
-     * 辅助函数：根节点必须大于左子树的最大值
+     * 辅助函数：根节点必须大于左子树的最大值，并且根节点小于右子树的最小值
      *
      * @param root
-     * @param min
-     * @param max
+     * @param min  对于右子树来说，根节点是最小值
+     * @param max  对于左子树来说，根节点是最大值
      * @return
      */
     public boolean isValidBST02(TreeNode root, TreeNode min, TreeNode max) {
@@ -56,7 +57,7 @@ public class _04_is_valid_bst {
         if (min != null && min.val > root.val) {
             return false;
         }
-        // 如果max不为空 说明左子树和根节点比较 传入左子树和根节点 根节点作为max传入 如果根节点的值小于等于左子树的值 返回false
+        // 如果max不为空 说明是左子树和根节点比较 传入左子树和根节点 根节点作为max传入 如果根节点的值小于等于左子树的值 返回false
         if (max != null && max.val < root.val) {
             return false;
         }
