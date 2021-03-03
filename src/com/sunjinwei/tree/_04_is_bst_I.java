@@ -5,6 +5,14 @@ import com.sunjinwei.domain.TreeNode;
 
 /**
  * 根据根节点验证二叉搜索树 力扣98
+ * 思路：
+ * 1.首先要知道二叉搜索树有什么性质可以给我们利用，
+ * 2.
+ * 性质1：如果该二叉树的左子树不为空，则左子树上所有节点的值均小于根节点的值，
+ * 性质2：如果该二叉树的右子树不为空，则右子树上所有节点的值均大于根节点的值
+ * 根据性质，可以启示设计一个递归函数helper(root, lower, upper) 来递归判断
+ * 3.根据二叉搜索树的性质，在递归调用左子树时，需要把上界upper改为root.val
+ * 因为左子树里所有节点的值均小于它的根节点的值
  */
 public class _04_is_bst_I {
 
@@ -37,7 +45,6 @@ public class _04_is_bst_I {
      */
     public boolean isValidBST02(TreeNode root) {
 
-
         return isValidBST02(root, null, null);
     }
 
@@ -62,6 +69,24 @@ public class _04_is_bst_I {
             return false;
         }
         return isValidBST02(root.left, min, root) && isValidBST02(root.right, root, max);
+    }
+
+    private boolean judgeTreeIsBst(TreeNode root, TreeNode min, TreeNode max) {
+        // 鲁棒性1
+        if (root == null) {
+            return true;
+        }
+        // 鲁棒性2
+        // min不为空 说明是右子树和根节点比较 min是右子树
+        if (min != null && root.val < min.val) {
+            return false;
+        }
+        // 鲁棒性3
+        // max不为空 说明是左子树和根节点比较 max是左子树
+        if (max != null && root.val > max.val) {
+            return false;
+        }
+        return judgeTreeIsBst(root.right, root, max) && judgeTreeIsBst(root.left, min, root);
     }
 
 
