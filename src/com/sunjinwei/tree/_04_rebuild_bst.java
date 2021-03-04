@@ -3,7 +3,7 @@ package com.sunjinwei.tree;
 import com.sunjinwei.domain.TreeNode;
 
 /**
- * 二叉搜索树后续遍历后的数组还原成二叉搜索树
+ * 二叉搜索树后序遍历后的数组还原成二叉搜索树
  * <p>
  * 思路：
  * 1。从二叉搜索树的特点出发：左子树小于根节点 右子树大于根节点
@@ -13,9 +13,10 @@ public class _04_rebuild_bst {
 
     public TreeNode posArr2Tree(int[] arr) {
         // 鲁棒性
-        if (arr.length == 0) {
+        if (arr == null || arr.length == 0) {
             return null;
         }
+        // 辅助函数
         return help_03(arr, 0, arr.length - 1);
     }
 
@@ -27,14 +28,14 @@ public class _04_rebuild_bst {
      * @param right
      * @return
      */
-    private TreeNode help(int[] arr, int left, int right) {
-        // 边界条件1：左索引超过右索引 返回空
+    private TreeNode help_01(int[] arr, int left, int right) {
+        // 终止条件1：左索引超过右索引 返回空
         if (left > right) {
             return null;
         }
         // 找到根节点
         TreeNode root = new TreeNode(arr[right]);
-        // 边界条件2：只有一个根节点
+        // 终止条件2：只有一个根节点
         if (left == right) {
             return root;
         }
@@ -52,13 +53,13 @@ public class _04_rebuild_bst {
         // 开始进行判断：正常的二叉树 左斜树 右斜树
         if (middle == -1) {
             // 说明是右斜树
-            root.right = help(arr, left, right - 1);
+            root.right = help_01(arr, left, right - 1);
         } else if (middle == right - 1) {
             // 说明是左斜树
-            root.left = help(arr, left, right - 1);
+            root.left = help_01(arr, left, right - 1);
         } else {
-            root.left = help(arr, left, middle - 1);
-            root.right = help(arr, middle, right - 1);
+            root.left = help_01(arr, left, middle - 1);
+            root.right = help_01(arr, middle, right - 1);
         }
         return root;
     }
