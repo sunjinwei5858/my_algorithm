@@ -10,7 +10,7 @@ import java.util.Stack;
  * 后序遍历：左子树 右子树 根节点
  * 方法：递归和非递归
  */
-public class _01_order_III {
+public class _01_c_post_order {
 
     private List<Integer> result = new ArrayList<>();
 

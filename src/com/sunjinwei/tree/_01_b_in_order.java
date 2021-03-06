@@ -10,7 +10,7 @@ import java.util.Stack;
  * 中序遍历：左子树 根节点 右子树
  * 方法：递归和非递归
  */
-public class _01_order_II {
+public class _01_b_in_order {
 
     private List<Integer> result = new ArrayList<>();
 
@@ -53,6 +53,34 @@ public class _01_order_II {
                 result.add(root.val);
                 root = root.right;
             }
+        }
+        return result;
+    }
+
+    /**
+     * 非递归：第二种写法 思想是一样的 先将左孩子进栈,弹出栈顶元素 再处理栈顶元素的右子树
+     */
+    public List<Integer> orderMiddle_03(TreeNode root) {
+        // 使用栈
+        Stack<TreeNode> stack = new Stack<>();
+        // 思路：
+        // 1先将左孩子进栈 2然后弹出 再有孩子进栈
+        TreeNode curr = root;
+        while (true) {
+            // 1左孩子全部进栈
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            // 终止条件
+            if (stack.isEmpty()) {
+                break;
+            }
+            // 2栈顶元素 也就是左孩子出栈
+            curr = stack.pop();
+            result.add(curr.val);
+            // 3栈顶元素的右孩子进栈
+            curr = curr.right;
         }
         return result;
     }
