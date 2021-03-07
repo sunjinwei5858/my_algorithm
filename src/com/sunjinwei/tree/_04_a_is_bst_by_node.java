@@ -5,7 +5,7 @@ import com.sunjinwei.domain.TreeNode;
 
 /**
  * 根据根节点验证二叉搜索树 力扣98
- * 思路：
+ * 思路一：
  * 1.首先要知道二叉搜索树有什么性质可以给我们利用，
  * 2.
  * 性质1：如果该二叉树的左子树不为空，则左子树上所有节点的值均小于根节点的值，
@@ -13,11 +13,17 @@ import com.sunjinwei.domain.TreeNode;
  * 根据性质，可以启示设计一个递归函数helper(root, lower, upper) 来递归判断
  * 3.根据二叉搜索树的性质，在递归调用左子树时，需要把上界upper改为root.val
  * 因为左子树里所有节点的值均小于它的根节点的值
+ * <p>
+ * 注意：如下自己写出了错误方法和正确方法，方便自己比较
+ * <p>
+ * 思路二：
+ * 使用中序遍历
  */
-public class _04_is_bst_I {
+public class _04_a_is_bst_by_node {
 
     /**
      * 错误写法：二叉搜索树的性质有：BST的每个节点应该小于右子树的所有节点
+     * 这种写法不能保证剩下的子树 比如左子树所有节点的值小于根节点 右子树所有节点的值大于根节点
      *
      * @param root
      * @return
@@ -26,10 +32,10 @@ public class _04_is_bst_I {
         if (root == null) {
             return true;
         }
-        if (root.left != null && root.val < root.left.val) {
+        if (root.left != null && root.val <= root.left.val) {
             return false;
         }
-        if (root.right != null && root.val > root.right.val) {
+        if (root.right != null && root.val >= root.right.val) {
             return false;
         }
         return isValidBST(root.left) && isValidBST(root.right);
@@ -43,9 +49,7 @@ public class _04_is_bst_I {
      */
     public boolean isValidBST02(TreeNode root) {
 
-        //return help(root, null, null);
-
-        return help_02(root, false, null);
+        return help(root, null, null);
     }
 
     /**
@@ -58,7 +62,7 @@ public class _04_is_bst_I {
      * @param max  对于左子树来说，根节点是最大值
      * @return
      */
-    public boolean help(TreeNode root, TreeNode min, TreeNode max) {
+    private boolean help(TreeNode root, TreeNode min, TreeNode max) {
         if (root == null) {
             return true;
         }
@@ -80,29 +84,34 @@ public class _04_is_bst_I {
         return leftFlag && rightFlag;
     }
 
-
     /**
-     * 辅助函数：第二种写法
-     * true: 代表当前节点是左子节点
-     * false：代表当前节点是右子节点
+     * 正确解法二：中序遍历,
+     * 判断一棵二叉树是否为搜索二叉树，只要改写一个二叉树中序遍历，在遍历的过程中看节点值是否都是递增的即可
+     * 中序遍历时，判断当前节点是否大于中序遍历的前一个节点，如果大于，说明满足 BST，继续遍历；否则直接返回 false。
      */
-    public boolean help_02(TreeNode curr, Boolean flag, TreeNode parent) {
-        if (curr == null) {
+    public boolean isBst(TreeNode root) {
+
+        return help_02(root, Integer.MIN_VALUE);
+    }
+
+    private boolean help_02(TreeNode root, int preValue) {
+        if (root == null) {
             return true;
         }
-        // 左子节点大于根节点 返回false
-        if (flag && parent != null && parent.val <= curr.val) {
+        // 访问左子树
+        boolean left = help_02(root.left, preValue);
+        if (!left) {
             return false;
         }
-        // 右子节点小于根节点 返回false
-        if (!flag && parent != null && parent.val >= curr.val) {
+        // 访问当前节点
+        if (root.val <= preValue) {
             return false;
         }
-        // 前序遍历逻辑完
-        // 处理左子树
-        boolean leftFlag = help_02(curr.left, true, curr);
-        // 处理右子树
-        boolean rightFlag = help_02(curr.right, false, curr);
-        return leftFlag && rightFlag;
+        preValue = root.val;
+        // 访问右子树
+        boolean right = help_02(root, preValue);
+        return right;
     }
+
+
 }
