@@ -15,9 +15,10 @@ public class _05_find_next_node {
     public ParentTree findNextNode(ParentTree root) {
         // 鲁棒性1
         if (root == null) {
-            return null;
+            return ro  ;
         }
         //
 
+        return null;
     }
 }
