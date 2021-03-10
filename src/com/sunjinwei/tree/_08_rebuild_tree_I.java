@@ -3,9 +3,15 @@ package com.sunjinwei.tree;
 import com.sunjinwei.domain.TreeNode;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * 根据前序和中序结果重建二叉树
+ * 思路：
+ * 递归+区间分治
+ * 根据前序特点，第一个是根节点，接下来是左子树，然后是右子树
+ * 根据中序特点，找到根节点的位置，那么根节点左边就是左子树的全部节点，根节点的右边就是右子树的全部节点
+ * 左子树节点个数的计算：根节点索引减去起始索引即可
  */
 public class _08_rebuild_tree_I {
 
@@ -44,6 +50,55 @@ public class _08_rebuild_tree_I {
         }
         return root;
     }
+
+    /**
+     * 方法2：使用hashmap存储中序结果 优化时间和空间复杂度
+     * 执行用时：3 ms, 在所有 Java 提交中击败了65.11%的用户
+     * 内存消耗：39.1 MB, 在所有 Java 提交中击败了10.60%的用户
+     *
+     * @param preArr
+     * @param inArr
+     */
+    public TreeNode arr2Tree_02(int[] preArr, int[] inArr) {
+        // 1使用hashmap存储中序遍历根节点位置
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < inArr.length; i++) {
+            hashMap.put(inArr[i], i);
+        }
+        return help_01(preArr, 0, preArr.length - 1, 0, hashMap);
+    }
+
+    /**
+     * 思路：先处理根，再处理左子树，再处理右子树
+     *
+     * @param preArr  前序数组 根左右
+     * @param begin   前序数组起始索引
+     * @param end     前序数组结束索引
+     * @param start   中序数组开始索引 左根右
+     * @param hashMap 中序结果
+     * @return
+     */
+    private TreeNode help_01(int[] preArr, int begin, int end, int start, HashMap<Integer, Integer> hashMap) {
+        if (begin > end) {
+            return null;
+        }
+        // 1前序第一个元素就是根节点的值
+        int rootVal = preArr[begin];
+        // 处理根节点
+        TreeNode root = new TreeNode(rootVal);
+        // 2中序根节点的索引
+        Integer rootIndex = hashMap.get(rootVal);
+        // 3左子树结点个数可以通过中序根节点的位置与中序起始位置确定
+        int leftLen = rootIndex - start;
+        // 处理左子树
+        // start: 中序根节点的左边就是左子树 所以start为数组的第一个
+        root.left = help_01(preArr, begin + 1, begin + leftLen, start, hashMap);
+        // 处理右子树
+        // start: 中序根节点的右边就是右子树 所以start为根节点的索引+1
+        root.right = help_01(preArr, begin + leftLen + 1, end, rootIndex + 1, hashMap);
+        return root;
+    }
+
 
     public static void main(String[] args) {
 
