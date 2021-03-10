@@ -2,6 +2,10 @@ package com.sunjinwei.tree;
 
 import com.sunjinwei.domain.ParentTree;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
 /**
  * 在二叉树中找到一个节点的后继节点
  * 注意：后继节点和前驱节点都是指的中序遍历，左根右
@@ -9,7 +13,7 @@ import com.sunjinwei.domain.ParentTree;
 public class _05_find_next_node {
 
     /**
-     * 方法1：时间复杂度和空间复杂度都为O(L): node到node后继节点这条路径上的节点
+     * 方法1：时间复杂度和空间复杂度都为O(L): node到node后继节点这条路径上的节点 【最优解法】
      *
      * @param node
      * @return
@@ -50,4 +54,48 @@ public class _05_find_next_node {
         }
         return node;
     }
+
+    /**
+     * 方法2：常规解法，根据parent指针一路找到头节点 然后中序遍历生成数组，在数组里面找到后继节点
+     * 时间和空间复杂度都为O(n)
+     */
+    public ParentTree findNextNode_02(ParentTree node) {
+        // 鲁棒性1
+        if (node == null) {
+            return null;
+        }
+        int target = node.val;
+        // 寻找根节点
+        ParentTree root = node;
+        while (root.parent != null) {
+            root = root.parent;
+        }
+        // 使用迭代完成中序遍历
+        List<Integer> arr = new ArrayList<>();
+        Stack<ParentTree> parentTreeStack = new Stack<>();
+        while (root != null || !parentTreeStack.isEmpty()) {
+            if (root != null) {
+                // 第一次遇见
+                parentTreeStack.push(root);
+                root = root.left;
+            } else {
+                // 第二次遇见 处理
+                ParentTree pop = parentTreeStack.pop();
+                arr.add(pop.val);
+                root = pop.right;
+            }
+        }
+        int index = -1;
+        for (int i = 0; i < arr.size(); i++) {
+            if (arr.get(i) == target) {
+                index = i + 1;
+            }
+        }
+        if (index < arr.size()) {
+            return new ParentTree(arr.get(index));
+        }
+        return null;
+    }
+
+
 }
