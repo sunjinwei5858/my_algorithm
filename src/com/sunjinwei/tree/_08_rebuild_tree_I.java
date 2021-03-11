@@ -100,6 +100,45 @@ public class _08_rebuild_tree_I {
     }
 
 
+    /**
+     * 方法3：只传入数组的指针，将哈希表和前序数组声明为全局变量
+     *
+     * @param args
+     */
+    private HashMap<Integer, Integer> hashMap;
+    private int[] preOrder;
+
+    public TreeNode arr2Tree_03(int[] preOrder, int[] inOrder) {
+        this.preOrder = preOrder;
+        this.hashMap = new HashMap<>();
+        for (int i = 0; i < inOrder.length; i++) {
+            hashMap.put(inOrder[i], i);
+        }
+        return help_03(0, preOrder.length - 1, 0, inOrder.length - 1);
+    }
+
+    private TreeNode help_03(int preBegin, int preEnd, int inBegin, int inEnd) {
+        if (preBegin > preEnd || inBegin > inEnd) {
+            return null;
+        }
+        // 根据前序创建根节点 根左右
+        TreeNode root = new TreeNode(preOrder[preBegin]);
+        // 找到这个根节点在中序的索引
+        Integer index = hashMap.get(root.val);
+        // 左子树开始索引
+        int leftTreeBegin = preBegin + 1;
+        // 左子树结束索引 其中(index-inBegin)为左子树节点个数
+        int leftTreeEnd = preBegin + (index - inBegin);
+        root.left = help_03(leftTreeBegin, leftTreeEnd, inBegin, index - 1);
+        // 右子树开始索引
+        int rightTreeBegin = leftTreeEnd + 1;
+        // 右子树结束索引
+        int rightTreeEnd = preEnd;
+        root.right = help_03(rightTreeBegin, rightTreeEnd, index + 1, inEnd);
+        return root;
+    }
+
+
     public static void main(String[] args) {
 
         TreeNode root = new TreeNode(1);
@@ -118,7 +157,7 @@ public class _08_rebuild_tree_I {
         int[] inArr = new int[]{4, 2, 5, 1, 3};
 
         _08_rebuild_tree_I rebuildTreeI = new _08_rebuild_tree_I();
-        TreeNode treeNode = rebuildTreeI.arr2Tree(preArr, inArr);
+        TreeNode treeNode = rebuildTreeI.arr2Tree_03(preArr, inArr);
         System.out.println(treeNode);
 
 
