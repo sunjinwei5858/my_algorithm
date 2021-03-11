@@ -3,13 +3,13 @@ package com.sunjinwei.tree;
 import com.sunjinwei.domain.TreeNode;
 
 /**
- * 二叉搜索树后序遍历后的数组还原成二叉搜索树
+ * 二叉搜索树的后序结果还原二叉搜索树
  * <p>
  * 思路：
  * 1。从二叉搜索树的特点出发：左子树小于根节点 右子树大于根节点
  * 2。二叉树后序遍历的特点：左子树 右子树 根节点，根节点位于数组的最后一个元素
  */
-public class _04_c_rebuild_bst_by_arr {
+public class _08_rebuild_tree_III {
 
     public TreeNode posArr2Tree(int[] arr) {
         // 鲁棒性
@@ -132,7 +132,7 @@ public class _04_c_rebuild_bst_by_arr {
 
 
     public static void main(String[] args) {
-        _04_c_rebuild_bst_by_arr arr_2_tree = new _04_c_rebuild_bst_by_arr();
+        _08_rebuild_tree_III arr_2_tree = new _08_rebuild_tree_III();
         // 左右子树都存在
         int[] arr = new int[]{3, 6, 5, 8, 11, 10, 7};
         // 只包含左子树
