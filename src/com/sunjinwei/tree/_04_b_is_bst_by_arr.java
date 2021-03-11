@@ -1,6 +1,8 @@
 package com.sunjinwei.tree;
 
 
+import com.sunjinwei.domain.TreeNode;
+
 /**
  * 左神：
  * 给定一个整型数组arr，已知其中没有重复值，判断arr是否可能是节点值类型为整型的搜索二叉树后序遍历的结果。
@@ -73,6 +75,65 @@ public class _04_b_is_bst_by_arr {
             return false;
         }
         return isBst(begin, less) && isBst(more, end - 1);
+    }
+
+    /**
+     * 进阶问题：如果是bst的后序遍历结果 还原bst
+     */
+    public TreeNode buildTree(int[] postorder) {
+        // 鲁棒性：输入空数组 返回true
+        if (postorder == null || postorder.length == 0) {
+            return null;
+        }
+        this.postorder = postorder;
+        return buildTree_help(0, postorder.length - 1);
+    }
+
+    /**
+     * 思路：分别为左子树和右子树找区间，左子树[begin, less] 右子树[more, end-1] 这种思路很好理解，也很写
+     *
+     * @param begin
+     * @param end
+     * @return
+     */
+    private TreeNode buildTree_help(int begin, int end) {
+        // 终止条件
+        if (begin > end) {
+            return null;
+        }
+        // 创建根节点
+        TreeNode root = new TreeNode(postorder[end]);
+        // 左子树的最大索引
+        int less = -1;
+        // 右子树的最小索引
+        int more = end;
+        for (int i = begin; i < end; i++) {
+            if (postorder[end] > postorder[i]) {
+                less = i;
+            } else {
+                if (more == end) {
+                    more = i;
+                }
+            }
+        }
+        // 因为题目的前提 已经是bst 所以这里不需要再进行多余的判断是不是bst了
+        root.left = buildTree_help(begin, less);
+        root.right = buildTree_help(more, end - 1);
+        return root;
+    }
+
+    public static void main(String[] args) {
+        _04_b_is_bst_by_arr arr_2_tree = new _04_b_is_bst_by_arr();
+        // 左右子树都存在
+        int[] arr = new int[]{3, 6, 5, 8, 11, 10, 7};
+        // 只包含左子树
+        int[] arrLeft = new int[]{3, 4, 5, 7};
+        // 只包含右子树
+        int[] arrRight = new int[]{5, 4, 3, 2};
+
+        TreeNode treeNode = arr_2_tree.buildTree(arrRight);
+        int val = treeNode.val;
+
     }
 
 }
