@@ -96,8 +96,23 @@ public class _02_print_III {
     }
 
     public static void main(String[] args) {
-        int a = 7;
+        TreeNode root = new TreeNode(1);
+        TreeNode left = new TreeNode(2);
+        TreeNode right = new TreeNode(3);
+        root.left = left;
+        root.right = right;
 
-        System.out.println((a >> 1));
+        TreeNode left1 = new TreeNode(4);
+        TreeNode right1 = new TreeNode(5);
+        left.left = left1;
+        left.right = right1;
+
+        _02_print_III printIii = new _02_print_III();
+        List<List<Integer>> lists = printIii.levelOrder(root);
+        for (List<Integer> list : lists) {
+            System.out.println(list.toString());
+        }
+
+
     }
 }
