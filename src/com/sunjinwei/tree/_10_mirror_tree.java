@@ -2,6 +2,8 @@ package com.sunjinwei.tree;
 
 import com.sunjinwei.domain.TreeNode;
 
+import java.util.Stack;
+
 /**
  * 返回二叉树的镜像
  */
@@ -30,6 +32,33 @@ public class _10_mirror_tree {
         return root;
     }
 
+    /**
+     * 方法2：使用迭代 使用栈或者队列实现
+     *
+     * @param root
+     */
+    public TreeNode mirrorTree_02(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            TreeNode temp = node.left;
+            node.left = node.right;
+            node.right = temp;
+        }
+        return root;
+    }
+
+
     public static void main(String[] args) {
         _10_mirror_tree mirror_tree = new _10_mirror_tree();
         TreeNode root = new TreeNode(1);
@@ -43,7 +72,7 @@ public class _10_mirror_tree {
         left.left = left1;
         left.right = right1;
 
-        TreeNode treeNode = mirror_tree.mirrorTree(root);
+        TreeNode treeNode = mirror_tree.mirrorTree_02(root);
         System.out.println(treeNode.val);
     }
 
