@@ -9,7 +9,7 @@ import com.sunjinwei.domain.TreeNode;
  * 1。从二叉搜索树的特点出发：左子树小于根节点 右子树大于根节点
  * 2。二叉树后序遍历的特点：左子树 右子树 根节点，根节点位于数组的最后一个元素
  */
-public class _08_rebuild_tree_III {
+public class _08_b_rebuild_bst_I {
 
     public TreeNode posArr2Tree(int[] arr) {
         // 鲁棒性
@@ -132,7 +132,7 @@ public class _08_rebuild_tree_III {
 
 
     public static void main(String[] args) {
-        _08_rebuild_tree_III arr_2_tree = new _08_rebuild_tree_III();
+        _08_b_rebuild_bst_I arr_2_tree = new _08_b_rebuild_bst_I();
         // 左右子树都存在
         int[] arr = new int[]{3, 6, 5, 8, 11, 10, 7};
         // 只包含左子树

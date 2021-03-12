@@ -9,7 +9,7 @@ import com.sunjinwei.domain.TreeNode;
  * 1。从二叉搜索树的特点出发：左子树小于根节点 右子树大于根节点
  * 2。二叉树后序遍历的特点：左子树 右子树 根节点，根节点位于数组的最后一个元素
  */
-public class _08_rebuild_tree_IIII {
+public class _08_b_rebuild_bst_II {
 
 
     private int[] preorder;
@@ -59,7 +59,7 @@ public class _08_rebuild_tree_IIII {
     }
 
     public static void main(String[] args) {
-        _08_rebuild_tree_IIII rebuild_tree_iiii = new _08_rebuild_tree_IIII();
+        _08_b_rebuild_bst_II rebuild_tree_iiii = new _08_b_rebuild_bst_II();
         // 前序遍历数组
         int[] arr = new int[]{2, 3, 4, 5};
 
