@@ -13,7 +13,7 @@ import java.util.HashMap;
  * <p>
  * 注意事项：和前序中序不同的是，区间问题 左子树的结束索引为【begin+num-1】
  */
-public class _08_rebuild_tree_II {
+public class _08_a_rebuild_tree_II {
 
     private HashMap<Integer, Integer> hashMap;
 
@@ -63,16 +63,10 @@ public class _08_rebuild_tree_II {
         TreeNode root = new TreeNode(postArr[postEnd]);
         // 根据中序找到根节点的索引
         Integer inRootIndex = hashMap.get(root.val);
-        // 左子树的节点个数
-        int num = inRootIndex - inBegin;
         // 左子树的开始和结束
-        int leftTreeBegin = postBegin;
-        int leftTreeEnd = postBegin + num - 1;
-        root.left = help(leftTreeBegin, leftTreeEnd, inBegin, inRootIndex - 1);
+        root.left = help(postBegin, postBegin + inRootIndex - inBegin - 1, inBegin, inRootIndex - 1);
         // 右子树开始和结束
-        int rightTreeBegin = postBegin + num;
-        int rightTreeEnd = postEnd - 1;
-        root.right = help(rightTreeBegin, rightTreeEnd, inRootIndex + 1, inEnd);
+        root.right = help(postBegin + inRootIndex - inBegin, postEnd - 1, inRootIndex + 1, inEnd);
         return root;
     }
 
@@ -112,11 +106,10 @@ public class _08_rebuild_tree_II {
         // 中序的根节点位置
         int inRootIndex = map.get(root.val);
         // 左子树的节点个数
-        int leftNum = inRootIndex - inBegin;
         // 处理左子树
-        root.left = help_02(postorder, start, start + leftNum - 1, inBegin, map);
+        root.left = help_02(postorder, start, inRootIndex - inBegin - 1, inBegin, map);
         // 处理右子树
-        root.right = help_02(postorder, start + leftNum, end - 1, inRootIndex + 1, map);
+        root.right = help_02(postorder, start + inRootIndex - inBegin, end - 1, inRootIndex + 1, map);
         return root;
     }
 
@@ -125,7 +118,7 @@ public class _08_rebuild_tree_II {
         int[] inorder = new int[]{2, 1, 3};
         int[] postorder = new int[]{2, 3, 1};
 
-        _08_rebuild_tree_II tree_ii = new _08_rebuild_tree_II();
+        _08_a_rebuild_tree_II tree_ii = new _08_a_rebuild_tree_II();
         TreeNode treeNode = tree_ii.buildTree(inorder, postorder);
         System.out.println(treeNode);
     }
