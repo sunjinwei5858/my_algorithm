@@ -36,9 +36,9 @@ public class _11_bst_to_double_list_I {
         if (root == null) {
             return null;
         }
-        // 将bst转为双向链表
+        // 1将bst转为双向链表
         convertTreeNode(root);
-        // 根据尾节点 一路left 找到头节点
+        // 2找到头节点：尾巴节点一路left
         TreeNode head = lastNode;
         while (head != null && head.left != null) {
             head = head.left;
@@ -77,6 +77,46 @@ public class _11_bst_to_double_list_I {
     }
 
 
+    /**
+     * 方法2：进行优化, 根据尾巴节点找头节点 相当于链表从头到尾遍历 时间复杂度O(N)，找头节点还有O(1)的办法
+     * 思路：不仅仅声明一个last尾巴节点 还声明head头节点
+     *
+     * @param root
+     */
+
+    private TreeNode last;
+    private TreeNode head;
+
+    public TreeNode treeToDoublyList_02(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        // 将bst转为双向链表
+        convertTreeNode_02(root);
+        // 通过中序遍历已经找到了头节点和尾巴节点
+        return head;
+    }
+
+    private void convertTreeNode_02(TreeNode curr) {
+        if (curr == null) {
+            return;
+        }
+        convertTreeNode_02(curr.left);
+        if (last == null) {
+            // 1尾巴节点为空 说明此时的节点为头节点
+            head = curr;
+        } else {
+            // 2尾巴节点不为空 将尾巴节点的right指向curr
+            last.right = curr;
+        }
+        // 3处理curr的left指向
+        curr.left = last;
+        // 4设置curr为last尾巴节点
+        last = curr;
+        convertTreeNode_02(curr.right);
+    }
+
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(2);
         TreeNode left = new TreeNode(1);
@@ -85,7 +125,7 @@ public class _11_bst_to_double_list_I {
         root.right = right;
 
         _11_bst_to_double_list_I bst_to_double_list = new _11_bst_to_double_list_I();
-        TreeNode treeNode = bst_to_double_list.treeToDoublyList(root);
+        TreeNode treeNode = bst_to_double_list.treeToDoublyList_02(root);
         System.out.println(treeNode.val);
 
     }
