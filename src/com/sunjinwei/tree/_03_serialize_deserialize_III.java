@@ -56,15 +56,19 @@ public class _03_serialize_deserialize_III {
      * 反序列化：提前处理好了头节点，和序列化方法2 serialize_02 照相呼应 【左神做法】
      */
     public TreeNode deserialize(String data) {
+        // 1 这里的第二个equals判断 直接就是对根节点为空的判断 放在此处位置非常好
         if (data == null || data.equals(nullMark + suffix)) {
             return null;
         }
+        // 2 切割
         String[] split = data.split(suffix);
+        // 3 处理头节点
         int index = 0;
         TreeNode root = transformString2TreeNode(split[index]);
         Queue<TreeNode> queue = new LinkedList<>();
-        // 队列记录父节点
+        // 4 将头节点入队列
         queue.offer(root);
+        // 5 声明一个node变量 那么while就不需要重复new节点对象
         TreeNode node = null;
         /**
          * 队列中只存放不为null的节点 所以可以保证[++index]不会索引越界
@@ -86,6 +90,12 @@ public class _03_serialize_deserialize_III {
         return root;
     }
 
+    /**
+     * 将字符串转化为节点的方法
+     *
+     * @param s
+     * @return
+     */
     private TreeNode transformString2TreeNode(String s) {
         if (nullMark.equals(s)) {
             return null;
