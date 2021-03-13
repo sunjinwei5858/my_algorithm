@@ -2,15 +2,18 @@ package com.sunjinwei.tree;
 
 import com.sunjinwei.domain.TreeNode;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 /**
- * 二叉树的序列化和反序列化: 后序遍历的方式
- * 序列化：直接使用后序遍历模板
- * 反序化：使用双端队列，处理顺序：根右左，因为双端队列，队尾是根节点 接着是右子树 接着是左子树
- * 两处标记：
- * 标记1：空节点记为 “#!”
- * 标记2：不是空节点，需要进行拼接：“!”
+ * 二叉树的序列化和反序列化: 后序遍历
+ * 注意事项：
+ * 1。该抽取的方法和前序一样
+ * 2。需要注意，使用双端队列，那么处理就可以从尾巴开始，接着是右子树，最后是左子树
+ * 3。总结：
+ * 其实前序和后序都可以实现序列化，但是反序列化 其实都是用的前序的思想处理，
+ * a.前序序列化，那么反序列化，也直接前序，队列直接从头部开始 根节点->左子树->右子树
+ * b.后序序列化，那么反序列化，思想也是前序，队列直接从尾巴开始 根节点->右子树->左子树 反过来的 但是思想和前序是一样的
  * <p>
  * 执行用时：22 ms, 在所有 Java 提交中击败了50.28%的用户
  * 内存消耗：40.6 MB, 在所有 Java 提交中击败了60.30%的用户
@@ -18,55 +21,87 @@ import java.util.LinkedList;
 public class _03_serialize_deserialize_II {
 
     /**
-     * 序列化: 将二叉树序列化为一个字符串
+     * 后序实现序列化
      *
      * @param root
      * @return
      */
-    public String serializeByPost(TreeNode root) {
+    public String serialize(TreeNode root) {
+        // 1鲁棒性
         if (root == null) {
-            return "#!";
+            return convertTreeNode2String(root);
         }
-        String s = serializeByPost(root.left);
-        s += serializeByPost(root.right);
-        s += root.val + "!";
+        // 2左子树
+        String s = serialize(root.left);
+        // 3右子树
+        s += serialize(root.right);
+        // 4根节点
+        s += convertTreeNode2String(root);
         return s;
     }
 
     /**
-     * 反序列化: 使用双端队列进行存储 可以保证序列化的是：左右根
-     * 反序列化的顺序从 根右左 这样来处理即可 和前序遍历找相呼应
+     * 双端队列实现反序列化
      *
      * @param data
      */
-    public TreeNode deSerializeByPost(String data) {
+    public TreeNode deserialize(String data) {
+        // 1
         if (data == null || data.length() == 0) {
             return null;
         }
+        // 2 切割
         String[] arr = data.split("!");
-        // 将数组转换成队列存储
-        LinkedList<String> queue = new LinkedList<>();
-        for (String s1 : arr) {
-            queue.offer(s1);
-        }
-        return dodeSerializeByPost(queue);
+        // 3将数组转换成双端队列存储
+        LinkedList<String> queue = new LinkedList<>(Arrays.asList(arr));
+        // 4递归
+        return dodeSerialize_help(queue);
     }
 
-    private TreeNode dodeSerializeByPost(LinkedList<String> queue) {
+    private TreeNode dodeSerialize_help(LinkedList<String> queue) {
+        // 1鲁棒性
         if (queue.isEmpty()) {
             return null;
         }
-        // 队列的尾部就是根节点
+        // 2队列的尾部就是根节点
         String s = queue.removeLast();
-        if (s.equals("#")) {
+        TreeNode root = convertString2TreeNode(s);
+        if (root == null) {
             return null;
         }
-        TreeNode root = new TreeNode(Integer.parseInt(s));
-        // 先处理右子树
-        root.right = dodeSerializeByPost(queue);
-        root.left = dodeSerializeByPost(queue);
+        // 3处理右子树 和前序要反过来
+        root.right = dodeSerialize_help(queue);
+        // 4处理左子树
+        root.left = dodeSerialize_help(queue);
         return root;
     }
+
+    /**
+     * 将节点变成字符串的方法
+     *
+     * @param node
+     * @return
+     */
+    private String convertTreeNode2String(TreeNode node) {
+        if (node == null) {
+            return "#!";
+        }
+        return node.val + "!";
+    }
+
+    /**
+     * 将字符串变成节点的方法
+     *
+     * @param s
+     * @return
+     */
+    private TreeNode convertString2TreeNode(String s) {
+        if ("#".equals(s)) {
+            return null;
+        }
+        return new TreeNode(Integer.valueOf(s));
+    }
+
 
     public static void main(String[] args) {
         _03_serialize_deserialize_II serializeDeserialize = new _03_serialize_deserialize_II();
@@ -83,10 +118,10 @@ public class _03_serialize_deserialize_II {
         right.right = right3;
 
 
-        String s = serializeDeserialize.serializeByPost(root);
+        String s = serializeDeserialize.serialize(root);
         System.out.println(s);
 
-        TreeNode treeNode = serializeDeserialize.deSerializeByPost(s);
+        TreeNode treeNode = serializeDeserialize.deserialize(s);
         System.out.println(treeNode.val);
     }
 }
