@@ -3,10 +3,8 @@ package com.sunjinwei.tree;
 import com.sunjinwei.domain.TreeNode;
 
 /**
- * 左神
- * 力扣 236
- * 剑指offer
- * 二叉树的最近公共祖先
+ * 二叉树的最近公共祖先 左神 力扣236  剑指offer
+ * <p>
  * 百度百科中最近公共祖先的定义为：
  * “对于有根树T的两个节点p、q，最近公共祖先表示为一个节点x，满足x是p、q的祖先且x的深度尽可能大（一个节点也可以是它自己的祖先）。”
  */
@@ -32,7 +30,7 @@ public class _13_lowest_common_ancestor_I {
         if (root == null) {
             return null;
         }
-        // base case2：如果p,q有其中一个等于root 那么直接返回root 因为一个节点也可以是自己的祖先
+        // base case2：如果p,q有其中一个等于root 那么直接返回root 【一个节点也可以是它自己的祖先】
         if (root == p || root == q) {
             return root;
         }
