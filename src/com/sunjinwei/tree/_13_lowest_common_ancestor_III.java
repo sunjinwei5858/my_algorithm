@@ -26,13 +26,10 @@ public class _13_lowest_common_ancestor_III {
      * @return
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        // base case 1: 【一个节点也可以是它自己的祖先】
-        if (p.val == root.val) {
-            return p;
-        }
-        // base case 2: 【一个节点也可以是它自己的祖先】
-        if (q.val == root.val) {
-            return q;
+
+        // base case
+        if (p.val == root.val || q.val == root.val) {
+            return root;
         }
         // 右子树找
         if (p.val > root.val && q.val > root.val) {
