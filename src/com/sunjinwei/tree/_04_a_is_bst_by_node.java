@@ -42,12 +42,12 @@ public class _04_a_is_bst_by_node {
     }
 
     /**
-     * 正确写法： 使用辅助函数，其实就是除了当前节点 还需要传父节点 这样就可以保证左小于父，父小于右
+     * 正确解法一： 使用辅助函数，其实就是除了当前节点 还需要传父节点 这样就可以保证左小于父，父小于右
      *
      * @param root
      * @return
      */
-    public boolean isValidBST02(TreeNode root) {
+    public boolean isValidBST_01(TreeNode root) {
 
         return help(root, null, null);
     }
@@ -76,41 +76,81 @@ public class _04_a_is_bst_by_node {
         if (max != null && max.val <= root.val) {
             return false;
         }
-        // 前序遍历逻辑完
-        // 处理左子树
-        boolean leftFlag = help(root.left, min, root);
-        // 处理右子树
-        boolean rightFlag = help(root.right, root, max);
-        return leftFlag && rightFlag;
+        // 前序遍历逻辑完 处理左子树和右子树
+        return help(root.left, min, root) && help(root.right, root, max);
     }
 
     /**
-     * 正确解法二：中序遍历,
+     * 正确解法二：中序遍历
      * 判断一棵二叉树是否为搜索二叉树，只要改写一个二叉树中序遍历，在遍历的过程中看节点值是否都是递增的即可
      * 中序遍历时，判断当前节点是否大于中序遍历的前一个节点，如果大于，说明满足 BST，继续遍历；否则直接返回 false。
+     * <p>
+     * 思路：
+     * 1。声明一个pre变量 记录上一个节点的值，用于比较当前节点和上一个节点的大小，为了方便 声明为全局变量
+     * 2。中序遍历 先判断左子树 然后根节点 处理完之后将根节点的值赋值给pre变量，最后是右子树
+     *
+     * <p>
+     * 执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户
+     * 内存消耗：38 MB, 在所有 Java 提交中击败了77.80%的用户
      */
-    public boolean isBst(TreeNode root) {
+    private Long pre = Long.MIN_VALUE;
 
-        return help_02(root, Integer.MIN_VALUE);
-    }
-
-    private boolean help_02(TreeNode root, int preValue) {
+    public boolean isValidBST_02(TreeNode root) {
         if (root == null) {
             return true;
         }
-        // 访问左子树
-        boolean left = help_02(root.left, preValue);
+        // 1 左子树
+        boolean left = isValidBST_02(root.left);
         if (!left) {
             return false;
         }
-        // 访问当前节点
-        if (root.val <= preValue) {
+        // 2 根节点
+        if (root.val <= pre) {
             return false;
         }
-        preValue = root.val;
-        // 访问右子树
-        boolean right = help_02(root, preValue);
-        return right;
+        pre = Long.valueOf(root.val);
+        // 3 右子树
+        return isValidBST_02(root.right);
+    }
+
+
+    /**
+     * 正确解法三：解法一的变种，将min和max换成值 而不是节点
+     * <p>
+     * 执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户
+     * 内存消耗：38.2 MB, 在所有 Java 提交中击败了31.29%的用户
+     *
+     * @param root
+     */
+    public boolean isValidBST_03(TreeNode root) {
+
+        // 使用辅助函数
+        return help_03(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    private boolean help_03(TreeNode curr, long minValue, long maxValue) {
+        // 鲁棒性
+        if (curr == null) {
+            return true;
+        }
+        // 这里合二为一的判断
+        // min<curr<max 不符合 那么返回false
+        if (curr.val <= minValue || curr.val >= maxValue) {
+            return false;
+        }
+        boolean left = help_03(curr.left, minValue, curr.val);
+        boolean right = help_03(curr.right, curr.val, maxValue);
+        return left && right;
+    }
+
+
+    public static void main(String[] args) {
+        _04_a_is_bst_by_node isBstByNode = new _04_a_is_bst_by_node();
+        TreeNode node = new TreeNode(1);
+        TreeNode left = new TreeNode(1);
+        node.left = left;
+        boolean bst = isBstByNode.isValidBST_03(node);
+        System.out.println(bst);
     }
 
 
