@@ -4,7 +4,7 @@ package com.sunjinwei.domain;
 /**
  * 返回树的最大bst的信息结构
  */
-public class ReturnType {
+public class MaxBstReturnType {
 
     /**
      * 最大bst的根节点
@@ -26,7 +26,7 @@ public class ReturnType {
      */
     public int min;
 
-    public ReturnType(TreeNode maxBstNode, int maxBstSize, int max, int min) {
+    public MaxBstReturnType(TreeNode maxBstNode, int maxBstSize, int max, int min) {
         this.maxBstNode = maxBstNode;
         this.maxBstSize = maxBstSize;
         this.max = max;

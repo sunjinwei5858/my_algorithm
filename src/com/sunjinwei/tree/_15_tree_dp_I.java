@@ -1,6 +1,6 @@
 package com.sunjinwei.tree;
 
-import com.sunjinwei.domain.ReturnType;
+import com.sunjinwei.domain.MaxBstReturnType;
 import com.sunjinwei.domain.TreeNode;
 
 /**
@@ -47,43 +47,50 @@ public class _15_tree_dp_I {
      * 设计递归函数，递归函数是处理以x为节点的情况下的答案，包括base case，默认得到左树和右树的所有信息，以及把可能性整合
      * 并且返回第三步的结构
      */
-    private ReturnType process(TreeNode root) {
+
+    /**
+     * 方法：树形dp+后序遍历
+     *
+     * @param root
+     * @return
+     */
+    private MaxBstReturnType process(TreeNode root) {
         // base case：空树
         if (root == null) {
-            return new ReturnType(root, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
+            return new MaxBstReturnType(root, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
         }
         // 默认得到左树的信息
-        ReturnType leftReturnType = process(root.left);
+        MaxBstReturnType leftMaxBstReturnType = process(root.left);
         // 默认得到右树的信息
-        ReturnType rightReturnType = process(root.right);
+        MaxBstReturnType rightMaxBstReturnType = process(root.right);
         // 信息整合
         // 1如果只考虑第一种和第二种情况 那么最大的size
-        int maxSize = Math.max(leftReturnType.maxBstSize, rightReturnType.maxBstSize);
+        int maxSize = Math.max(leftMaxBstReturnType.maxBstSize, rightMaxBstReturnType.maxBstSize);
         // 2如果只考虑第一种和第二种情况 那么最大bst的节点
-        TreeNode maxBstNode = leftReturnType.maxBstSize >= rightReturnType.maxBstSize ? leftReturnType.maxBstNode : rightReturnType.maxBstNode;
+        TreeNode maxBstNode = leftMaxBstReturnType.maxBstSize >= rightMaxBstReturnType.maxBstSize ? leftMaxBstReturnType.maxBstNode : rightMaxBstReturnType.maxBstNode;
         // 3同时对以x为头节点的子树也有同样要求 以x为头节点的子树的最小值：左树最小 右树最小 以及x最小
-        int min = Math.min(root.val, Math.min(leftReturnType.min, rightReturnType.min));
-        int max = Math.min(root.val, Math.min(leftReturnType.max, rightReturnType.max));
+        int min = Math.min(root.val, Math.min(leftMaxBstReturnType.min, rightMaxBstReturnType.min));
+        int max = Math.min(root.val, Math.min(leftMaxBstReturnType.max, rightMaxBstReturnType.max));
         // 利用收集的信息 判断是否存在第三种可能性
         // 1 左树最大bst的头节点刚好是root的左孩子 && 右树最大的bst的头节点刚好是root的右孩子
         // 2 root的值大于左树最大bst的max && root的值小于右树最大bst的最小值
         // 因此，需要从左子树上取得左子树的最大值leftMax，从右子树上取得右子树的最小值rightMin
-        if (leftReturnType.maxBstNode == root.left && rightReturnType.maxBstNode == root.right
-                && leftReturnType.max < root.val && root.val < rightReturnType.min
+        if (leftMaxBstReturnType.maxBstNode == root.left && rightMaxBstReturnType.maxBstNode == root.right
+                && leftMaxBstReturnType.max < root.val && root.val < rightMaxBstReturnType.min
         ) {
-            maxSize = leftReturnType.maxBstSize + rightReturnType.maxBstSize + 1;
+            maxSize = leftMaxBstReturnType.maxBstSize + rightMaxBstReturnType.maxBstSize + 1;
             maxBstNode = root;
         }
         // 全部信息收集完毕
-        return new ReturnType(maxBstNode, maxSize, max, min);
+        return new MaxBstReturnType(maxBstNode, maxSize, max, min);
     }
 
     public TreeNode getMaxBst(TreeNode root) {
         if (root == null) {
             return null;
         }
-        ReturnType returnType = process(root);
-        return returnType.maxBstNode;
+        MaxBstReturnType maxBstReturnType = process(root);
+        return maxBstReturnType.maxBstNode;
     }
 
 }
