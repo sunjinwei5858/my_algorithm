@@ -22,20 +22,24 @@ public class _16_is_cbt {
      * @return
      */
     public boolean isCbt(TreeNode root) {
+
         if (root == null) {
             return true;
         }
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
+        TreeNode left = null;
+        TreeNode right = null;
+
         while (!queue.isEmpty()) {
             TreeNode poll = queue.poll();
-            // 1左孩子为空&&右孩子不为空
-            if (poll.left == null && poll.right != null) {
+            // 1 左孩子为空且右孩子不为空 返回false
+            if (left == null && right != null) {
                 return false;
             }
-            // 2如果当前节点并不是都有左右孩子，那么下一个节点必须是叶子节点
-            if (poll.left != null && poll.right == null) {
-                if (poll.left.left != null || poll.left.right != null) {
+            // 2 如果当前节点并不是都有左右孩子 ==》也就是左孩子不为空 右孩子为空 此时左孩子必须是叶子节点
+            if (left != null && right == null) {
+                if (left.left != null || left.right != null) {
                     return false;
                 }
             }
@@ -54,6 +58,7 @@ public class _16_is_cbt {
      * 方法2：层序遍历 【左神的写法】【对自己的代码进行重构】
      */
     public boolean isCbt_02(TreeNode root) {
+
         if (root == null) {
             return true;
         }
@@ -70,18 +75,21 @@ public class _16_is_cbt {
             root = queue.poll();
             left = root.left;
             right = root.right;
-            // 判断1
+            // 判断1：有右孩子但是没有左孩子 返回false
             if (left == null && right != null) {
                 return false;
             }
-            // 判断2
-            if (leafIs && left != null && right != null) {
+            // 判断2：是叶子节点 但是左右孩子可能不为空 返回false
+            if (leafIs && (left != null || right != null)) {
                 return false;
             }
+            // 处理左孩子
             if (left != null) {
                 queue.offer(left);
             }
+            // 处理右孩子
             if (right != null) {
+                // 走到这里 右孩子入队列
                 queue.offer(right);
             } else {
                 // 因为走到了 排除了左树为空 右树不为空的情况
