@@ -3,17 +3,19 @@ package com.sunjinwei.tree;
 import com.sunjinwei.domain.TreeNode;
 
 /**
- * 左神：
- * 判断t1树是否包含t2树的全部拓扑结构
- * 方法1：递归
- * 方法2：将树序列化字符串，使用kmp算法，判断字符串2是不是字符串1的子串
- * 剑指offer 26 树的子结构
+ * 判断t1树是否包含t2树的全部拓扑结构 【左神】【剑指offer26 树的子结构】
+ * 方法1：递归 时间复杂度O(N*M)
+ * 进阶：时间复杂度优化到O(N+M)
  */
-public class _09_tree1_contains_tree2 {
+public class _09_tree1_contains_tree2_I {
 
     /**
      * 方法1：
-     * 思路：递归，分为三种情况 第一种t1和t2头节点相同了，第二种t2可能在t1的左树中，第三种t2可能在t1的右树中
+     * 思路：递归，【左神写法】
+     * 分为三种情况：
+     * 第一种t1和t2头节点相同了；
+     * 第二种t2可能在t1的左树中；
+     * 第三种t2可能在t1的右树中
      * 所以需要抽取一个方法，用于判断第一种情况
      *
      * @param A
@@ -64,7 +66,7 @@ public class _09_tree1_contains_tree2 {
     }
 
     /**
-     * 方法2：剑指offer的写法
+     * 方法2：递归，【剑指offer写法】
      * 执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户
      * 内存消耗：40 MB, 在所有 Java 提交中击败了82.38%的用户
      */
