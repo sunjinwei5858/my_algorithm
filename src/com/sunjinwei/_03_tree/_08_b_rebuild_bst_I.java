@@ -3,7 +3,7 @@ package com.sunjinwei._03_tree;
 import com.sunjinwei.domain.TreeNode;
 
 /**
- * 二叉搜索树的后序结果还原二叉搜索树
+ * bst的后序结果还原bst 【左神】
  * <p>
  * 思路：
  * 1。从二叉搜索树的特点出发：左子树小于根节点 右子树大于根节点

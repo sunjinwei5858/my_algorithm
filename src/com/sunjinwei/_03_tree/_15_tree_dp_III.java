@@ -5,7 +5,7 @@ import com.sunjinwei.domain.AvlReturnType;
 import com.sunjinwei.domain.TreeNode;
 
 /**
- * 判断二叉树是否是平衡二叉树 avl 【左神】
+ * 判断二叉树是否是平衡二叉树 avl 【左神 力扣110】
  * avl：1要么是一颗空树 2要么任何一个节点的左右子树的高度差绝对值不超过1【也就是<=1】
  * 思路：同样也是使用树形dp
  * 为什么可以使用？
@@ -78,44 +78,6 @@ public class _15_tree_dp_III {
     public boolean isAvl(TreeNode root) {
         AvlReturnType avlReturnType = process(root);
         return avlReturnType.balancedIs;
-    }
-
-
-    /**
-     * 方法2：使用自顶向下的方式 递归 时间复杂度O(n*n)
-     * 这种方法时间复杂度高 不高效的方法
-     *
-     * @param root
-     */
-    public boolean isAvl_02(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        // 求左子树的高度
-        int left = treeDepth(root.left);
-        // 求右子树的高度
-        int right = treeDepth(root.right);
-        // 如果左右子树高度超过1
-        if (Math.abs(left - right) > 1) {
-            return false;
-        }
-        // root的左子树是avl && root的右子树是avl
-        return isAvl_02(root.left) && isAvl_02(root.right);
-    }
-
-    /**
-     * 求树的深度的方法: 使用后序遍历
-     *
-     * @param root
-     * @return
-     */
-    private int treeDepth(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        int left = treeDepth(root.left);
-        int right = treeDepth(root.right);
-        return Math.max(left, right) + 1;
     }
 
     public static void main(String[] args) {

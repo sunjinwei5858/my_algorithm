@@ -4,14 +4,10 @@ package com.sunjinwei._03_tree;
 import com.sunjinwei.domain.TreeNode;
 
 /**
- * 左神：
- * 给定一个整型数组arr，已知其中没有重复值，判断arr是否可能是节点值类型为整型的搜索二叉树后序遍历的结果。
+ * 给定一个整型数组arr，已知其中没有重复值，判断arr是否可能是节点值类型为整型的搜索二叉树后序遍历的结果。【左神，剑指offer】
  * 进阶问题：如果整型数组arr中没有重复值，且已知是一棵搜索二叉树的后序遍历结果，通过数组arr重构二叉树。
- * <p>
- * 剑指offer：
- * 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回true，否则返回false。假设输入的数组的任意两个数字都互不相同。
  */
-public class _04_b_is_bst_by_arr {
+public class _04_is_bst_II {
 
     /**
      * 方法1：递归
@@ -123,7 +119,7 @@ public class _04_b_is_bst_by_arr {
     }
 
     public static void main(String[] args) {
-        _04_b_is_bst_by_arr arr_2_tree = new _04_b_is_bst_by_arr();
+        _04_is_bst_II arr_2_tree = new _04_is_bst_II();
         // 左右子树都存在
         int[] arr = new int[]{3, 6, 5, 8, 11, 10, 7};
         // 只包含左子树
