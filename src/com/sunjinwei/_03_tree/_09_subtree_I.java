@@ -7,7 +7,7 @@ import com.sunjinwei.domain.TreeNode;
  * 方法1：递归 时间复杂度O(N*M)
  * 进阶：时间复杂度优化到O(N+M)
  */
-public class _09_tree1_contains_tree2_I {
+public class _09_subtree_I {
 
     /**
      * 方法1：

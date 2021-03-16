@@ -7,7 +7,7 @@ import com.sunjinwei.domain.TreeNode;
  * 进阶：时间复杂度优化到O(N+M) 【左神】
  * 思路：分别将两棵树序列化为字符串，然后使用kmp算法 判断字符串A是否包含字符串B
  */
-public class _09_tree1_contains_tree2_II {
+public class _09_subtree_II {
 
     /**
      * 方法：使用kmp 【左神】
