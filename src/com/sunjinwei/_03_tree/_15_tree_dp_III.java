@@ -62,7 +62,7 @@ public class _15_tree_dp_III {
         // 重构一下：将小于等于1 改写成 小于2
         boolean height_is = Math.abs(leftReturnType.height - rightReturnType.height) < 2 ? true : false;
         // 2判断
-        if (leftReturnType.balancedIs == true && rightReturnType.balancedIs == true && height_is) {
+        if (leftReturnType.balancedIs && rightReturnType.balancedIs && height_is) {
             balancedIs = true;
         }
         return new AvlReturnType(balancedIs, height);
@@ -78,6 +78,44 @@ public class _15_tree_dp_III {
     public boolean isAvl(TreeNode root) {
         AvlReturnType avlReturnType = process(root);
         return avlReturnType.balancedIs;
+    }
+
+
+    /**
+     * 方法2：使用自顶向下的方式 递归 时间复杂度O(n*n)
+     * 这种方法时间复杂度高 不高效的方法
+     *
+     * @param root
+     */
+    public boolean isAvl_02(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        // 求左子树的高度
+        int left = treeDepth(root.left);
+        // 求右子树的高度
+        int right = treeDepth(root.right);
+        // 如果左右子树高度超过1
+        if (Math.abs(left - right) > 1) {
+            return false;
+        }
+        // root的左子树是avl && root的右子树是avl
+        return isAvl_02(root.left) && isAvl_02(root.right);
+    }
+
+    /**
+     * 求树的深度的方法: 使用后序遍历
+     *
+     * @param root
+     * @return
+     */
+    private int treeDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = treeDepth(root.left);
+        int right = treeDepth(root.right);
+        return Math.max(left, right) + 1;
     }
 
     public static void main(String[] args) {
