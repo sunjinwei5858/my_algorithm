@@ -19,7 +19,7 @@ import com.sunjinwei.domain.TreeNode;
  * 思路二：
  * 使用中序遍历
  */
-public class _04_a_is_bst_by_node {
+public class _04_is_bst_I {
 
     /**
      * 错误写法：二叉搜索树的性质有：BST的每个节点应该小于右子树的所有节点
@@ -145,7 +145,7 @@ public class _04_a_is_bst_by_node {
 
 
     public static void main(String[] args) {
-        _04_a_is_bst_by_node isBstByNode = new _04_a_is_bst_by_node();
+        _04_is_bst_I isBstByNode = new _04_is_bst_I();
         TreeNode node = new TreeNode(1);
         TreeNode left = new TreeNode(1);
         node.left = left;

@@ -5,7 +5,7 @@ import com.sunjinwei.domain.AvlReturnType;
 import com.sunjinwei.domain.TreeNode;
 
 /**
- * 判断二叉树是否是平衡二叉树 avl 【左神】
+ * 判断二叉树是否是平衡二叉树 avl 【左神 力扣110】
  * avl：1要么是一颗空树 2要么任何一个节点的左右子树的高度差绝对值不超过1【也就是<=1】
  * 思路：同样也是使用树形dp
  * 为什么可以使用？
@@ -62,7 +62,7 @@ public class _15_tree_dp_III {
         // 重构一下：将小于等于1 改写成 小于2
         boolean height_is = Math.abs(leftReturnType.height - rightReturnType.height) < 2 ? true : false;
         // 2判断
-        if (leftReturnType.balancedIs == true && rightReturnType.balancedIs == true && height_is) {
+        if (leftReturnType.balancedIs && rightReturnType.balancedIs && height_is) {
             balancedIs = true;
         }
         return new AvlReturnType(balancedIs, height);
