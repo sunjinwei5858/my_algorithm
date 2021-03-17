@@ -7,10 +7,10 @@ package com.sunjinwei._04_dp;
  * 递归+记忆化==》递推
  * 状态转移方程：都是相邻的状态递推出来的
  */
-public class _01_Fibonacci {
+public class _01_fibonacci {
 
     /**
-     * 解法1：纯递归
+     * 解法1：纯递归 【O(2n)】
      *
      * @param n
      * @return
@@ -67,7 +67,7 @@ public class _01_Fibonacci {
     }
 
     /**
-     * 解法4：动态规划：状态压缩+自底向上
+     * 解法4：动态规划：状态压缩+自底向上   【O(n)】
      * 因为斐波那契数列只和n-1，n-2的值相关，也就是不需要dpTable那么长的表存储，将二维转化为一维即可
      */
     public int fib_dp_04(int n) {
@@ -80,8 +80,11 @@ public class _01_Fibonacci {
         int current = 1;
         // 状态压缩：只需要记录上一个和当前值即可
         for (int i = 2; i <= n; i++) {
+            // 当前值
             int sum = prev + current;
+            // 将current设置为上一个值
             prev = current;
+            // 当前值就是sum
             current = sum;
         }
         return current;
