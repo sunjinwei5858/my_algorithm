@@ -3,6 +3,8 @@ package com.sunjinwei._03_tree;
 
 import com.sunjinwei.domain.TreeNode;
 
+import java.util.LinkedList;
+
 /**
  * 剑指offer面试题27：bst与双向链表
  * <p>
@@ -116,6 +118,57 @@ public class _11_bst_to_double_list_I {
         convertTreeNode_02(curr.right);
     }
 
+    /**
+     * 方法三：使用容器 队列 【左神】
+     *
+     * @param root
+     * @return
+     */
+    private LinkedList<TreeNode> queue;
+
+    public TreeNode treeToDoublyList_03(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        this.queue = new LinkedList<>();
+        // 使用中序遍历将节点存储到队列中
+        addTreeNode2Queue(root);
+        // 判断空指针
+        if (queue.isEmpty()) {
+            return root;
+        }
+        // 第一个为头节点
+        TreeNode head = queue.poll();
+        // 将头节点赋值给pre
+        TreeNode pre = head;
+        // 头节点的left指向为空
+        pre.left = null;
+        // 声明一个当前节点
+        TreeNode curr = null;
+        while (!queue.isEmpty()) {
+            curr = queue.poll();
+            pre.right = curr;
+            curr.left = pre;
+            pre = curr;
+        }
+        pre.right = null;
+        return head;
+    }
+
+    /**
+     * 使用中序遍历将节点按照从小到大的顺序加入队列
+     *
+     * @param root
+     */
+    private void addTreeNode2Queue(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        addTreeNode2Queue(root.left);
+        queue.offer(root);
+        addTreeNode2Queue(root.right);
+    }
+
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(2);
@@ -125,7 +178,7 @@ public class _11_bst_to_double_list_I {
         root.right = right;
 
         _11_bst_to_double_list_I bst_to_double_list = new _11_bst_to_double_list_I();
-        TreeNode treeNode = bst_to_double_list.treeToDoublyList_02(root);
+        TreeNode treeNode = bst_to_double_list.treeToDoublyList_03(root);
         System.out.println(treeNode.val);
 
     }
