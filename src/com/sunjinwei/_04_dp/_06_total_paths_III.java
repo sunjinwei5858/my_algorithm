@@ -18,52 +18,18 @@ package com.sunjinwei._04_dp;
 public class _06_total_paths_III {
 
     /**
-     * 二维数组：正常写法
+     * 动态规划：经典方法
+     * <p>
+     * 时间复杂度：
+     * 矩阵中一共有 M×N 个位置，每个位置都计算一次从（0，0）位置达到自己的最小路径和，
+     * 计算的时候只是比较上边位置的最小路径和与左边位置的最小路径和哪个更小，所以时间复杂度为O（M×N），
+     * 空间复杂度：
+     * dp矩阵的大小为M×N，所以额外空间复杂度为O（M×N）。
      *
      * @param grid
      * @return
      */
     public int minPathSum(int[][] grid) {
-        // 边界条件1
-        if (grid == null || grid.length == 0) {
-            return 0;
-        }
-        // 行
-        int m = grid.length;
-        // 列
-        int n = grid[0].length;
-        // 状态方程 [i][j]表示从起点到[i][j]位置的最小路径
-        int[][] dp = new int[m][n];
-        // base case 初始化
-        // 只有行
-        int sum01 = 0;
-        for (int i = 0; i < m; i++) {
-            sum01 = sum01 + grid[i][0];
-            dp[i][0] = sum01;
-        }
-        // 只有列
-        int sum02 = 0;
-        for (int i = 0; i < n; i++) {
-            sum02 = sum02 + grid[0][i];
-            dp[0][i] = sum02;
-        }
-        // 状态转移方程
-        for (int i = 1; i < m; i++) {
-            for (int j = 1; j < n; j++) {
-                // 左边[i-1][j] 上边[i][j-1]
-                dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
-            }
-        }
-        return dp[m - 1][n - 1];
-    }
-
-    /**
-     * 二维数组：简洁写法,优化初始化数据的代码，三种情况：1第一列第一行 2只有行 3只有列
-     *
-     * @param grid
-     * @return
-     */
-    public int minPathSum_02(int[][] grid) {
         // 边界条件1
         if (grid == null || grid.length == 0 || grid[0].length == 0) {
             return 0;
@@ -75,13 +41,13 @@ public class _06_total_paths_III {
         // 状态方程 [i][j]表示从起点到[i][j]位置的最小路径
         int[][] dp = new int[m][n];
         // base case 初始化
-        // 第一行第一列的路径和 就是本身
+        // 1第一行第一列第一个元素的的路径和 就是本身
         dp[0][0] = grid[0][0];
-        // 只有行
+        // 2只有行
         for (int i = 1; i < m; i++) {
             dp[i][0] = dp[i - 1][0] + grid[i][0];
         }
-        // 只有列
+        // 3只有列
         for (int i = 1; i < n; i++) {
             dp[0][i] = dp[0][i - 1] + grid[0][i];
         }
@@ -94,6 +60,12 @@ public class _06_total_paths_III {
         }
         return dp[m - 1][n - 1];
     }
+
+    /**
+     * 动态规划：状态压缩
+     * 和上面经典的动态规划方法相比，经过状态压缩之后，时间复杂度依然是O(m*n),但是额外空间复杂度可以从O(m*n)减少至O(min{m,n})
+     * 也就是不使用大小为m*n的dp矩阵，而仅仅使用大小为min(m,n)的arr数组
+     */
 
 
 }
