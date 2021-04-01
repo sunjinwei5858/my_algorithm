@@ -2,11 +2,21 @@ package com.sunjinwei._02_linkedlist;
 
 import com.sunjinwei.domain.ListNode;
 
+import java.util.Stack;
+
 /**
  * 问题一：无环链表相交
  * 如何判断两个无环链表是否相交，相交则返回第一个相交节点，不相交则返回null。【no_loop】
- * 力扣：160 剑指offer：52 难度:简单
+ * 力扣：160 剑指offer：52 两个链表的第一个公共结点 难度:简单
  * 程序尽量满足 O(n) 时间复杂度，且仅用 O(1) 内存。
+ * 思路：
+ * 时间复杂度为O(m*n):嵌套遍历
+ * 时间和空间复杂度为O(m+n): 从链表的尾巴开始比较，使用两个辅助栈,ps：使用栈一定要注意非空判断!!!
+ * 空间复杂度为O(1): 先找出两个链表各自的长度m,n，长度长的链表先走(m-n)步，然后开始比较
+ * <p>
+ * 注意：但是这里要注意，如果题目只是说找两个链表的第一个公共节点，
+ * 这里是要提前说明 这两个链表是不是单链表 是不是无环
+ * 因为有环的解法和无环的解法是不一样的
  */
 public class _07_intersect_linkedlist_I {
 
@@ -227,6 +237,40 @@ public class _07_intersect_linkedlist_I {
             return true;
         }
         return false;
+    }
+
+    /**
+     * 使用辅助栈的解法：空间复杂度为O(m+n), 利用栈的先进后出，栈顶就是链表的尾巴节点，当然这里的前提是：链表为无环链表才可以使用这个方法
+     * <p>
+     * 执行用时：3 ms, 在所有 Java 提交中击败了15.63%的用户
+     * 内存消耗：41.5 MB, 在所有 Java 提交中击败了18.02%的用户
+     *
+     * @param headA
+     * @param headB
+     * @return
+     */
+    public ListNode getIntersectionNode_04(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        Stack<ListNode> stackA = new Stack<>();
+        Stack<ListNode> stackB = new Stack<>();
+        ListNode a = headA;
+        ListNode b = headB;
+        while (a != null) {
+            stackA.push(a);
+            a = a.next;
+        }
+        while (b != null) {
+            stackB.push(b);
+            b = b.next;
+        }
+        ListNode result = null;
+        while (!stackA.isEmpty() && !stackB.isEmpty() && (stackA.peek() == stackB.peek())) {
+            stackA.pop();
+            result = stackB.pop();
+        }
+        return result;
     }
 
 
