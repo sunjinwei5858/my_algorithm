@@ -23,7 +23,7 @@ import java.util.PriorityQueue;
  */
 public class _02_binary_heap {
 
-    private Integer[] arr = new Integer[10];
+    private int[] arr = new int[10];
 
     private int size;
 
@@ -34,95 +34,86 @@ public class _02_binary_heap {
      * 1。先不考虑数组扩容的情况
      * 2。假设size为当前堆包含的元素个数【注意并不等于上面定义的10】
      */
-    public void insert(Integer val) {
-        if (size == 0) {
-            arr[0] = val;
-        } else {
-            // 数组元素个数为size 最后一个元素的索引就是size-1
-            siftUp(size, val);
-            size++;
-        }
+    public void insert(int val) {
+        // 将val放置最后一个位置
+        arr[size] = val;
+        heapInsert(size);
+        // 这里控制size比当前元素更大一个 和heapify方法的right<heapSize呼应
+        size++;
     }
 
     /**
-     * 上浮：不断的构造大顶堆，父亲必定大于子节点
-     * <p>
-     * 基本思想：从最后一个元素开始，通过不断上浮操作不断调整位置，直到满足父节点的优先级必定大于子节点这个条件
-     *
-     * @param k   数组中元素的个数 并不等于数组的length
-     * @param val 需要添加的元素
-     */
-    private void siftUp(int k, Integer val) {
-        while (k > 0) {
-            // 获取最后一个元素的父元素的位置 parent=(k-1)/2
-            int parent = (k - 1) >>> 1;
-            // 如果父元素的值大于当前元素 跳出循环
-            if (arr[parent] >= val) {
-                break;
-            }
-            // 如果父元素的值小于当前元素 那么进行交换
-            // 父元素赋值到k的位置，更改k为父元素的位置
-            // 继续循环
-            arr[k] = arr[parent];
-            // 将parent赋值给k 是为了比较父节点的父节点 一直往上比较 直到parent=0
-            k = parent;
-        }
-        arr[k] = val;
-    }
-
-
-    /**
-     * 2删除，这里实现的方法为根据索引删除元素, 删除也是需要构造大顶堆 也就是父亲大于左右孩子
-     * 基本思想：从最后一个元素开始，交换索引p的元素，需要利用公式：父亲大于左孩子并且大于右孩子
+     * 上浮的方法：代码简介 逻辑也简介【左神】
+     * 基本思想：当前节点一直往上找父亲节点 比较值 如果比父亲节点更大 那么进行交换
      *
      * @param index
      */
-    public void delete(int index) {
-        // 如果p是最后一个元素
-        if (index == size - 1) {
-            size--;
-            return;
+    private void heapInsert(int index) {
+        // 1 arr[index] > arr[(index - 1) / 2] 当前节点和父亲节点比较
+        // 2 index=0 也会停止循环 当前节点到了父亲节点
+        while (arr[index] > arr[(index - 1) / 2]) {
+            swap(arr, index, (index - 1) / 2);
+            index = (index - 1) / 2;
         }
-        // 获取最后一个元素的值
-        Integer lastVal = arr[size - 1];
-        // 如果p不是最后一个元素, 把p和最后一个元素进行下沉
-        siftDown(index, lastVal);
-        if (arr[index].equals(lastVal)) {
-            // 上浮
-            siftUp(index, lastVal);
-        }
-        size--;
     }
 
     /**
-     * 下沉：不断构造大顶堆，公式：父亲大于左孩子并且父亲大于右孩子
+     * 交换元素的方法
      *
-     * @param index   被删除元素的位置
-     * @param lastVal 堆的最后一个元素
+     * @param arr
+     * @param left
+     * @param right
      */
-    private void siftDown(int index, Integer lastVal) {
-        // 1找到最后一个元素的父节点索引
-        int parent = (size - 1) >>> 1;
-        // 2判断删除节点是不是在最后一个元素父节点的上面 如果是 那么需要下沉
-        while (index <= parent) {
-            // 3获取k的左右孩子索引
-            int left = 2 * index + 1;
-            int right = left + 1;
-            // 4在左右孩子中找最大
-            int best = arr[left] > arr[right] ? left : right;
-            // 5判断最后一个元素的值和best的哪个值大
-            if (lastVal >= arr[best]) {
-                // 如果最后一个元素更大 那么跳出循环
-                // 直接赋值 因为此时lastVal可以做左右孩子的父节点
+    private void swap(int[] arr, int left, int right) {
+        int temp = arr[right];
+        arr[right] = arr[left];
+        arr[left] = temp;
+    }
+
+
+    /**
+     * 2删除大根堆的最大值并且返回：剩余的数仍然需要构造成大根堆
+     * 基本思想：从最后一个元素开始，交换索引p的元素，需要利用公式：父亲大于左孩子并且大于右孩子
+     */
+    public int pop() {
+        // 数组第一个元素就是大根堆的顶部
+        int res = arr[0];
+        // 最后一个元素的索引是size-1 所以这里需要提前size--
+        size--;
+        // 将最后一个元素和顶部元素也就是索引0位置的元素进行交换
+        swap(arr, 0, size);
+        // 剩下的数依然保持大根堆
+        heapify(arr, 0, size);
+        return res;
+    }
+
+
+    /**
+     * 下沉方法：一直往下寻找 比较父亲节点和左右孩子节点的值，哪个大就替换哪个
+     *
+     * @param arr
+     * @param parentIndex 父亲节点的索引
+     * @param heapSize    此时的heapSize就是已经剔除了一个元素的size 即剩余的元素需要继续维护大根堆
+     */
+    private void heapify(int[] arr, int parentIndex, int heapSize) {
+        // 左孩子索引
+        int left = 2 * parentIndex + 1;
+        // 堆可以没有右孩子 但是必须有左孩子 否则就退出循环
+        while (left < heapSize) {
+            // 找出左右孩子哪个值更大的索引
+            // 最大值是右孩子的条件：右孩子索引也必须小于heapSize 为什么不是等于 因为insert方法 我们让size比本身元素个数+1了
+            int largeIndex = ((left + 1 < heapSize && arr[left] > arr[left + 1])) ? left : (left + 1);
+            // 和父亲节点的值比较
+            largeIndex = arr[largeIndex] > arr[parentIndex] ? largeIndex : parentIndex;
+            if (largeIndex == parentIndex) {
                 break;
             }
-            // 否则继续下沉
-            // 交换父亲和左右孩子中较大的那个
-            arr[index] = arr[best];
-            index = best;
+            // 否则交换元素
+            swap(arr, largeIndex, parentIndex);
+            // 继续下一轮循环
+            parentIndex = largeIndex;
+            left = 2 * parentIndex + 1;
         }
-        // 赋值
-        arr[index] = lastVal;
     }
 
 
