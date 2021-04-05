@@ -2,7 +2,7 @@ package com.sunjinwei._08_sort;
 
 /**
  * 选择排序
- * 思想：所有元素找到最小的，放在第一个，这就是选择
+ * 思想：每次循环找最小 放在第一个位置，依次类推
  * 思路：
  * 第一次：全部走一遍找到最小 放在第一个位置
  * 第二次：左边界从第二个位置开始，全部走一遍，放在第二个位置
@@ -11,6 +11,11 @@ package com.sunjinwei._08_sort;
 public class _01_select_sort {
 
     public void selectSort(int[] arr) {
+        // 鲁棒性
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        // 选择排序
         for (int i = 0; i < arr.length; i++) {
             // 假设外层循环 就是最小元素
             int minIndex = i;
