@@ -53,6 +53,47 @@ public class _04_is_unique {
 
     }
 
+    /**
+     * 上浮：当前节点不断的和父节点比较
+     *
+     * @param arr
+     * @param index
+     */
+    private void heapInsert(char[] arr, int index) {
+
+        int curr = index;
+        int parentIndex = (curr - 1) / 2;
+        while (arr[curr] > arr[parentIndex]) {
+            // 交换
+            swap(arr, curr, parentIndex);
+            curr = parentIndex;
+            parentIndex = (curr - 1) / 2;
+        }
+    }
+
+    private void heapInsert_02(char[] arr, int index) {
+        // 当前节点一直往上找父亲节点
+        int parent = 0;
+        while (index != 0) {
+            // 当前节点一直往上找父亲节点
+            parent = (index - 1) / 2;
+            if (arr[index] > arr[parent]) {
+                swap(arr, index, parent);
+                // 当前节点一直往上找父亲节点
+                index = parent;
+            } else {
+                break;
+            }
+        }
+    }
+
+    /**
+     * 下沉：当前节点不断和左右节点比较并交换
+     *
+     * @param arr
+     * @param parentIndex
+     * @param size
+     */
     private void heapify(char[] arr, int parentIndex, int size) {
         int left = 2 * parentIndex + 1;
         int right = left + 1;
@@ -70,20 +111,6 @@ public class _04_is_unique {
             swap(arr, largest, parentIndex);
             parentIndex = largest;
             left = 2 * parentIndex + 1;
-        }
-
-
-    }
-
-    private void heapInsert(char[] arr, int index) {
-
-        int curr = index;
-        int parentIndex = (curr - 1) / 2;
-        while (arr[curr] > arr[parentIndex]) {
-            // 交换
-            swap(arr, curr, parentIndex);
-            curr = parentIndex;
-            parentIndex = (curr - 1) / 2;
         }
     }
 

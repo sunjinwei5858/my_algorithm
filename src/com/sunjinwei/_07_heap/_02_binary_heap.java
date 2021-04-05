@@ -43,7 +43,7 @@ public class _02_binary_heap {
     }
 
     /**
-     * 上浮的方法：代码简介 逻辑也简介【左神】
+     * 上浮：代码简洁 逻辑也简洁【左神】
      * 基本思想：当前节点一直往上找父亲节点 比较值 如果比父亲节点更大 那么进行交换
      *
      * @param index
@@ -54,6 +54,27 @@ public class _02_binary_heap {
         while (arr[index] > arr[(index - 1) / 2]) {
             swap(arr, index, (index - 1) / 2);
             index = (index - 1) / 2;
+        }
+    }
+
+    /**
+     * 上浮写法2
+     *
+     * @param index
+     */
+    private void heapInsert_02(int index) {
+        // 当前节点一直往上找父亲节点
+        int parent = 0;
+        while (index != 0) {
+            // 当前节点一直往上找父亲节点
+            parent = (index - 1) / 2;
+            if (arr[index] > arr[parent]) {
+                swap(arr, index, parent);
+                // 当前节点一直往上找父亲节点
+                index = parent;
+            } else {
+                break;
+            }
         }
     }
 
