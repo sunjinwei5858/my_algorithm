@@ -29,17 +29,17 @@ public class _06_netherlands_flag {
      * 3.arr[curr]=p, 则当前数直接向右++即可
      *
      * @param arr
-     * @param l
+     * @param l   用于正在遍历的元素的下标
      * @param r
-     * @param p
-     * @return
+     * @param p   分界点的值 荷兰问题中p可能不存在数组中
+     * @return 在返回less，more的数组中，其中[less+1,more-1]是值 = target的区间。
      */
     public int[] partition(int[] arr, int l, int r, int p) {
-        // less 用于记录小于 4 的区域的右下标，初始为-1，代表不存在
+        // less 用于记录小于 p 的区域的右下标，初始为-1，代表不存在 【因为p可能不在原数组】
         int less = l - 1;
-        // more 用于记录大于 4 区域的左下标，初始为9，代表不存在
+        // more 用于记录大于 p 区域的左下标，初始为9，代表不存在  【因为p可能不在原数组】
         int more = r + 1;
-        // L 用于正在遍历的元素的下标，初始值为0
+        // l 用于正在遍历的元素的下标，初始值为0
         while (l < more) {
             // 如果 arr[L] < p, 交换 arr[++ less] 和 arr[L++] 的值
             // 即：当前数和小于区的下一个数进行交换，然后当前数继续向右移动
@@ -53,8 +53,8 @@ public class _06_netherlands_flag {
                 more--;
                 swap(arr, more, l);
             } else {
-                // 如果 arr[L] = 4, 不交换，L++，直接遍历下一个值
-                // 即：此时arr[l]=4 直接进行++，跳过
+                // 如果 arr[L] = p, 不交换，L++，直接遍历下一个值
+                // 即：此时arr[l]=p 直接进行l++，跳过
                 l++;
             }
         }
