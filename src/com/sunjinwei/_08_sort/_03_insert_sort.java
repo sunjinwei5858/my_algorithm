@@ -1,5 +1,7 @@
 package com.sunjinwei._08_sort;
 
+import java.util.Arrays;
+
 /**
  * 插入排序
  * 思路：
@@ -16,7 +18,7 @@ public class _03_insert_sort {
         // 外循环：如果数组只有一个元素是不需要进行排序的 所以i从1开始
         for (int i = 1; i < arr.length; i++) {
             // 内循环：j需要从i-1开始 比较和j+1的大小，其实第一次j+1=i, 但是这里不能换成i，因为需要不断的往前看 往前调整
-            for (int j = i - 1; j >= 0; j++) {
+            for (int j = i - 1; j >= 0; j--) {
                 // 利用j+1和j进行比较 不断的往前看
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
@@ -29,6 +31,13 @@ public class _03_insert_sort {
         int temp = arr[right];
         arr[right] = arr[left];
         arr[left] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 5, 4, 4};
+        _03_insert_sort insertSort = new _03_insert_sort();
+        insertSort.insertSort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
 
