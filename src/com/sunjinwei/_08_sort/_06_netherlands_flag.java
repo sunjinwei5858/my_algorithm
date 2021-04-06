@@ -1,5 +1,7 @@
 package com.sunjinwei._08_sort;
 
+import java.util.Arrays;
+
 /**
  * 荷兰国旗问题：
  * 问题1：
@@ -69,7 +71,11 @@ public class _06_netherlands_flag {
 
     public static void main(String[] args) {
 
-    }
+        _06_netherlands_flag netherlands_flag = new _06_netherlands_flag();
+        int[] arr = new int[]{2, 3, 1, 9, 7, 6, 1, 4, 5};
+        int[] partition = netherlands_flag.partition(arr, 0, arr.length - 1, 4);
+        System.out.println(Arrays.toString(partition));
 
+    }
 
 }
