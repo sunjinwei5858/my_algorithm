@@ -24,6 +24,7 @@ public class _02_bubble_sort {
                     flag = true;
                 }
             }
+            System.out.println("冒泡....");
             // 没有数据交换 提前退出 【冒泡排序的优化】
             if (!flag) {
                 break;
@@ -39,7 +40,7 @@ public class _02_bubble_sort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 5, 4};
+        int[] arr = {3, 5, 4, 1, 2, 6};
         _02_bubble_sort bubble_sort = new _02_bubble_sort();
         bubble_sort.bubbleSort(arr);
 
