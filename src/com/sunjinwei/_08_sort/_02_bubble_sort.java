@@ -15,11 +15,20 @@ public class _02_bubble_sort {
         }
         // 冒泡排序
         for (int i = arr.length - 1; i > 0; i--) {
+            // 提前退出冒泡循环的标识
+            boolean flag = false;
             for (int j = 0; j < i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
+                    // 表示有数据交换
+                    flag = true;
                 }
             }
+            // 没有数据交换 提前退出 【冒泡排序的优化】
+            if (!flag) {
+                break;
+            }
+
         }
     }
 
