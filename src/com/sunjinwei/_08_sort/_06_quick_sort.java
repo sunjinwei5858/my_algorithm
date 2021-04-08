@@ -87,6 +87,8 @@ public class _06_quick_sort {
         _06_quick_sort.quickSort(arr);
         System.out.println(Arrays.toString(arr));
 
+        System.out.println(arr[arr.length / 2]);
+
     }
 
 }
