@@ -1,5 +1,8 @@
 package com.sunjinwei._06_array;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 数组中超过一半的数
  * 数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。 剑指39 力扣169
@@ -74,6 +77,36 @@ public class _02_majority_element {
         int temp = arr[j];
         arr[j] = arr[i];
         arr[i] = temp;
+    }
+
+
+    /**
+     * 方法2：第一次遍历使用hashmap先存储出现的次数，第二次遍历判断次数是否超过一半
+     * <p>
+     * 执行用时：15 ms, 在所有 Java 提交中击败了22.17%的用户
+     * 内存消耗：43.4 MB, 在所有 Java 提交中击败了27.02%的用户
+     *
+     * @param nums
+     * @return
+     */
+    public int majorityElement_02(int[] nums) {
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        int count = 0;
+        int middle = nums.length >> 1;
+        for (int i = 0; i < nums.length; i++) {
+            if (hashMap.containsKey(nums[i])) {
+                count = hashMap.get(nums[i]);
+                hashMap.put(nums[i], count + 1);
+            } else {
+                hashMap.put(nums[i], 1);
+            }
+        }
+        for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
+            if (entry.getValue() > middle) {
+                return entry.getKey();
+            }
+        }
+        return -1;
     }
 
 
