@@ -1,9 +1,8 @@
-package com.sunjinwei.domain;
+package com.sunjinwei._10_lru;
 
 /**
  * 定义双链表,
  * 三个属性：头节点 尾巴节点 链表节点个数
- * 两个核心方法：删除第一个节点
  */
 public class LinkedNode {
 
@@ -13,35 +12,40 @@ public class LinkedNode {
 
     public int size;
 
+    /**
+     * 初始化哨兵节点!!! 很有用 这样可以
+     */
     public LinkedNode() {
-        // 初始化哨兵节点
-        this.head = new Node(0, 0);
-        this.tail = new Node(0, 0);
+        head = new Node(0, 0);
+        tail = new Node(0, 0);
         head.next = tail;
         tail.pre = head;
-        this.size = 0;
+        size = 0;
     }
 
     /**
-     * 添加节点 将最新的元素添加至末尾
+     * 添加到最后一个节点 将最新的元素添加至末尾 【容易出错】
      *
      * @param node
      */
-    public void add(Node node) {
+    public void addLast(Node node) {
         Node pre = tail.pre;
         pre.next = node;
+        node.pre = pre;
         node.next = tail;
+        tail.pre = node;
         size++;
     }
 
     /**
-     * 删除节点
+     * 删除第一个节点
      *
      * @param node
      */
     public void remove(Node node) {
         Node pre = node.pre;
         Node next = node.next;
+        // 修改node上一个节点和下一个节点指向
         pre.next = next;
         next.pre = pre;
         size--;
@@ -52,17 +56,8 @@ public class LinkedNode {
      *
      * @return
      */
-    public Node deleteOldestNode() {
-        // 如果还没有任何节点 此时两个哨兵节点是互相指向的
-        if (head.next == tail) {
-            return null;
-        }
-        Node first = head.next;
-        Node second = first.next;
-        head.next = second;
-        second.pre = head;
-        size--;
-        return first;
+    public void deleteOldestNode() {
+        remove(head.next);
     }
 
     /**
@@ -80,12 +75,10 @@ public class LinkedNode {
      * @param node
      */
     public void moveNode2Tail(Node node) {
-        Node next = node.next;
-        Node pre = node.pre;
-        pre.next = next;
-        next.pre = pre;
-        tail.pre = node;
-        node.next = tail;
+        // 直接移除
+        remove(node);
+        // 直接添加
+        addLast(node);
     }
 
 }

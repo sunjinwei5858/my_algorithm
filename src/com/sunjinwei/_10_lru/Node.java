@@ -1,4 +1,4 @@
-package com.sunjinwei.domain;
+package com.sunjinwei._10_lru;
 
 /**
  * 双链表节点

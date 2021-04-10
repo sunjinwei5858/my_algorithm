@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
  * 请实现 KthLargest 类：
  * <p>
  * KthLargest(int k, int[] nums) 使用整数k和整数流nums初始化对象。
- * int add(int val) 将val插入数据流nums后，返回当前数据流中第k大的元素。
+ * int addLast(int val) 将val插入数据流nums后，返回当前数据流中第k大的元素。
  * 题目数据保证，在查找第 k 大元素时，数组中至少有 k 个元素
  * <p>
  * 思路：

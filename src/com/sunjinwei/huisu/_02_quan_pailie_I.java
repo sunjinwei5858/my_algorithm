@@ -49,7 +49,7 @@ public class _02_quan_pailie_I {
             /**
              * 在java中，参数传递是值传递，对象类型变量在传参的过程中，复制的是变量的地址。
              * 这些地址被添加到res变量，但实际上指向的是同一块内存地址，因此我们会看到6个空的列表对象。
-             * 解决的方法很简单，在 res.add(path); 这里做一次拷贝即可。
+             * 解决的方法很简单，在 res.addLast(path); 这里做一次拷贝即可。
              *
              */
             result.add(new ArrayList<>(list));
