@@ -1,7 +1,7 @@
 package com.sunjinwei._11_huisu;
 
 import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.HashSet;
 
 /**
  * 字符串排列 剑指offer 38
@@ -10,6 +10,9 @@ import java.util.LinkedList;
  * <p>
  * 输入：s = "abc"
  * 输出：["abc","acb","bac","bca","cab","cba"]
+ * <p>
+ * "aac"
+ * ["aca","aac","caa"]
  */
 public class _01_str_arrange {
 
@@ -23,7 +26,8 @@ public class _01_str_arrange {
      */
     public String[] permutation(String s) {
         // 使用hashset进行存储
-        LinkedList<String> res = new LinkedList<>();
+        // 因为字符串可能会出现相同的字符 此时是需要判重的!!!!
+        HashSet<String> res = new HashSet<>();
         // 使用布尔数组 表示该字符是否被使用过
         boolean[] visited = new boolean[s.length()];
         // 处理
@@ -32,7 +36,7 @@ public class _01_str_arrange {
         return res.toArray(new String[res.size()]);
     }
 
-    private void backTrack(String s, String path, boolean[] visited, LinkedList<String> res) {
+    private void backTrack(String s, String path, boolean[] visited, HashSet<String> res) {
         if (path.length() == s.length()) {
             System.out.println("====" + path);
             res.add(path);
