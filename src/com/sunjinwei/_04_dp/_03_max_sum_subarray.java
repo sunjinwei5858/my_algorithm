@@ -1,7 +1,7 @@
 package com.sunjinwei._04_dp;
 
 /**
- * 和最大子数组 力扣53 难度：简单
+ * 和最大子数组/最大子序和 力扣53 难度：简单
  * 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
  * 关键字：和(递增)，连续
  * 最大子数组问题和前文讲过的 经典动态规划：最长递增子序列 的套路非常相似，代表着一类比较特殊的动态规划问题的思路
@@ -59,4 +59,25 @@ public class _03_max_sum_subarray {
         }
         return result;
     }
+
+    /**
+     * 可以进行优化 第二个for循环可以去掉
+     * @param nums
+     * @return
+     */
+    public int maxSubArray_03(int[] nums) {
+        // 非常规的动态规划 状态定义：以nums[i]的值为结尾的最大子数组之和为dp[i]
+        int[] dp = new int[nums.length];
+        // base case 初始化
+        dp[0] = nums[0];
+        int result = Integer.MIN_VALUE;
+        for (int i = 1; i < nums.length; i++) {
+            dp[i] = Math.max(nums[i], nums[i] + dp[i - 1]);
+            result = Math.max(result, dp[i]);
+        }
+        return result;
+    }
+
+
+
 }
