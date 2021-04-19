@@ -18,6 +18,7 @@ public class _08_k_reverse_linkedlist {
      * 注意：两个不需要进行反转的条件，一个head为null 一个链表个数小于k
      * 时间复杂度为：
      * 空间复杂度：因为有递归调用 所以需要使用栈空间
+     *
      * @param head
      * @param k
      * @return
@@ -34,6 +35,7 @@ public class _08_k_reverse_linkedlist {
         for (int i = 0; i < k; i++) {
             // 终止条件2: 比如[1,2,3,4,5] k=3 那么[1,2,3]反转完 剩下[4,5]个数小于k是不需要进行反转的
             // base case 不足k 不需要反转
+            // if判断不能反
             if (p2 == null) {
                 return head;
             }
@@ -56,5 +58,58 @@ public class _08_k_reverse_linkedlist {
             curr = temp;
         }
         return pre;
+    }
+
+
+    /**
+     * 方法2：O(1)空间
+     * 将链表拆成三部分：反转好的 反转中的[start,tail] 还未进行反转的
+     * 使用哨兵节点位于头节点之前
+     */
+    public ListNode reverseKGroup2(ListNode head, int k) {
+        // 哨兵节点
+        ListNode shaobing = new ListNode(0);
+        // 哨兵节点和头节点关系
+        shaobing.next = head;
+        // 反转好的结束节点
+        ListNode pre = shaobing;
+        ListNode curr = head;
+        while (curr != null) {
+            // 提前存储好反转之后的尾巴节点
+            ListNode tail = curr;
+            for (int i = 0; i < k; i++) {
+                // base case k次next后的节点不能为空
+                // if判断必须放置在前面
+                if (curr == null) {
+                    return shaobing.next;
+                }
+                curr = curr.next;
+            }
+            // 反转返回反转后的头节点
+            ListNode start = reverse(tail, curr);
+            // 1连接上一个节点和头节点
+            pre.next = start;
+            // 2连接尾巴节点和未进行反转的
+            tail.next = curr;
+            pre = tail;
+        }
+        return shaobing.next;
+    }
+
+    public static void main(String[] args) {
+        _08_k_reverse_linkedlist reverseLinkedlist = new _08_k_reverse_linkedlist();
+        ListNode head = new ListNode(1);
+        ListNode second = new ListNode(2);
+        ListNode third = new ListNode(3);
+        ListNode fourth = new ListNode(4);
+        ListNode fifth = new ListNode(5);
+        head.next = second;
+        second.next = third;
+        third.next = fourth;
+        fourth.next = fifth;
+
+        ListNode listNode = reverseLinkedlist.reverseKGroup2(head, 2);
+        System.out.println(listNode);
+
     }
 }
