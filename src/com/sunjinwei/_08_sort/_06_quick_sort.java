@@ -9,6 +9,9 @@ import java.util.Arrays;
  * 左侧：小于分界点
  * 中间值：等于分界点
  * 右侧：大于分界点
+ *
+ * 这篇博客写的不错
+ * https://blog.csdn.net/weixin_42507756/article/details/84444728?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control&dist_request_id=&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control
  */
 public class _06_quick_sort {
 
