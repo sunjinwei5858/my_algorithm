@@ -14,6 +14,7 @@ public class _05_merge_sort {
             return;
         }
         // 先提前创建好辅助数组
+        // right传入right-1 处理边界问题
         mergeSort(arr, 0, arr.length - 1);
     }
 
@@ -55,10 +56,11 @@ public class _05_merge_sort {
         // 右边开始
         int p2 = middle + 1;
         // 归并的过程
+        // 边界问题 这里p1可以等于middle p2可以等于right
         while (p1 <= middle && p2 <= right) {
             // 联想到合并两个有序链表 思想其实一样
-            // help[i++] = arr[p1] >= arr[p2] ? arr[p1++] : arr[p2++];
-            if (arr[p1] >= arr[p2]) {
+            // help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
+            if (arr[p1] < arr[p2]) {
                 help[i] = arr[p1];
                 p1++;
             } else {
