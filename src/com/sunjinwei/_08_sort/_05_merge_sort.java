@@ -17,6 +17,13 @@ public class _05_merge_sort {
         mergeSort(arr, 0, arr.length - 1);
     }
 
+    /**
+     * mergesort 处理数组为有序
+     *
+     * @param arr
+     * @param left
+     * @param right
+     */
     private void mergeSort(int[] arr, int left, int right) {
         if (left == right) {
             return;
@@ -31,6 +38,14 @@ public class _05_merge_sort {
         merge(arr, left, middle, right);
     }
 
+    /**
+     * merge合并两个有序数组
+     *
+     * @param arr
+     * @param left
+     * @param middle
+     * @param right
+     */
     private void merge(int[] arr, int left, int middle, int right) {
         int[] help = new int[right - left + 1];
         // 声明i变量 用于辅助数组
