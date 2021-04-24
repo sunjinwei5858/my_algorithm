@@ -2,8 +2,12 @@ package com.sunjinwei.test;
 
 import com.sunjinwei.domain.TreeNode;
 
+import java.util.Stack;
+
 /**
  * 翻转二叉树 力扣226
+ * 二叉树的镜像  剑指
+ * 这两道是一样的题目 只是叫法不一样
  */
 public class _04_invert_tree {
 
@@ -51,6 +55,31 @@ public class _04_invert_tree {
         // 后序3：最后处理头节点
         root.left = right;
         root.right = left;
+        return root;
+    }
+
+    /**
+     * 迭代实现 使用栈实现前序遍历
+     */
+    public TreeNode invertTree3(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode pop = stack.pop();
+            if (pop.right != null) {
+                stack.push(pop.right);
+            }
+            if (pop.left != null) {
+                stack.push(pop.left);
+            }
+            TreeNode left = pop.left;
+            TreeNode right = pop.right;
+            pop.left = right;
+            pop.right = left;
+        }
         return root;
     }
 
