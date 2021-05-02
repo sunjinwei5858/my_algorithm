@@ -31,12 +31,14 @@ public class _13_removeDuplicates {
             // 如果left和right指向的值不想等 说明是需要将right放入结果数组[o,left]中的
             if (nums[left] != nums[right]) {
                 // left++ 是因为区间[o,slow]是左闭右闭的
+                // 先进行left++
                 left++;
+                // 然后将right的值放在left索引上
                 nums[left] = nums[right];
             }
         }
         // 3因为left是指向结果数组中最后一个元素的末尾
-        // 因为索引是从0开始 所以返回长度需要left+1
+        // 因为left++的顺序是放在前面
         return left + 1;
     }
 
@@ -67,5 +69,19 @@ public class _13_removeDuplicates {
             fast++;
         }
         return slow + 1;
+    }
+
+    /**
+     * 通用解法
+     */
+    public int removeDuplicates3(int[] nums) {
+        int index = 0;
+        for (int num : nums) {
+            if (index < 1 || nums[index - 1] < num) {
+                nums[index] = num;
+                index++;
+            }
+        }
+        return index;
     }
 }
