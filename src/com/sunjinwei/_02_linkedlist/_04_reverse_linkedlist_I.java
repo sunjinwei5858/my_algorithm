@@ -47,16 +47,17 @@ public class _04_reverse_linkedlist_I {
         }
         // 出栈
         // 第一个出栈的就是反转之后的头节点
-        ListNode reverse = stack.pop();
-        // 开始处理 后序的节点
-        ListNode temp = reverse;
+        ListNode result = stack.pop();
+
+        // 将栈中节点连接起来
+        ListNode temp = result;
         while (!stack.isEmpty()) {
             temp.next = stack.pop();
             temp = temp.next;
         }
-        // 鲁棒性2： 防止成环!!!! 必不可少
+        // 鲁棒性2： 防止成环!!!! 必不可少 如果是一个链表数组 也是一样需要防止成环bug
         temp.next = null;
-        return reverse;
+        return result;
     }
 
     /**
@@ -85,6 +86,26 @@ public class _04_reverse_linkedlist_I {
         head.next = null;
         return last;
     }
+
+    /**
+     * 方法4：递归写法二，基本都是利用双指针改编
+     *
+     * @param head
+     */
+    public ListNode reverse04(ListNode head) {
+
+        return help(null, head);
+    }
+
+    private ListNode help(ListNode pre, ListNode curr) {
+        if (curr == null) {
+            return pre;
+        }
+        ListNode temp = curr.next;
+        curr.next = pre;
+        return help(curr, temp);
+    }
+
 
     public static void main(String[] args) {
         _04_reverse_linkedlist_I linkedlistI = new _04_reverse_linkedlist_I();

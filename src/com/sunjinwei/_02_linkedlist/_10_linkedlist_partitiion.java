@@ -57,6 +57,7 @@ public class _10_linkedlist_partitiion {
             arr[i - 1].next = arr[i];
         }
         // 6bug 不要忘记
+        // 防止成环!!!!
         arr[len - 1].next = null;
         return arr[0];
     }
