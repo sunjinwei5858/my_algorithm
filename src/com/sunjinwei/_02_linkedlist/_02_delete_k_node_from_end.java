@@ -3,16 +3,16 @@ package com.sunjinwei._02_linkedlist;
 import com.sunjinwei.domain.ListNode;
 
 /**
- * 在单链表和双链表中，删除倒数第k个节点 力扣19
+ * 在单链表和双链表中，删除倒数第k个节点 力扣19和剑指offer
  * 条件：时间复杂度为O(n) 空间复杂度为O(1)
  * 注意这道题：
- * 1主要考察鲁棒性
- * 2灵活运用链表的技巧来解题
+ * 1主要考察鲁棒性 【当删除的是头节点】
+ * 2灵活运用链表的技巧来解题 【双指针+哨兵节点，注意理解哨兵节点的作用】
  */
 public class _02_delete_k_node_from_end {
 
     /**
-     * 单链表 方法一：
+     * 方法一：暴力方式
      * 1。鲁棒性
      * 2。先统计链表有多少个节点 然后找到倒数第n个节点的前一个节点 完成删除倒数第n个节点的操作
      * <p>
@@ -55,8 +55,9 @@ public class _02_delete_k_node_from_end {
     }
 
     /**
-     * 单链表 方法二
-     * 双指针：快指针先走n步 然后慢指针开始，当快指针的next节点为null 此时的慢指针就是要删除节点的前一个指针
+     * 方法二 双指针 O(1)内存 注意：最后需要判断是否删除的是头节点 防止程序崩溃
+     * 双指针：快指针先走n步 然后快慢指针一起走，当快指针指向null的时候，此时slow就是要删除的节点!!!【规律】
+     * <p>
      * 执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户
      * 内存消耗：36.2 MB, 在所有 Java 提交中击败了89.68%的用户
      *
@@ -75,26 +76,57 @@ public class _02_delete_k_node_from_end {
         }
         ListNode fast = head;
         ListNode slow = head;
-        while (fast != null && fast.next != null) {
-            if (n > 0) {
-                fast = fast.next;
-            } else {
-                fast = fast.next;
-                slow = slow.next;
-            }
+        // 快指针先走n步
+        while (n > 0) {
+            fast = fast.next;
             n--;
         }
-        // 鲁棒性3：删除的是头节点 因为是删除节点
-        // 所以如果刚好删除头节点 那么快指针应该是就差一步走到尽头 所以是n=1
-        if (n == 1) {
-            ListNode temp = head.next;
-            head.next = null;
-            return temp;
+        // 记录慢指针的上一个节点
+        ListNode pre = null;
+        while (fast != null) {
+            pre = slow;
+            fast = fast.next;
+            slow = slow.next;
         }
-        ListNode delete = slow.next;
-        ListNode next = delete.next;
-        slow.next = next;
+        // bug!!!! 需要判断如果删除的是头节点的情况!!!!
+        if (slow == head) {
+            return head.next;
+        }
+        // 正常删除节点
+        pre.next = slow.next;
         return head;
+    }
+
+
+    /**
+     * 方法2 双指针+哨兵节点 对双指针代码的重构,哨兵节点避免了删除头节点的情况，非常好!!!!
+     *
+     * @param head
+     * @param n
+     */
+    public ListNode removeNthFromEnd_03(ListNode head, int n) {
+        // 哨兵节点 避免了如果删除的是头节点的情况
+        ListNode shaobing = new ListNode(-1);
+        shaobing.next = head;
+        // 声明快慢指针
+        ListNode fast = shaobing;
+        ListNode slow = shaobing;
+        // 因为最终结果返回的是shaobing.next 此时n不需要做改动 因为当快指针走了n步后，最后快指针都要走到null的位置
+        while (n > 0) {
+            fast = fast.next;
+            n--;
+        }
+        // 快慢指针一起走
+        // 记录slow的上一个节点
+        ListNode pre = null;
+        while (fast != null) {
+            pre = slow;
+            fast = fast.next;
+            slow = slow.next;
+        }
+        // 因为使用了哨兵节点 所以这里不需要判断删除头节点的情况
+        pre.next = slow.next;
+        return shaobing.next;
     }
 
     public static void main(String[] args) {
