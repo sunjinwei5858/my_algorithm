@@ -109,7 +109,7 @@ public class _01_morries_order {
      * 前序遍历是根节点 左子树 右子树
      * <p>
      * 执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户
-     * 内存消耗：36.4 MB, 在所有 Java 提交中击败了97.05%的用户
+     * 内存消耗：36.4 MB, 在所有 Java 提交中击败了99.39%的用户
      */
     public List<Integer> morriesPreOrder(TreeNode head) {
         if (head == null) {
