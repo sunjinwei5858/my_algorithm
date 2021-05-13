@@ -10,7 +10,7 @@ import java.util.Arrays;
  * 该问题是输入是按任意顺序排列的——我们不能直接套用标准的 LIS 算法，需要先对数据进行排序。我们如何对数据进行排序，以便我们的 LIS 算法总能找到最佳答案？
  *
  */
-public class _03_max_envelopes {
+public class _03_sub_sequence_longest_increasing_II {
 
     /**
      * 解法：排序+最长递增子序列
