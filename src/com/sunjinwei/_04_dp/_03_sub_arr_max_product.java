@@ -2,12 +2,12 @@ package com.sunjinwei._04_dp;
 
 
 /**
- * 力扣152 乘积最大子数组
+ * 力扣152 乘积最大子数组    【子数组 必须连续】
  * <p>
  * 给你一个整数数组 nums ，请你找出数组中乘积最大的【连续】子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。
  * 条件：1子数组必须连续 2乘积最大
  */
-public class _03_max_product_subarray {
+public class _03_sub_arr_max_product {
 
     /**
      * 解法一：动态规划

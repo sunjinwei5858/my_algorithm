@@ -1,12 +1,12 @@
 package com.sunjinwei._04_dp;
 
 /**
- * 和最大子数组/最大子序和 力扣53 难度：简单
+ * 和最大子数组/最大子序和 力扣53 难度：简单  【子数组 必须连续】
  * 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
  * 关键字：和(递增)，连续
  * 最大子数组问题和前文讲过的 经典动态规划：最长递增子序列 的套路非常相似，代表着一类比较特殊的动态规划问题的思路
  */
-public class _03_max_sum_subarray {
+public class _03_sub_arr_max_sum {
 
     /**
      * 错误写法
@@ -62,6 +62,7 @@ public class _03_max_sum_subarray {
 
     /**
      * 可以进行优化 第二个for循环可以去掉
+     *
      * @param nums
      * @return
      */
@@ -77,7 +78,6 @@ public class _03_max_sum_subarray {
         }
         return result;
     }
-
 
 
 }
