@@ -98,5 +98,88 @@ public class _03_sub_sequence_longest_common {
         return dp[m - 1][n - 1];
     }
 
+    /**
+     * 根据dp数组还原出最长公共子序列字符串
+     */
+    public String longestCommonSubsequence3(String text1, String text2) {
+        // 鲁棒性1：只要其中有一个为空 那么返回空数组
+        if (text1 == null || text1.length() == 0) {
+            return "";
+        }
+        if (text2 == null || text2.length() == 0) {
+            return "";
+        }
+        // 得到dp数组
+        int[][] dp = getDp(text1, text2);
+        // 根据dp数组还原最长公共子序列
+        // 最右下角的值就是这两个字符串最长的公共子序列的长度
+        int m = text1.length() - 1;
+        int n = text2.length() - 1;
+        int len = dp[m][n];
+        // 声明子序列字符数组
+        char[] res = new char[len];
+        // 三种情况 要么往左走 往上走 往左上走
+        // 往左走：dp[i][j]=dp[i-1][j]
+        // 往上走：dp[i][j]=dp[i-1][j]
+        // 往左上走：dp[i][j]=dp[i-1][j-1] 说明是两个字符串共同的字符 m和n需要-- res保存一个数据
+
+        // 说明还原res 需要从右到左
+        for (int i = res.length - 1; i >= 0; i--) {
+            if (m > 0 && dp[m][n] == dp[m - 1][n]) {
+                // 向左移动 m--
+                m--;
+            } else if (n > 0 && dp[m][n] == dp[m][n - 1]) {
+                // 向上移动 n--
+                n--;
+            } else {
+                // 向左上移动 m-- n-- 并且进行还原数据
+                res[i] = text1.charAt(m);
+                m--;
+                n--;
+            }
+        }
+        return String.valueOf(res);
+    }
+
+
+    /**
+     * 获取dp数组
+     */
+    private int[][] getDp(String text1, String text2) {
+        // 状态定义：dp[i][j]表示在s1[0..j]和s2[0..j]中的最长公共子串长度
+        int m = text1.length();
+        int n = text2.length();
+        int[][] dp = new int[m][n];
+
+        // base case!!!!
+        dp[0][0] = text1.charAt(0) == text2.charAt(0) ? 1 : 0;
+        // 处理第一列的值：s1[0..m]和s2[0]的值
+        for (int i = 1; i < m; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], text1.charAt(i) == text2.charAt(0) ? 1 : 0);
+        }
+        // 处理第一行的值：s2[0..n]和s1[0]的值
+        for (int j = 1; j < n; j++) {
+            dp[0][j] = Math.max(dp[0][j - 1], text1.charAt(0) == text2.charAt(j) ? 1 : 0);
+        }
+        // 有了第一行和第一列的值 那么就可以计算出第二行第二列的值了 依次类推
+        // dp[2,2]依赖dp[1,1] dp[1,2] dp[2,1]
+        // 也就是dp[i,j]依赖[i-1,j-1] [i,j-1] [j,i-1]的值
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
+                if (text1.charAt(i) == text2.charAt(j)) {
+                    dp[i][j] = Math.max(dp[i][j], dp[i - 1][j - 1] + 1);
+                }
+            }
+        }
+        return dp;
+    }
+
+    public static void main(String[] args) {
+        _03_sub_sequence_longest_common sequenceLongestCommon = new _03_sub_sequence_longest_common();
+        String s = sequenceLongestCommon.longestCommonSubsequence3("abc", "def");
+        System.out.println(s);
+    }
+
 
 }
