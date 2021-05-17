@@ -1,4 +1,4 @@
-package com.sunjinwei._13_huisu;
+package com.sunjinwei._11_huisu;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +18,7 @@ import java.util.List;
  * 输入：nums = [1,2,3]
  * 输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
  */
-public class _02_quan_pailie_II {
+public class _02_arr_arrange_II {
 
     List<List<Integer>> result = new ArrayList<>();
 
@@ -116,7 +116,7 @@ public class _02_quan_pailie_II {
 
     public static void main(String[] args) {
         int[] ints = new int[]{1, 2, 1};
-        _02_quan_pailie_II quanPailie = new _02_quan_pailie_II();
+        _02_arr_arrange_II quanPailie = new _02_arr_arrange_II();
         List<List<Integer>> permute = quanPailie.permuteUnique_02(ints);
         System.out.println(permute.toString());
 

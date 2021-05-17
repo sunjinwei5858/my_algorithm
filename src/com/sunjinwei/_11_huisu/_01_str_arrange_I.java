@@ -4,17 +4,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 /**
- * 字符串排列 剑指offer 38
- * 输入一个字符串，打印出该字符串中字符的所有排列。
- * 你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。
- * <p>
- * 输入：s = "abc"
- * 输出：["abc","acb","bac","bca","cab","cba"]
- * <p>
- * "aac"
- * ["aca","aac","caa"]
+ * 字符串的全部排列
+ * 输入一个字符串，打印出该字符串中字符的所有排列 你可以以任意顺序返回这个字符串数组
+ *
  */
-public class _01_str_arrange {
+public class _01_str_arrange_I {
 
     /**
      * 方法1：使用回溯
@@ -54,7 +48,7 @@ public class _01_str_arrange {
     }
 
     public static void main(String[] args) {
-        _01_str_arrange strArrange = new _01_str_arrange();
+        _01_str_arrange_I strArrange = new _01_str_arrange_I();
         String[] strings = strArrange.permutation("abc");
         System.out.println(Arrays.toString(strings));
     }

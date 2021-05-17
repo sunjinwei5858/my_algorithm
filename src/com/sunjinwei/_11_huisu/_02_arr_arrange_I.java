@@ -1,4 +1,4 @@
-package com.sunjinwei._13_huisu;
+package com.sunjinwei._11_huisu;
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -11,7 +11,7 @@ import java.util.List;
  * 请大家做了一些回溯算法的问题以后顺便思考一下：深度优先遍历、递归、栈，它们三者的关系，
  * 我个人以为它们背后统一的逻辑都是「后进先出」。完成练习有助于我们深刻理解算法思想，我们加油！
  */
-public class _02_quan_pailie_I {
+public class _02_arr_arrange_I {
 
     List<List<Integer>> result = new ArrayList<>();
 
@@ -152,7 +152,7 @@ public class _02_quan_pailie_I {
 
     public static void main(String[] args) {
         int[] ints = new int[]{1, 2, 3};
-        _02_quan_pailie_I quanPailie = new _02_quan_pailie_I();
+        _02_arr_arrange_I quanPailie = new _02_arr_arrange_I();
         List<List<Integer>> permute = quanPailie.permute(ints);
         System.out.println(permute.toString());
 
