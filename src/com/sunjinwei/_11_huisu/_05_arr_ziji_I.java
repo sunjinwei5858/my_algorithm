@@ -15,7 +15,7 @@ import java.util.List;
  * 输入：nums = [0]
  * 输出：[[],[0]]
  */
-public class _05_ziji_I {
+public class _05_arr_ziji_I {
 
     private List<List<Integer>> result = new ArrayList<>();
 
@@ -151,7 +151,7 @@ public class _05_ziji_I {
 
 
     public static void main(String[] args) {
-        _05_ziji_I ziji_i = new _05_ziji_I();
+        _05_arr_ziji_I ziji_i = new _05_arr_ziji_I();
         int[] arr = new int[]{1, 2, 3};
 
         List<List<Integer>> subsets = ziji_i.subsets_03(arr);

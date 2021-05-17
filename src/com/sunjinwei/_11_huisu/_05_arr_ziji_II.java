@@ -22,7 +22,7 @@ import java.util.List;
  * []
  * ]
  */
-public class _05_ziji_II {
+public class _05_arr_ziji_II {
 
     private List<List<Integer>> result = new ArrayList<>();
 
@@ -103,7 +103,7 @@ public class _05_ziji_II {
 
 
     public static void main(String[] args) {
-        _05_ziji_II ziji_ii = new _05_ziji_II();
+        _05_arr_ziji_II ziji_ii = new _05_arr_ziji_II();
         int[] arr = new int[]{1, 2, 2};
         List<List<Integer>> lists = ziji_ii.subsetsWithDup(arr);
         for (List<Integer> list : lists) {
