@@ -149,12 +149,42 @@ public class _05_arr_ziji_I {
 
     }
 
+    /**
+     * 类比左神的字符串的子序列 暴力递归
+     *
+     * @param nums
+     * @return
+     */
+    public List<List<Integer>> subsets_04(int[] nums) {
+        // 鲁棒性1
+        if (nums == null || nums.length == 0) {
+            return result;
+        }
+        // 声明路径集合
+        LinkedList<Integer> path = new LinkedList<>();
+        process(nums, 0, path);
+        return result;
+    }
+
+    private void process(int[] nums, int index, LinkedList<Integer> path) {
+        if (index == nums.length) {
+            result.add(new ArrayList<>(path));
+            return;
+        }
+        // 不做选择
+        LinkedList<Integer> no = path;
+        process(nums, index + 1, no);
+        // 做选择
+        LinkedList<Integer> yes = path;
+        yes.add(nums[index]);
+        process(nums, index + 1, yes);
+    }
 
     public static void main(String[] args) {
         _05_arr_ziji_I ziji_i = new _05_arr_ziji_I();
         int[] arr = new int[]{1, 2, 3};
 
-        List<List<Integer>> subsets = ziji_i.subsets_03(arr);
+        List<List<Integer>> subsets = ziji_i.subsets_04(arr);
         for (List<Integer> subset : subsets) {
             System.out.println(subset.toString());
         }
