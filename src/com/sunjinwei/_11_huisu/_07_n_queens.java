@@ -242,12 +242,89 @@ public class _07_n_queens {
     }
 
 
+    /**
+     * 方法4：左神的方法 直接使用一维数组，第i行第j列存储皇后 arr[i]=j
+     * <p>
+     * 执行用时：2 ms, 在所有 Java 提交中击败了94.20%的用户
+     * 内存消耗：38.6 MB, 在所有 Java 提交中击败了75.73%的用户
+     *
+     * @param n
+     */
+    public int nQueens(int n) {
+        if (n <= 3) {
+            return 0;
+        }
+        int[] arr = new int[n];
+        // 辅助函数
+        int process = process(arr, 0, n);
+        System.out.println("====" + result.toString());
+        return process;
+    }
+
+    /**
+     * @param arr 存储皇后的数组
+     * @param row 皇后处在行
+     * @param n   几个皇后
+     * @return
+     */
+    private int process(int[] arr, int row, int n) {
+        if (row == n) {
+            ArrayList<String> strings = new ArrayList<>();
+            char[] chars = new char[n];
+            Arrays.fill(chars, '.');
+            System.out.println(Arrays.toString(arr));
+            boolean flag = true;
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] != 0) {
+                    chars[arr[i]] = 'Q';
+                } else {
+                    if (flag) {
+                        chars[arr[i]] = 'Q';
+                        flag = false;
+                    }
+                }
+                strings.add(String.valueOf(chars));
+                Arrays.fill(chars, '.');
+            }
+            result.add(strings);
+            return 1;
+        }
+        int res = 0;
+        // row-1 行 已经放置好皇后
+        // 处理第row行 哪一列可以放置皇后
+        for (int col = 0; col < n; col++) {
+            if (checkQueen(arr, row, col)) {
+                arr[row] = col;
+                res += process(arr, row + 1, n);
+            }
+        }
+        return res;
+    }
+
+    private boolean checkQueen(int[] arr, int row, int col) {
+        for (int k = 0; k < row; k++) {
+            // 1判断[0..row-1]行是否在col列上放置了皇后
+            if (arr[k] == col) {
+                return false;
+            }
+            // 2判断对于[a,b]位置,左斜线 右斜线上是否放置了皇后
+            // 如果位置（a，b）满足|a-i|==|b-j|，说明（a，b）与（i，j）处在同一条斜线上，也不能放置。
+            if (Math.abs(k - row) == Math.abs(arr[k] - col)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         _07_n_queens n_queens = new _07_n_queens();
-        List<List<String>> lists = n_queens.solveNQueens_03(4);
+       /* List<List<String>> lists = n_queens.solveNQueens_03(5);
         System.out.println(lists.size());
         System.out.println(lists.toString());
         System.out.println("================");
+*/
+        int i = n_queens.nQueens(4);
+        System.out.println(i);
 
 
     }
