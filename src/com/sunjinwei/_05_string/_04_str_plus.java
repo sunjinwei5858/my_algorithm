@@ -1,4 +1,4 @@
-package com.sunjinwei._14_digit;
+package com.sunjinwei._05_string;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.List;
  * a / b 这是取商 可以用于高位进1
  * 从最左边 最低位开始进行处理 然后再进行反转
  */
-public class _01_addStrings {
+public class _04_str_plus {
 
     /**
      * 解题思路：
@@ -121,7 +121,7 @@ public class _01_addStrings {
 
     public static void main(String[] args) {
 
-        _01_addStrings addStrings = new _01_addStrings();
+        _04_str_plus addStrings = new _04_str_plus();
 
         String s = addStrings.addStrings2("11", "27");
 

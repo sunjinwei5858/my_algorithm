@@ -1,4 +1,4 @@
-package com.sunjinwei._14_digit;
+package com.sunjinwei._05_string;
 
 /**
  * 8 字符串转为整数
@@ -20,7 +20,7 @@ package com.sunjinwei._14_digit;
  * 输入：s = "words and 987"   输出：0
  * 输入：s = "-91283472332"    输出：-2147483648
  */
-public class _02_myAtoi {
+public class _04_str_to_digit {
 
     /**
      * 自己的方法：恶心的判断 可能还有bug
@@ -151,7 +151,7 @@ public class _02_myAtoi {
 
 
     public static void main(String[] args) {
-        _02_myAtoi myAtoi = new _02_myAtoi();
+        _04_str_to_digit myAtoi = new _04_str_to_digit();
         System.out.println(myAtoi.myAtoi(" fsdfa 232"));
     }
 
