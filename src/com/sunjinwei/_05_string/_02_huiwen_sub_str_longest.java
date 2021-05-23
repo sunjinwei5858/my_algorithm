@@ -1,58 +1,48 @@
-package com.sunjinwei._04_dp;
+package com.sunjinwei._05_string;
 
 /**
- * 最长回文子串 力扣5 难度中等  【子串必须连续】【子数组也是连续的】
- * 最长回文子序列 力扣516 难度中等 【子序列可以不连续 相比前面两者 稍微复杂一些】
- * <p>
- * 输入: "babad"
- * 输出: "bab"
- * 注意: "aba" 也是一个有效答案。
- * 回文串： 正着读和反着读都是一样的字符串，对称
+ * 【回文串】
+ * 寻找最长回文串 力扣5
+ * 中心扩散法:两种写法
+ * 动态规划：一种写法 和统计有多少回文子串的思想一样!!!!
  */
-public class _04_huiwen_sub_str_longest {
+public class _02_huiwen_sub_str_longest {
 
     /**
-     * 最长回文子串: 子串必须是连续的
-     * 中心扩散法
-     * <p>
-     * 执行用时：38 ms, 在所有 Java 提交中击败了75.03%的用户
-     * 内存消耗：38.7 MB, 在所有 Java 提交中击败了69.98%的用户
+     * 1中心扩散法的第一种写法，辅助函数help中直接返回string
      *
      * @param s
      * @return
      */
     public String longestPalindrome(String s) {
-
-        if (s == null) {
-            return null;
-        }
-        if (s.length() == 1) {
-            return s;
-
+        if (s == null || s.length() == 0) {
+            return "";
         }
         String res = "";
-        for (int i = 0; i < s.length(); i++) {
-            String s1 = palindrome(s, i, i);
-            String s2 = palindrome(s, i, i + 1);
-            // 判断res s1 s2 三者的长度
+        int size = s.length();
+        for (int i = 0; i < size; i++) {
+            String s1 = help(s, i, i, size);
+            String s2 = help(s, i, i + 1, size);
+            // 三者取最长的
             res = longest(res, s1, s2);
         }
         return res;
     }
 
     private String longest(String res, String s1, String s2) {
-        res = res.length() >= s1.length() ? res : s1;
-        res = res.length() >= s2.length() ? res : s2;
-        return res;
+        String ans = null;
+        ans = s1.length() > s2.length() ? s1 : s2;
+        ans = ans.length() > res.length() ? ans : res;
+        return ans;
     }
 
-    private String palindrome(String s, int left, int right) {
-        while (right < s.length() && left >= 0 && s.charAt(left) == s.charAt(right)) {
+    private String help(String s, int left, int right, int size) {
+        // 中心扩散法 i-- j++
+        while (left >= 0 && right < size && s.charAt(left) == s.charAt(right)) {
             left--;
             right++;
         }
-        // left和right的边界不能取 应该取 [left+1, right-1]
-        // 因为substring是左闭右开 所以传入的是left+1和right
+        // 因为substring是左闭右开的 所以left+1即可，right不需要减1
         return s.substring(left + 1, right);
     }
 
@@ -174,9 +164,8 @@ public class _04_huiwen_sub_str_longest {
 
 
     public static void main(String[] args) {
-        String s = "babad";
-        _04_huiwen_sub_str_longest huiwenStrLongest = new _04_huiwen_sub_str_longest();
-        String palindrome = huiwenStrLongest.longestPalindrome(s);
+        _02_huiwen_sub_str_longest huiwenStrLongest = new _02_huiwen_sub_str_longest();
+        String palindrome = huiwenStrLongest.longestPalindrome2("aaa");
         System.out.println(palindrome);
     }
 }

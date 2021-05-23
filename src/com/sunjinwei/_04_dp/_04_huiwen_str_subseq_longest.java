@@ -10,7 +10,7 @@ package com.sunjinwei._04_dp;
  * 注意：
  * 和409的区别 409是构造最长的回文串 返回长度
  */
-public class _04_huiwen_str_subseq_longest_length {
+public class _04_huiwen_str_subseq_longest {
 
     /**
      * 经典动态规划：
