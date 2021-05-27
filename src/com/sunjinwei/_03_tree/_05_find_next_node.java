@@ -9,6 +9,8 @@ import java.util.Stack;
 /**
  * 在二叉树中找到一个节点的后继节点
  * 注意：后继节点和前驱节点都是指的中序遍历，左根右
+ * <p>
+ * 变种：如果是一颗二叉树搜索树 告诉头节点root和curr 找curr的中序后继节点
  */
 public class _05_find_next_node {
 
