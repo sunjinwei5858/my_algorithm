@@ -12,7 +12,7 @@ public class _01_Get_Min_Stack_II {
 
     private Stack<Integer> minStack;
 
-    public _01_Get_Min_Stack_II(Stack<Integer> dataStack, Stack<Integer> minStack) {
+    public _01_Get_Min_Stack_II() {
         this.dataStack = new Stack<>();
         this.minStack = new Stack<>();
     }
