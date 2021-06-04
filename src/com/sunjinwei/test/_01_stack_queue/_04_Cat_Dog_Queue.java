@@ -1,4 +1,4 @@
-package com.sunjinwei.test._01_stack;
+package com.sunjinwei.test._01_stack_queue;
 
 /**
  * 设计猫狗队列
