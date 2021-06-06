@@ -1,6 +1,8 @@
 package com.sunjinwei.test._01_stack_queue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -11,6 +13,7 @@ import java.util.Stack;
 public class _07_Single_Stack {
 
     /**
+     * 题目一：数组中不含有重复元素
      * 1。维持单调栈的单调性
      *
      * @param arr
@@ -41,6 +44,59 @@ public class _07_Single_Stack {
         }
         return res;
     }
+
+
+    /**
+     * 题目二：数组中含有重复元素
+     * <p>
+     * 继续使用单调栈的思路，重复元素使用list进行存储
+     *
+     * @param arr
+     */
+    public int[][] getNearMinByHasRepeat(int[] arr) {
+        // 创建二维数组
+        int[][] res = new int[arr.length][2];
+        // 创建list的栈
+        Stack<List<Integer>> stack = new Stack<>();
+        for (int i = 0; i < arr.length; i++) {
+            // 1 处理：维持单调栈的单调递增
+            while (!stack.isEmpty() && arr[stack.peek().get(0)] >= arr[i]) {
+                // 弹出索引大的元素
+                List<Integer> list = stack.pop();
+                // 处理弹出元素集合左边的索引 取list中索引最大的那个
+                int leftIndex = stack.isEmpty() ? -1 : stack.peek().get(stack.peek().size() - 1);
+                // 处理弹出元素集合右边的索引 全部都是i
+                for (Integer integer : list) {
+                    res[integer][0] = leftIndex;
+                    res[integer][1] = i;
+                }
+            }
+            // 2处理：将索引入栈
+            // 简洁写法 只要当前栈顶集合对应数组的值是一样的 那么直接add 否则都需要新建list
+            if (!stack.isEmpty() && arr[stack.peek().get(0)] == arr[i]) {
+                stack.peek().add(i);
+            } else {
+                List<Integer> arrayList = new ArrayList<>();
+                arrayList.add(i);
+                stack.push(arrayList);
+            }
+        }
+        // 3如果栈不为空 处理剩余的元素
+        while (!stack.isEmpty()) {
+            List<Integer> pop = stack.pop();
+            // 右边小的元素都没了
+            int rightIndex = -1;
+            // 左边小的元素取栈顶元素集合中的最后一个
+            int leftIndex = stack.isEmpty() ? -1 : stack.peek().get(stack.peek().size() - 1);
+
+            for (Integer integer : pop) {
+                res[integer][0] = leftIndex;
+                res[integer][1] = rightIndex;
+            }
+        }
+        return res;
+    }
+
 
     public static void main(String[] args) {
         _07_Single_Stack singleStack = new _07_Single_Stack();
