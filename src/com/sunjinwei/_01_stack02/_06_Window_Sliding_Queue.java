@@ -1,4 +1,4 @@
-package com.sunjinwei.test._01_stack_queue;
+package com.sunjinwei._01_stack02;
 
 import java.util.Arrays;
 import java.util.LinkedList;

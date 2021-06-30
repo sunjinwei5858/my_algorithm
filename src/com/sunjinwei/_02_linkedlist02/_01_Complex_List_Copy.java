@@ -1,4 +1,4 @@
-package com.sunjinwei.test._02_linkedlist;
+package com.sunjinwei._02_linkedlist02;
 
 import com.sunjinwei.domain.ComplexListNode;
 

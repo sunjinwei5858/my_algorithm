@@ -1,24 +1,25 @@
-package com.sunjinwei.test._01_stack_queue;
+package com.sunjinwei._01_stack02;
 
 import java.util.Stack;
 
 /**
  * 设计数据结构实现最小栈
- * 方法2：当不需要更新最小值 minStack也不需要重复存入值
+ * 方法1：每个元素都对应一个min 很好理解和处理
+ * push的时候需要花时间 pop的时候很简单
  */
-public class _01_Get_Min_Stack_II {
+public class _01_Get_Min_Stack_I {
 
     private Stack<Integer> dataStack;
 
     private Stack<Integer> minStack;
 
-    public _01_Get_Min_Stack_II() {
+    public _01_Get_Min_Stack_I() {
         this.dataStack = new Stack<>();
         this.minStack = new Stack<>();
     }
 
     /**
-     * 在push的同时 如果val大于min，那么不需要操作minStack
+     * 在push的同时 对应minStack也保存一个对应的最小值
      *
      * @param val
      */
@@ -27,17 +28,18 @@ public class _01_Get_Min_Stack_II {
         if (minStack.isEmpty()) {
             minStack.push(val);
         } else {
-            // 如果min大于等于val 此时更新min值 其余情况不处理
-            // 大于
-            // 等于
-            if (minStack.peek() >= val) {
+            // 如果最小值小于当前的val值  那么继续在minStack中存入这个最小值
+            if (minStack.peek() < val) {
+                minStack.push(minStack.peek());
+            } else {
+                // 如果最小值大于等于当前的val值 那么更新最小值
                 minStack.push(val);
             }
         }
     }
 
     /**
-     * 鲁棒性判断+如果pop的值
+     * 鲁棒性判断
      *
      * @return
      */
@@ -46,9 +48,7 @@ public class _01_Get_Min_Stack_II {
             return -1;
         }
         Integer res = dataStack.pop();
-        if (res.equals(minStack.peek())) {
-            minStack.pop();
-        }
+        minStack.pop();
         return res;
     }
 

@@ -1,4 +1,4 @@
-package com.sunjinwei.test._02_linkedlist;
+package com.sunjinwei._02_linkedlist02;
 
 import com.sunjinwei.domain.ListNode;
 
@@ -9,7 +9,7 @@ import java.util.Stack;
  * 普通解法：时间复杂度和空间复杂度都为O(n)
  * 进阶：时间复杂度O(n) 空间复杂度为O(1)
  */
-public class _03_is_huiwen {
+public class _03_Is_Huiwen {
 
     /**
      * 普通解法1：使用栈将链表进行反转【将链表全部元素压入栈中】
@@ -172,7 +172,7 @@ public class _03_is_huiwen {
         b.next = c;
         c.next = d;
 
-        _03_is_huiwen huiwen = new _03_is_huiwen();
+        _03_Is_Huiwen huiwen = new _03_Is_Huiwen();
         boolean b1 = huiwen.isHuiwen3(a);
 
         while (a != null) {
