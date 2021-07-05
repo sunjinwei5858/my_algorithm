@@ -83,14 +83,14 @@ public class _01_Arr_Partition {
     public static void main(String[] args) {
 
         _01_Arr_Partition arrPartition = new _01_Arr_Partition();
-        int[] arr = new int[]{5, 5, 5, 2, 5, 4, 8, 3};
+        int[] arr = new int[]{7, 9, 1, 8, 5, 2, 5};
         int pivot = 5;
 
-        //arrPartition.partition(arr, pivot);
+        arrPartition.partition(arr, pivot);
 
-        int[] ints = arrPartition.partition02(arr, pivot);
+        //int[] ints = arrPartition.partition02(arr, pivot);
 
-        System.out.println(Arrays.toString(ints));
+        //System.out.println(Arrays.toString(ints));
 
         System.out.println(Arrays.toString(arr));
 
