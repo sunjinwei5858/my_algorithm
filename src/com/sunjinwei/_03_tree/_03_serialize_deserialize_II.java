@@ -4,12 +4,15 @@ import com.sunjinwei.domain.TreeNode;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * 二叉树的序列化和反序列化: 后序遍历
  * 注意事项：
  * 1。该抽取的方法和前序一样
  * 2。需要注意，使用双端队列，那么处理就可以从尾巴开始，接着是右子树，最后是左子树
+ * 【除了利用双端队列 当不是双端队列时 还可以放入栈中 这样栈的头部就是头右左了 然后进行处理】
  * 3。总结：
  * 其实前序和后序都可以实现序列化，但是反序列化 其实都是用的前序的思想处理，
  * a.前序序列化，那么反序列化，也直接前序，队列直接从头部开始 根节点->左子树->右子树
@@ -102,6 +105,34 @@ public class _03_serialize_deserialize_II {
         return new TreeNode(Integer.valueOf(s));
     }
 
+
+    /**
+     * 方法2：使用栈代替双端队列来代替反转
+     * 后序：左右头--》栈（头右左）
+     *
+     * @param queue
+     */
+    public TreeNode serialize02(Queue<String> queue) {
+        if (queue.isEmpty()) {
+            return null;
+        }
+        Stack<String> stack = new Stack<>();
+        while (!queue.isEmpty()) {
+            stack.push(stack.pop());
+        }
+        return help(stack);
+    }
+
+    private TreeNode help(Stack<String> stack) {
+        String value = stack.pop();
+        if (value == null) {
+            return null;
+        }
+        TreeNode root = convertString2TreeNode(value);
+        root.right = help(stack);
+        root.left = help(stack);
+        return root;
+    }
 
     public static void main(String[] args) {
         _03_serialize_deserialize_II serializeDeserialize = new _03_serialize_deserialize_II();
