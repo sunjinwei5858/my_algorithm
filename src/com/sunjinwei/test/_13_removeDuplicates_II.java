@@ -55,6 +55,7 @@ public class _13_removeDuplicates_II {
                 nums[index] = num;
                 index++;
             }
+
         }
         // 因为index++的顺序是放在了后面执行 所以数组的长度直接为index即可
         return index;
