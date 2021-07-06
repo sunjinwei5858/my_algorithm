@@ -1,10 +1,7 @@
 package com.sunjinwei._05_string;
 
-import java.util.Arrays;
-import java.util.List;
-
 /**
- * 415 字符串相加
+ * 415 字符串相加 【联想到链表相加】
  * 给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和。
  * 提示：
  * <p>
@@ -12,14 +9,14 @@ import java.util.List;
  * num1 和num2 都只包含数字 0-9
  * num1 和num2 都不包含任何前导零
  * 你不能使用任何內建 BigInteger 库， 也不能直接将输入的字符串转换为整数形式
- *
+ * <p>
  * 心得：
  * char和int的转换 并且如何让字符串不变  通过 减 '0' 这样来处理 保证了差值
  * a % b 这是取余 可以用于两个int相加 得到的个位数
  * a / b 这是取商 可以用于高位进1
  * 从最左边 最低位开始进行处理 然后再进行反转
  */
-public class _04_str_plus {
+public class _04_Add_String {
 
     /**
      * 解题思路：
@@ -91,25 +88,23 @@ public class _04_str_plus {
         int len1 = num1.length() - 1;
         int len2 = num2.length() - 1;
         int add = 0;
-
+        int x = 0;
+        int y = 0;
+        int total = 0;
         while (len1 >= 0 || len2 >= 0) {
-            int x = 0;
-            int y = 0;
             if (len1 >= 0) {
                 x = num1.charAt(len1) - '0';
-                System.out.println("----" + num1.charAt(len1));
             }
             if (len2 >= 0) {
                 y = num2.charAt(len2) - '0';
             }
-            int result = x + y + add;
-
-            res.append(result % 10);
-
-            add = result / 10;
+            total = x + y + add;
+            // 取余数
+            res.append(total % 10);
+            // 取商 高位进1
+            add = total / 10;
             len1--;
             len2--;
-
         }
         if (add == 1) {
             res.append(1);
@@ -121,26 +116,13 @@ public class _04_str_plus {
 
     public static void main(String[] args) {
 
-        _04_str_plus addStrings = new _04_str_plus();
+        _04_Add_String addStrings = new _04_Add_String();
 
         String s = addStrings.addStrings2("11", "27");
 
         System.out.println(s);
 
-        int x = '7';
-        int y = '1';
-        System.out.println(x - y);
 
-        List<Character> characters = Arrays.asList('0', '1', '2', '3', '4', '5');
-        for (Character character : characters) {
-            System.out.println(character);
-        }
-
-        int[] arr = new int[]{'0', '1', '2', '3', '4', '5' };
-
-        for (int c : arr) {
-            System.out.println(c);
-        }
 
     }
 
