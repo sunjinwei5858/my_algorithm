@@ -20,47 +20,75 @@ public class _06_Select_Sort_LinkedList {
      */
     public ListNode selectSort(ListNode head) {
 
+        // 1排好序的头部节点
+        ListNode newHead = null;
+
+        // 2排好序的尾巴节点
+        ListNode tail = null;
+
+        // 3当前遍历的节点
         ListNode curr = head;
-        ListNode pre = null;
+
+        // 4最小值节点
+        ListNode small = null;
+
+        // 5最小值的前一个节点
+        ListNode smallestPreNode = null;
+
         while (curr != null) {
+
+            // 默认最小值就是curr
+            small = curr;
+
             // 获取最小值的前一个节点
-            ListNode smallestPreNode = getSmallestPreNode(curr);
-            // 如果最小值的前一个节点就是当前节点 那么不需要进行处理
-            if (smallestPreNode == curr) {
-                pre = curr;
-            } else {
-                // 调整节点指向
-                ListNode small = smallestPreNode.next;
-                pre.next = small;
-                ListNode last = small.next;
-                smallestPreNode.next = last;
-                small.next = curr;
+            smallestPreNode = getSmallestPreNode(curr);
+
+            // 如果前一个节点不为空 那么更新最小值 并且处理删除最小值节点
+            if (smallestPreNode != null) {
+                small = smallestPreNode.next;
+                smallestPreNode.next = small.next;
             }
-            curr = curr.next;
+
+            // 处理节点之间的指向
+            if (tail == null) {
+                newHead = small;
+            } else {
+                tail.next = small;
+            }
+
+            // 更新tail
+            tail = small;
+
+            // 如果curr就是最小值节点 那么处理curr的next
+            // 否则下一次遍历还是从curr开始
+            if (curr == small) {
+                curr = curr.next;
+            }
+
         }
-        return head;
+        return newHead;
     }
 
 
     /**
-     * 链表的最小值节点的前一个节点!!!
+     * 链表的最小值节点的前一个节点!!!【如果第一个节点就是最小值 那么这个节点的前一个节点就是null】
      *
      * @param head
      * @return 返回最小值节点的pre节点!!!!!
      */
     private ListNode getSmallestPreNode(ListNode head) {
 
-        // 最小值的前一个节点
-        ListNode preSmallest = head;
+        // 最小值的前一个节点 只能为null
+        ListNode preSmallest = null;
 
         // 默认head就是最小值
         ListNode smallest = head;
 
-        // 记录上一个节点
-        ListNode pre = head;
-
         // 当前遍历的节点
         ListNode curr = head.next;
+
+        // 记录上一个节点
+        ListNode pre = head;
 
         while (curr != null) {
             if (curr.val < smallest.val) {
