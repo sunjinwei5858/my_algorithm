@@ -24,6 +24,7 @@ public class _06_Insert_Sort_Linkedlist {
      */
     public ListNode insertSort(ListNode head) {
 
+        // 鲁棒性：链表为空或者只有一个节点 不需要排序
         if (head == null || head.next == null) {
             return head;
         }
@@ -39,7 +40,7 @@ public class _06_Insert_Sort_Linkedlist {
                 tail = tail.next;
             } else {
                 ListNode pre = newHead;
-                // 情况2：直接当成头节点 更新头节点
+                // 情况2：直接当成头节点 更新头节点 【这一步可以优化 可以使用哨兵节点】
                 if (pre.val > curr.val) {
                     tail.next = curr.next;
                     curr.next = pre;
@@ -62,6 +63,50 @@ public class _06_Insert_Sort_Linkedlist {
             curr = tail.next;
         }
         return newHead;
+    }
+
+    /**
+     * 第二种:使用哨兵节点
+     * <p>
+     * 执行用时：2 ms, 在所有 Java 提交中击败了99.11%的用户
+     * 内存消耗：38.3 MB, 在所有 Java 提交中击败了13.69%的用户
+     *
+     * @param head
+     */
+    public ListNode insertSort2(ListNode head) {
+
+        // 鲁棒性：链表为空或者只有一个节点 不需要排序
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        // 创建哨兵节点
+        ListNode shaobing = new ListNode(-1);
+        shaobing.next = head;
+        // 设置排好序的尾巴节点
+        ListNode tail = shaobing.next;
+        // 从head.next开始遍历
+        ListNode curr = head.next;
+
+        while (curr != null) {
+            if (tail.val <= curr.val) {
+                // 因为是原地调整
+                // tail = curr // 也是可以的
+                tail = tail.next;
+            } else {
+                ListNode begin = shaobing;
+                while (begin.next.val <= curr.val) {
+                    begin = begin.next;
+                }
+                // 调整节点指向
+                tail.next = curr.next;
+                curr.next = begin.next;
+                begin.next = curr;
+            }
+            // 更新curr
+            curr = tail.next;
+        }
+        return shaobing.next;
     }
 
 
