@@ -37,7 +37,7 @@ public class _06_Insert_Sort_Linkedlist {
         while (curr != null) {
             // 情况1：不需要处理 直接更新尾巴节点
             if (tail.val <= curr.val) {
-                tail = tail.next;
+                tail = curr;
             } else {
                 ListNode pre = newHead;
                 // 情况2：直接当成头节点 更新头节点 【这一步可以优化 可以使用哨兵节点】
@@ -66,7 +66,7 @@ public class _06_Insert_Sort_Linkedlist {
     }
 
     /**
-     * 第二种:使用哨兵节点
+     * 第二种:使用哨兵节点，优化第一种解法的第二种情况 将第二种情况和第三种情况进行整合了【官方题解的做法】
      * <p>
      * 执行用时：2 ms, 在所有 Java 提交中击败了99.11%的用户
      * 内存消耗：38.3 MB, 在所有 Java 提交中击败了13.69%的用户
@@ -110,6 +110,39 @@ public class _06_Insert_Sort_Linkedlist {
     }
 
 
+    /**
+     * 第三种：对第一种方法使用哨兵节点 不记录排好序的尾巴节点，每次都从头开始遍历一遍，所以时间复杂度高【代码随想录的解法】
+     * <p>
+     * 执行用时：25 ms, 在所有 Java 提交中击败了24.91%的用户
+     * 内存消耗：37.6 MB, 在所有 Java 提交中击败了98.68%的用户
+     *
+     * @param head
+     */
+    public ListNode insertSort3(ListNode head) {
+        // 鲁棒性：链表为空或者只有一个节点 不需要排序
+        if (head == null || head.next == null) {
+            return head;
+        }
+        // 使用哨兵节点 但是哨兵节点初始化不指向头节点 这样是为了方便插入比头节点还小的值
+        ListNode shaobing = new ListNode(0);
+        ListNode curr = head;
+        ListNode pre = shaobing;
+        while (curr != null) {
+            // 如果curr比pre.next的值更大 那么继续寻找
+            while (pre.next != null && pre.next.val <= curr.val) {
+                pre = pre.next;
+            }
+            // 在pre和pre.next之间插入curr
+            ListNode temp = curr.next;
+            curr.next = pre.next;
+            pre.next = curr;
+            pre = shaobing;
+            curr = temp;
+        }
+        return shaobing.next;
+    }
+
+
     public static void main(String[] args) {
         ListNode a = new ListNode(4);
         ListNode b = new ListNode(2);
@@ -122,7 +155,7 @@ public class _06_Insert_Sort_Linkedlist {
 
         _06_Insert_Sort_Linkedlist sortLinkedlist = new _06_Insert_Sort_Linkedlist();
 
-        ListNode res = sortLinkedlist.insertSort(a);
+        ListNode res = sortLinkedlist.insertSort3(a);
 
         System.out.println(res);
 
