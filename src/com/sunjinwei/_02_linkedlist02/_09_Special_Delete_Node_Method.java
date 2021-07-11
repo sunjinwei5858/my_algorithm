@@ -3,7 +3,8 @@ package com.sunjinwei._02_linkedlist02;
 import com.sunjinwei.domain.ListNode;
 
 /**
- * 一种怪异的删除节点的方式
+ * 一种怪异的删除节点的方式 【竟然是腾讯面试题 力扣237 一开始总以为还有个参数没传呢】
+ * 请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点。传入函数的唯一参数为 要被删除的节点 。
  * 要求：时间复杂度为O(1)
  */
 public class _09_Special_Delete_Node_Method {
