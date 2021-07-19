@@ -114,6 +114,23 @@ public class _02_Morris {
         return res;
     }
 
+
+    /**
+     * Morris实现中序遍历
+     *
+     * @param root
+     */
+    public List<Integer> morrisMiddle(TreeNode root) {
+
+        List<Integer> res = new ArrayList<>();
+
+
+
+
+        return res;
+    }
+
+
     public static void main(String[] args) {
         TreeNode a = new TreeNode(1);
         TreeNode b = new TreeNode(2);
