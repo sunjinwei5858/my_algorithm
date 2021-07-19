@@ -124,9 +124,45 @@ public class _02_Morris {
 
         List<Integer> res = new ArrayList<>();
 
+        if (root == null) {
+            return res;
+        }
 
+        // 声明当前遍历的节点
+        TreeNode curr = root;
+        // 声明最右节点
+        TreeNode mostRight = null;
 
+        while (curr != null) {
+            // 当前节点的左子树
+            mostRight = curr.left;
+            if (mostRight != null) {
+                // 寻找左子树中最右的节点
+                while (mostRight.right != null && mostRight.right != curr) {
+                    mostRight = mostRight.right;
+                }
+                if (mostRight.right == null) {
+                    // 第一次遇到 修改叶子节点的right指针
+                    mostRight.right = curr;
+                    // 更新curr
+                    curr = curr.left;
+                    // 跳出当前循环
+                    continue;
+                } else {
 
+                    // 第二次遇到 恢复叶子节点的right指针
+                    mostRight.right = null;
+
+                    // 说明此时 curr是根节点 或者是右节点
+                    res.add(curr.val);
+                }
+            } else {
+                // 说明此时 curr是叶子节点
+                res.add(curr.val);
+            }
+            // 1没有左子树 2curr的左子树已经遍历
+            curr = curr.right;
+        }
         return res;
     }
 
@@ -154,7 +190,7 @@ public class _02_Morris {
 
         _02_Morris morris = new _02_Morris();
 
-        List<Integer> res = morris.morrisPre(a);
+        List<Integer> res = morris.morrisMiddle(a);
         System.out.println(res.toString());
 
 
