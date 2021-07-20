@@ -10,7 +10,7 @@ package com.sunjinwei._06_array;
  * 求arr的所有子数组中所有元素相加和为k的最长子数组长度。
  * 例如，arr=[1，2，1，1，1]，k=3。累加和为3的最长子数组为[1，1，1]，所以结果返回3。
  */
-public class _01_longest_length_I {
+public class _01_sub_arr_longest_length_I {
 
     /**
      * 最优解：时间复杂度O(N),空间复杂度为O(1)
@@ -61,7 +61,7 @@ public class _01_longest_length_I {
 
     public static void main(String[] args) {
         int[] arr = new int[]{1, 2, 1, 1, 1};
-        _01_longest_length_I length_i = new _01_longest_length_I();
+        _01_sub_arr_longest_length_I length_i = new _01_sub_arr_longest_length_I();
         int lonestLength = length_i.getLongestLength(arr, 3);
         System.out.println(lonestLength);
 
