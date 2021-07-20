@@ -1,5 +1,6 @@
 package com.sunjinwei._06_array;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -23,14 +24,43 @@ public class _03_two_sum_I {
             hashMap.put(nums[i], i);
         }
         for (int i = 0; i < nums.length; i++) {
-            int res = target - nums[i];
             //!!!! 这里需要判断不能重复
             // 数组中同一个元素在答案里不能重复出现
-            if (hashMap.containsKey(res) && hashMap.get(res) != i) {
-                return new int[]{hashMap.get(res), i};
+            if (hashMap.containsKey(target - nums[i]) && hashMap.get(target - nums[i]) != i) {
+                return new int[]{hashMap.get(target - nums[i]), i};
             }
         }
         return new int[]{-1, -1};
     }
+
+    /**
+     * 方法1：哈希表优化 一个for循环
+     *
+     * @param nums
+     * @param target
+     * @return 返回元素的索引
+     */
+    public int[] twoSum2(int[] nums, int target) {
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            //!!!! 这里需要判断不能重复
+            // 数组中同一个元素在答案里不能重复出现
+            if (hashMap.containsKey(target - nums[i])) {
+                return new int[]{hashMap.get(target - nums[i]), i};
+            }
+            // 存储key和value
+            hashMap.put(nums[i], i);
+        }
+        return new int[]{-1, -1};
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 7, 9};
+        _03_two_sum_I twoSumI = new _03_two_sum_I();
+        int[] res = twoSumI.twoSum2(arr, 9);
+        System.out.println(Arrays.toString(res));
+    }
+
 
 }
