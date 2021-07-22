@@ -3,7 +3,7 @@ package com.sunjinwei._02_linkedlist02;
 import com.sunjinwei.domain.ComplexListNode;
 
 /**
- * 复杂链表的复制【复制含有随机指针节点的链表】
+ * 复杂链表的复制【复制含有随机指针节点的链表】力扣138
  * 要求：时间复杂度为O(n) 空间复杂度为O(1)
  */
 public class _01_Complex_List_Copy {
@@ -40,6 +40,8 @@ public class _01_Complex_List_Copy {
             next = curr.next.next;
             // 处理rand指针
             newNode = curr.next;
+
+            // 容易出bug：忘记判空
             if (curr.rand != null) {
                 rand = curr.rand;
                 newNode.rand = rand.next;
@@ -57,6 +59,8 @@ public class _01_Complex_List_Copy {
             // 旧链表还原next
             curr.next = next;
             // 新链表重新设置next
+
+            // 容易出bug：忘记判空
             if (next != null) {
                 newNode.next = next.next;
             }
