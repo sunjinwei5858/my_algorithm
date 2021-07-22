@@ -12,7 +12,7 @@ import java.util.Stack;
  * 中序：栈实现
  * 后序：一个栈实现；两个栈实现
  */
-public class _01_Tree_Traverse {
+public class _01_Traverse {
 
     /**
      * 前序遍历：根左右
@@ -161,7 +161,7 @@ public class _01_Tree_Traverse {
     }
 
     public static void main(String[] args) {
-        _01_Tree_Traverse treeTraverse = new _01_Tree_Traverse();
+        _01_Traverse treeTraverse = new _01_Traverse();
 
         TreeNode a = new TreeNode(1);
         TreeNode b = new TreeNode(2);
