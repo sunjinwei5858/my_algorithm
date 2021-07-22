@@ -56,6 +56,9 @@ public class _03_Long_Path {
         // 递归处理右子树
         maxLen = preOrder(curr.right, maxLen, sum, currSum, level + 1, map);
         // 别忘记 remove操作!!!!
+        // 保证函数返回后 map不受污染
+        // 因为递归调用返回到上层函数后，后续还可能preOrder()的调用 还要用到map
+        // (可以类比"求所有排列组合"题目，也是需要在交换两元素后、返回前，恢复原状)回溯
         if (map.get(currSum) == level) {
             map.remove(currSum);
         }
