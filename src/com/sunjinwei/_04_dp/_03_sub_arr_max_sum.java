@@ -79,5 +79,33 @@ public class _03_sub_arr_max_sum {
         return result;
     }
 
+    /**
+     * 贪心算法实现
+     * <p>
+     * 执行用时：1 ms, 在所有 Java 提交中击败了94.68%的用户
+     * 内存消耗：38.2 MB, 在所有 Java 提交中击败了76.06%的用户
+     */
+    public int maxSubArray04(int[] nums) {
+        int max = nums[0];
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            max = Math.max(max, sum);
+            // 如果sum<0 那么更新sum为0  因为sum是负数 那么加任何数 都是递减的
+            if (sum <= 0) {
+                sum = 0;
+            }
+        }
+        return max;
+    }
+
+
+    public static void main(String[] args) {
+        _03_sub_arr_max_sum arrMaxSum = new _03_sub_arr_max_sum();
+        int[] arr = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int i = arrMaxSum.maxSubArray(arr);
+        System.out.println(i);
+    }
+
 
 }
