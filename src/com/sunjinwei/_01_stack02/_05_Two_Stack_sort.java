@@ -3,9 +3,10 @@ package com.sunjinwei._01_stack02;
 import java.util.Stack;
 
 /**
- * 栈排序: 使用辅助栈完成栈的排序
+ * 栈排序: 使用辅助栈完成栈的排序【在leetcode上也被人叫过 双栈排序 字节 美团 猿辅导 都考察过】
+ * 思想：插入排序
  */
-public class _05_Sort_Stack {
+public class _05_Two_Stack_sort {
 
     /**
      * 栈顶到栈底从大到小排序
@@ -33,7 +34,7 @@ public class _05_Sort_Stack {
     }
 
     public static void main(String[] args) {
-        _05_Sort_Stack sortStack = new _05_Sort_Stack();
+        _05_Two_Stack_sort sortStack = new _05_Two_Stack_sort();
         Stack<Integer> stack = new Stack<>();
         stack.push(4);
         stack.push(7);
