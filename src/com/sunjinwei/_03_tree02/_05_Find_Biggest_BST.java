@@ -59,10 +59,13 @@ class BstReturnType {
 
     TreeNode maxTreeNode;
 
+    // 表示节点个数
     int maxSize;
 
+    // 右子树上的最小值
     int rightTreeMin;
 
+    // 左子树上的最大值
     int leftTreeMax;
 
     public BstReturnType(TreeNode maxTreeNode, int maxSize, int rightTreeMin, int leftTreeMax) {
