@@ -24,24 +24,23 @@ public class _17_is_avl {
         if (root == null) {
             return true;
         }
-        // 处理根节点
-        // 求左子树的高度
+        // 左子树的高度
         int left = treeDepth(root.left);
-        // 求右子树的高度
+        // 右子树的高度
         int right = treeDepth(root.right);
         // 计算高度差
         if (Math.abs(left - right) > 1) {
             return false;
         }
-        // 处理左子树
+        // 左子树：存在大量的重复计算
         boolean avl_left = isAvl_01(root.left);
-        // 处理右子树
+        // 右子树：存在大量的重复计算
         boolean avl_right = isAvl_01(root.right);
         return avl_left && avl_right;
     }
 
     /**
-     * 单纯的只是求树的深度
+     * 求树的高度：后序遍历
      *
      * @param root
      * @return
@@ -72,7 +71,7 @@ public class _17_is_avl {
     }
 
     /**
-     * 求树深度的时候 就去判断是不是平衡树
+     * 求树的高度：后序遍历 就加入平衡树的判断
      *
      * @param root
      * @return
@@ -83,17 +82,19 @@ public class _17_is_avl {
         }
         // 左子树
         int heightLeft = height(root.left);
+        if (heightLeft == -1) {
+            return -1;
+        }
         // 右子树
         int heightRight = height(root.right);
-        // 先判断是不是-1
-        if (heightLeft == -1 || heightRight == -1) {
+        if (heightRight == -1) {
             return -1;
         }
         // 然后再判断高度差 顺序这样 效率高些
         if (Math.abs(heightLeft - heightRight) > 1) {
             return -1;
         }
-
+        // 根节点
         return Math.max(heightLeft, heightRight) + 1;
     }
 

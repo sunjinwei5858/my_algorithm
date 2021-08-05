@@ -6,16 +6,15 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 求二叉树的深度 ps: 最大深度
- * 方法1：递归
- * 方法2：迭代
+ * 求二叉树最大深度 【力扣104】
+ * ps：
+ * 1理解高度和深度的意思，高度是自底向上(后序遍历)，深度是自顶向上(前序遍历)
+ * 2这道题可以联想到[判断是否是平衡树]，因为平衡树是判断高度
  */
 public class _07_tree_depth {
 
     /**
-     * 方法1：递归，思路：前序遍历 根左右 O(n)
-     * 1如果二叉树为空 二叉树深度为0
-     * 2如果二叉树不为空 二叉树深度=max(左子树，右子树)+1
+     * 方法1：后序遍历【这样相当于求根节点的高度】
      * <p>
      * 执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户
      * 内存消耗：38.3 MB, 在所有 Java 提交中击败了80.58%
@@ -28,21 +27,56 @@ public class _07_tree_depth {
         if (root == null) {
             return 0;
         }
+        // 左树
         int left = getTreeDepth_01(root.left);
+        // 右树
         int right = getTreeDepth_01(root.right);
-        return Math.max(left, right) + 1;
+        // 根节点
+        int depth = Math.max(left, right) + 1;
+        return depth;
+    }
+
+    /**
+     * 方法2：前序遍历【求最大深度 理论上是从上到下 所以前序遍历才是最大深度的理论姿势】
+     *
+     * @param root
+     */
+    private int result = 0;
+
+    public int getTreeDepth_02(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        process(root, 1);
+        return result;
+    }
+
+    private void process(TreeNode root, int depth) {
+        if (depth > result) {
+            result = depth;
+        }
+        // 终止条件1
+        if (root == null) {
+            return;
+        }
+        // 终止条件2
+        if (root.left == null && root.right == null) {
+            return;
+        }
+        process(root.left, depth + 1);
+        process(root.right, depth + 1);
     }
 
 
     /**
-     * 方法2：迭代，思路：层序遍历
+     * 方法3：层序遍历
      * 执行用时：1 ms, 在所有 Java 提交中击败了21.95%的用户
      * 内存消耗：38 MB, 在所有 Java 提交中击败了98.70%的用户
      *
      * @param root
      * @return
      */
-    public int getTreeDepth_02(TreeNode root) {
+    public int getTreeDepth_03(TreeNode root) {
         if (root == null) {
             return 0;
         }
