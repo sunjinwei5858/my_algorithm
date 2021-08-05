@@ -142,7 +142,7 @@ public class _06_Recover_BST {
     }
 
     /**
-     * 进阶：
+     * 进阶：提前break
      *
      * @param root
      */
