@@ -1,13 +1,15 @@
 package com.sunjinwei._03_tree;
 
 
+import com.sunjinwei.domain.AvlReturnType;
 import com.sunjinwei.domain.TreeNode;
 
 /**
  * 判断二叉树是否是平衡二叉树    【力扣110】
  * avl：1要么是一颗空树 2要么任何一个节点的左右子树的高度差绝对值不超过1【也就是<=1】
- * 思路：
- * 这次不使用左神的动态规划做，而是使用自顶向下和自底向上的方法解决
+ * 方法1：自顶向下
+ * 方法2：自底向上
+ * 方法3：树形dp
  */
 public class _17_is_avl {
 
@@ -96,6 +98,40 @@ public class _17_is_avl {
         }
         // 根节点
         return Math.max(heightLeft, heightRight) + 1;
+    }
+
+    /**
+     * 方法3：树形dp
+     * 判断是否是平衡二叉树，需要高度，是否是
+     * <p>
+     * 执行用时：1 ms, 在所有 Java 提交中击败了90.87%的用户
+     * 内存消耗：38.7 MB, 在所有 Java 提交中击败了10.38%的用户
+     *
+     * @param root
+     */
+    public boolean isAvl_03(TreeNode root) {
+        return process(root).balancedIs;
+    }
+
+    /**
+     * 后序遍历处理树形dp
+     *
+     * @param root
+     * @return
+     */
+    private AvlReturnType process(TreeNode root) {
+        // base case: 为空 返回true
+        if (root == null) {
+            return new AvlReturnType(true, 0);
+        }
+        AvlReturnType leftReturn = process(root.left);
+        AvlReturnType rightReturn = process(root.right);
+        int height = Math.max(leftReturn.height, rightReturn.height) + 1;
+        boolean flag = Math.abs(leftReturn.height - rightReturn.height) <= 1;
+        if (flag && leftReturn.balancedIs && rightReturn.balancedIs) {
+            return new AvlReturnType(true, height);
+        }
+        return new AvlReturnType(false, height);
     }
 
 
