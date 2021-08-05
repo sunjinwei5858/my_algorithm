@@ -104,6 +104,7 @@ public class _04_Stock_Max_Profit_I {
             // 第i天 不持有股票
             dp[i][1] = Math.max(dp[i - 1][1], prices[i] + dp[i - 1][0]);
         }
+        // 最后结果肯定是没有股票 全部卖出去来 利润才会最大
         return dp[prices.length - 1][1];
     }
 
