@@ -16,7 +16,7 @@ import java.util.List;
  * candidates 中的每个数字在每个组合中只能使用一次。 
  * 对于给定的输入，保证和为 target 的唯一组合数少于 150 个。
  */
-public class _06_zuhei_sum_II {
+public class _06_zuhe_sum_II {
 
     public List<List<Integer>> res = new ArrayList<>();
 

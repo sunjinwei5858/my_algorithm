@@ -12,7 +12,7 @@ import java.util.List;
  * 输出:
  * [[2,4],[3,4],[2,3],[1,2],[1,3],[1,4]]
  */
-public class _06_zuhei {
+public class _06_zuhe {
 
     private List<List<Integer>> result = new ArrayList<>();
 
@@ -81,7 +81,7 @@ public class _06_zuhei {
 
 
     public static void main(String[] args) {
-        _06_zuhei zuhei = new _06_zuhei();
+        _06_zuhe zuhei = new _06_zuhe();
         List<List<Integer>> combine = zuhei.combine(4, 4);
         for (List<Integer> integers : combine) {
             System.out.println(integers.toString());

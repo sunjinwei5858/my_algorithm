@@ -12,7 +12,7 @@ import java.util.List;
  * candidates 中的数字可以无限制重复被选取。如果至少一个所选数字数量不同，则两种组合是唯一的。 
  * 对于给定的输入，保证和为 target 的唯一组合数少于 150 个。
  */
-public class _06_zuhei_sum_I {
+public class _06_zuhe_sum_I {
 
     public List<List<Integer>> res = new ArrayList<>();
 
@@ -87,7 +87,7 @@ public class _06_zuhei_sum_I {
 
 
     public static void main(String[] args) {
-        _06_zuhei_sum_I zuheiSum = new _06_zuhei_sum_I();
+        _06_zuhe_sum_I zuheiSum = new _06_zuhe_sum_I();
 
         int[] arr = new int[]{2, 3, 6, 7};
 
