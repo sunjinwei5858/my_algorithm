@@ -2,6 +2,7 @@ package com.sunjinwei._11_huisu;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,15 +17,6 @@ public class _06_zuhe_sum_I {
 
     public List<List<Integer>> res = new ArrayList<>();
 
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
-
-        if (candidates == null || candidates.length == 0 || target <= 0) {
-            return res;
-        }
-        process2(candidates, target, 0, new LinkedList());
-        return res;
-    }
-
     /**
      * 题目要求的解法 [2,3,6,7] target=7 ==> [[2,2,3],[7]]
      * <p>
@@ -32,10 +24,17 @@ public class _06_zuhe_sum_I {
      *
      * @param candidates
      * @param target
-     * @param start
-     * @param path
      */
-    private void process2(int[] candidates, int target, int start, LinkedList<Integer> path) {
+    public List<List<Integer>> combinationSum1(int[] candidates, int target) {
+
+        if (candidates == null || candidates.length == 0 || target <= 0) {
+            return res;
+        }
+        process1(candidates, target, 0, new LinkedList());
+        return res;
+    }
+
+    private void process1(int[] candidates, int target, int start, LinkedList<Integer> path) {
 
         // 终止条件1：target<0
         if (target < 0) {
@@ -49,24 +48,46 @@ public class _06_zuhe_sum_I {
         for (int i = start; i < candidates.length; i++) {
             path.add(candidates[i]);
             // 关键点 不要i+1了，表示可以重复选取
-            process2(candidates, target - candidates[i], i, path);
+            process1(candidates, target - candidates[i], i, path);
             path.removeLast();
         }
     }
 
 
     /**
-     * 优化上面的target<0判断 放入到for循环中去判断 可以减少递归次数
-     * <p>
+     * 方法2：先排序 然后剪枝
      * 执行用时：2 ms, 在所有 Java 提交中击败了99.90%的用户
      * 内存消耗：38.7 MB, 在所有 Java 提交中击败了51.80%的用户
+     *
+     * @param candidates
+     * @param target
+     * @return
+     */
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+
+        if (candidates == null || candidates.length == 0 || target <= 0) {
+            return res;
+        }
+        Arrays.sort(candidates);
+        process2(candidates, target, 0, new LinkedList());
+        return res;
+    }
+
+
+    /**
+     * 优化上面的target<0判断 放入到for循环中去判断 可以减少递归次数
      *
      * @param candidates
      * @param target
      * @param start
      * @param path
      */
-    private void process3(int[] candidates, int target, int start, LinkedList<Integer> path) {
+    private void process2(int[] candidates, int target, int start, LinkedList<Integer> path) {
+
+        // 终止条件1
+        if (target < 0) {
+            return;
+        }
 
         // 终止条件2：如果找到了 那么加入结果集
         if (target == 0) {
@@ -80,7 +101,7 @@ public class _06_zuhe_sum_I {
             }
             path.add(candidates[i]);
             // 关键点 不要i+1了，表示可以重复选取当前的数
-            process3(candidates, target - candidates[i], i, path);
+            process2(candidates, target - candidates[i], i, path);
             path.removeLast();
         }
     }
@@ -91,7 +112,7 @@ public class _06_zuhe_sum_I {
 
         int[] arr = new int[]{2, 3, 6, 7};
 
-        List<List<Integer>> combinationSum = zuheiSum.combinationSum(arr, 7);
+        List<List<Integer>> combinationSum = zuheiSum.combinationSum1(arr, 7);
 
         for (List<Integer> integers : combinationSum) {
             System.out.println(integers.toString());
