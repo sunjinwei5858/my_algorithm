@@ -99,11 +99,68 @@ public class _03_sub_arr_max_sum {
         return max;
     }
 
+    /**
+     * 分治算法实现：归并排序思想!!!
+     *
+     * @param nums
+     */
+    public int maxSubArray05(int[] nums) {
+
+        return process(nums, 0, nums.length - 1);
+    }
+
+    /**
+     * 归并排序思想
+     * 最大子序列全部在数组左部分
+     * 最大子序列全部在数组右部分
+     * 最大子序列横跨左右数组
+     * <p>
+     * 对于第三种情况，由于已知循环的起点（即中点），我们只需要进行一次循环，分别找出 左边和右边的最大子序列即可。
+     *
+     * @param nums
+     * @param left
+     * @param right
+     * @return
+     */
+    public int process(int[] nums, int left, int right) {
+        // 注意!!!： 这里是 >
+        if (left > right) {
+            return Integer.MIN_VALUE;
+        }
+        // 注意!!!：这里要用括号括起来
+        int mid = left + ((right - left) >> 1);
+        // 1
+        int leftRes = process(nums, left, mid - 1);
+        // 2
+        int rightRes = process(nums, mid + 1, right);
+        // 3
+        int crossSum = getCross(nums, left, mid, right);
+        int s2 = Math.max(leftRes, rightRes);
+        return Math.max(crossSum, s2);
+    }
+
+    private int getCross(int[] nums, int left, int mid, int right) {
+        int sum = 0;
+        int leftSum = 0;
+        // 注意!!!：这里要倒序遍历 因为这里是考虑第三种情况 mid附近
+        for (int i = mid - 1; i >= left; i--) {
+            sum += nums[i];
+            leftSum = Math.max(sum, leftSum);
+        }
+        sum = 0;
+        int rightSum = 0;
+        for (int i = mid + 1; i <= right; i++) {
+            sum += nums[i];
+            rightSum = Math.max(rightSum, sum);
+        }
+        return leftSum + rightSum + nums[mid];
+    }
+
 
     public static void main(String[] args) {
         _03_sub_arr_max_sum arrMaxSum = new _03_sub_arr_max_sum();
         int[] arr = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int i = arrMaxSum.maxSubArray(arr);
+        int i = arrMaxSum.maxSubArray05(arr);
         System.out.println(i);
     }
 

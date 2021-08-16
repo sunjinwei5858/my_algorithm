@@ -1,5 +1,7 @@
 package com.sunjinwei._08_sort;
 
+import java.util.Arrays;
+
 /**
  * 归并排序
  * 思想：
@@ -26,11 +28,12 @@ public class _05_merge_sort {
      * @param right
      */
     private void mergeSort(int[] arr, int left, int right) {
-        if (left == right) {
+        // 这里 > || =
+        if (left >= right) {
             return;
         }
         // 寻找中点
-        int middle = left + (right - left) >> 1;
+        int middle = left + ((right - left) >> 1);
         // 处理左边有序
         mergeSort(arr, left, middle);
         // 处理右边有序
@@ -85,6 +88,15 @@ public class _05_merge_sort {
         for (int j = 0; j < help.length; j++) {
             arr[left + j] = help[j];
         }
+    }
+
+    public static void main(String[] args) {
+        _05_merge_sort mergeSort = new _05_merge_sort();
+        int[] arr = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
+
+        mergeSort.mergeSort(arr);
+
+        System.out.println(Arrays.toString(arr));
     }
 
 }
