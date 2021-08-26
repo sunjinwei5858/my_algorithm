@@ -31,11 +31,14 @@ public class _05_wanquan_beibao_coins_change_I {
         // 状态定义：当目标金额为i时，至少需要dp[i]枚硬币凑出
         int[] dp = new int[amount + 1];
         // base case 初始化
+        // 初始化1：这里要填充为很大的值
         Arrays.fill(dp, amount + 1);
+        // 初始化2：这里是为0
         dp[0] = 0;
-        // 第一种循环方式 硬币在外层循环 这种方式处理的比较多 更好理解
+        // 硬币在外层循环 这种方式处理的比较多 更好理解
+        // 因为是完全背包 这里和排列 组合 没有关系 所以两种内外循环选择都可以
         for (int coin : coins) {
-            for (int j = 1; j < dp.length; j++) {
+            for (int j = 1; j <= amount; j++) {
                 if (coin <= j) {
                     int s1 = dp[j];
                     int s2 = 1 + dp[j - coin];
@@ -43,16 +46,6 @@ public class _05_wanquan_beibao_coins_change_I {
                 }
             }
         }
-        // 第二种循环方式
-        /*for (int i = 1; i <= amount; i++) {
-            for (int j = 0; j < coins.length; j++) {
-                if (i >= coins[j]) {
-                    int s1 = _04_dp[i];
-                    int s2 = _04_dp[i - coins[j]] + 1;
-                    _04_dp[i] = Math.min(s1, s2);
-                }
-            }
-        }*/
         if (dp[amount] == amount + 1) {
             return -1;
         }
