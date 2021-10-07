@@ -1,4 +1,4 @@
-package com.sunjinwei.deadlock;
+package com.sunjinwei.juc;
 
 /**
  * 模拟多线程死锁代码    【拼多多面试题2021-9-26】
