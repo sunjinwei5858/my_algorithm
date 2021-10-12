@@ -97,6 +97,34 @@ public class _01_length_longest_substring {
 
     }
 
+    /**
+     * 方法3：简单写法 使用hashset作为滑动窗口
+     *
+     * @param s
+     * @return
+     */
+    public int lengthOfLongestSubstring3(String s) {
+        int n = s.length();
+        if (n == 0) {
+            return 0;
+        }
+        int maxLen = 1;
+        HashSet<Character> occ = new HashSet<>();
+        int left = 0;
+        for (int i = 0; i < n; i++) {
+            // 只要窗口包含这个元素 那么将这个元素进行移除 并且left索引++
+            while (occ.contains(s.charAt(i))) {
+                occ.remove(s.charAt(left));
+                left++;
+            }
+            // 最大长度对比
+            maxLen = Math.max(maxLen, i - left + 1);
+            occ.add(s.charAt(i));
+        }
+        return maxLen;
+    }
+
+
     public static void main(String[] args) {
         _01_length_longest_substring longestSubstring = new _01_length_longest_substring();
         int length = longestSubstring.lengthOfLongestSubstring2("abba");
