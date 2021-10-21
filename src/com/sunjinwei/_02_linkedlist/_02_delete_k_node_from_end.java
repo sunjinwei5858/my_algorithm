@@ -8,6 +8,7 @@ import com.sunjinwei.domain.ListNode;
  * 注意这道题：
  * 1主要考察鲁棒性 【当删除的是头节点】
  * 2灵活运用链表的技巧来解题 【双指针+哨兵节点，注意理解哨兵节点的作用】
+ * ps：删除倒数第k个节点 其实就是要找倒数第 k+1 个节点啊 !!!!!!【陌陌面试题
  */
 public class _02_delete_k_node_from_end {
 
@@ -128,6 +129,36 @@ public class _02_delete_k_node_from_end {
         pre.next = slow.next;
         return shaobing.next;
     }
+
+    /**
+     * 方法4：简单思路，找到倒数第k+1个节点
+     *
+     * @param head
+     * @return 返回头节点
+     */
+    public ListNode deleteNode(ListNode head, int k) {
+
+        // 使用快慢指针找出倒数第k+1个节点
+        ListNode fast = head;
+        ListNode slow = head;
+        // 快指针走k+1步
+        k++;
+        while (k > 0) {
+            fast = fast.next;
+        }
+        // 鲁棒性
+        if (fast == null) {
+            return head;
+        }
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        // 此时的slow位置 就是要倒数第k+1位置的节点
+        slow.next = slow.next.next;
+        return head;
+    }
+
 
     public static void main(String[] args) {
         ListNode listNode1 = new ListNode(1);
