@@ -62,15 +62,61 @@ public class _02_get_k_node_from_end {
         }
         ListNode slow = head;
         ListNode fast = head;
+        // 快指针走k步
         while (k > 0) {
             fast = fast.next;
             k--;
         }
+
         while (fast != null) {
             fast = fast.next;
             slow = slow.next;
         }
         return slow;
+    }
+
+    /**
+     * 第三种方式：到达最后一个节点停止
+     * @param head
+     * @param k
+     * @return
+     */
+    public ListNode getKthFromEnd_03(ListNode head, int k) {
+        // 鲁棒性1：链表为空 或者k<0
+        if (head == null || k < 0) {
+            return null;
+        }
+        ListNode slow = head;
+        ListNode fast = head;
+        // 相当于先走 k-1 步
+        while (k > 1) {
+            fast = fast.next;
+            k--;
+        }
+        // 那么这里就需要 到达尾巴节点退出循环
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+    public static void main(String[] args) {
+        ListNode a = new ListNode(1);
+        ListNode b = new ListNode(2);
+        ListNode c = new ListNode(3);
+        ListNode d = new ListNode(4);
+        ListNode e = new ListNode(5);
+
+        a.next = b;
+        b.next = c;
+        c.next = d;
+        d.next = e;
+
+        _02_get_k_node_from_end getKNodeFromEnd = new _02_get_k_node_from_end();
+
+        ListNode node = getKNodeFromEnd.getKthFromEnd_02(a, 2);
+        System.out.println(node);
     }
 
 }
