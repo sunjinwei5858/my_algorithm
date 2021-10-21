@@ -1,5 +1,7 @@
 package com.sunjinwei._08_sort;
 
+import java.util.Arrays;
+
 /**
  * 冒泡排序
  * 思路：
@@ -15,21 +17,20 @@ public class _02_bubble_sort {
         }
         // 冒泡排序
         for (int i = arr.length - 1; i > 0; i--) {
-            // 提前退出冒泡循环的标识
+            // 提前退出冒泡循环的标识 数组如果已经有序 那么就不需要进行排序
             boolean flag = false;
             for (int j = 0; j < i; j++) {
                 if (arr[j] > arr[j + 1]) {
+                    System.out.println("冒泡....");
                     swap(arr, j, j + 1);
                     // 表示有数据交换
                     flag = true;
                 }
             }
-            System.out.println("冒泡....");
             // 没有数据交换 提前退出 【冒泡排序的优化】
             if (!flag) {
                 break;
             }
-
         }
     }
 
@@ -40,9 +41,11 @@ public class _02_bubble_sort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {3, 5, 4, 1, 2, 6};
+        int[] arr = {1, 2, 3, 4, 3};
         _02_bubble_sort bubble_sort = new _02_bubble_sort();
         bubble_sort.bubbleSort(arr);
+
+        System.out.println(Arrays.toString(arr));
 
 
     }
