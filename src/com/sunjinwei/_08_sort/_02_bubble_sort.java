@@ -17,7 +17,7 @@ public class _02_bubble_sort {
         }
         // 冒泡排序
         for (int i = arr.length - 1; i > 0; i--) {
-            // 提前退出冒泡循环的标识 数组如果已经有序 那么就不需要进行排序
+            // 提前退出冒泡循环的标识 数组如果已经有序 那么就不需要进行遍历了 直接跳出循环
             boolean flag = false;
             for (int j = 0; j < i; j++) {
                 if (arr[j] > arr[j + 1]) {
