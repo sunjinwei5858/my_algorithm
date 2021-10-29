@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
  * 快排思想: 比k小的都放在index=k的左边
  * 最大堆：使用优先级队列，最大的元素位于堆顶, O(1)时间获取最大值，需要掌握PriorityQueue，要使最大值在队列的头部 需要传入比较器
  */
-public class _01_get_small_numbers {
+public class _01_get_small_k {
 
 
     /**

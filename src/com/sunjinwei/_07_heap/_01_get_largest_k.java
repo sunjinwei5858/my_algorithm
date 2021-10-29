@@ -15,7 +15,7 @@ import java.util.PriorityQueue;
  * 思路：
  * 要找到第k大元素 那么直接使用二叉堆 java的优先级队列 堆顶放最小值
  */
-public class _01_kth_largest {
+public class _01_get_largest_k {
 
     private int k;
 
@@ -23,7 +23,7 @@ public class _01_kth_largest {
 
     private PriorityQueue<Integer> priorityQueue;
 
-    public _01_kth_largest(int k, int[] nums) {
+    public _01_get_largest_k(int k, int[] nums) {
         this.k = k;
         this.nums = nums;
         // 直接使用自然排序 堆顶存储最小值
