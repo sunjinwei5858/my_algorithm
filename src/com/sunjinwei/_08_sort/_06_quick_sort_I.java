@@ -8,6 +8,7 @@ import java.util.Arrays;
  * <p>
  * 小于等于分界点pivot的数放左边，大于分界点pivot的放右边
  * Partition方法返回一个int值
+ * ps：快排的分治属于 前序遍历 ，因为一上来是先处理根节点的逻辑 然后才是左右子树
  */
 public class _06_quick_sort_I {
 
