@@ -1,5 +1,7 @@
 package com.sunjinwei._07_heap;
 
+import java.util.Arrays;
+
 /**
  * 实现堆排序
  */
@@ -49,7 +51,8 @@ public class _02_heap_sort {
             // 右孩子索引
             int right = left + 1;
             // 右孩子可能没有 所以需要先把判断右孩子索引放在前面
-            int largestIndex = ((right < length) && (arr[left] > arr[right])) ? left : right;
+            // 注意!!!! 先判断右孩子存在并且右孩子更大 其余情况都只能取左孩子
+            int largestIndex = ((right < length) && (arr[right] > arr[left])) ? right : left;
             // 比较左右孩子较大者和父节点的值 哪个值更大 就取哪个索引
             largestIndex = arr[parentIndex] > arr[largestIndex] ? parentIndex : largestIndex;
             // 如果父节点确实比左右孩子的值大 那么退出循环
@@ -96,6 +99,14 @@ public class _02_heap_sort {
         int temp = arr[right];
         arr[right] = arr[left];
         arr[left] = temp;
+    }
+
+    public static void main(String[] args) {
+        _02_heap_sort heapSort = new _02_heap_sort();
+        int[] arr = new int[]{2, 1, 6, 3, 8, 4};
+        heapSort.heapSort(arr);
+        System.out.println(Arrays.toString(arr));
+
     }
 
 }

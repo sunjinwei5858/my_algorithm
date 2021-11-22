@@ -123,7 +123,7 @@ public class _02_binary_heap {
         while (left < heapSize) {
             // 找出左右孩子哪个值更大的索引
             // 最大值是右孩子的条件：右孩子索引也必须小于heapSize 为什么不是等于 因为insert方法 我们让size比本身元素个数+1了
-            int largeIndex = ((left + 1 < heapSize && arr[left] > arr[left + 1])) ? left : (left + 1);
+            int largeIndex = ((left + 1 < heapSize && arr[left + 1] > arr[left])) ? (left + 1) : (left);
             // 和父亲节点的值比较
             largeIndex = arr[largeIndex] > arr[parentIndex] ? largeIndex : parentIndex;
             if (largeIndex == parentIndex) {
@@ -140,11 +140,23 @@ public class _02_binary_heap {
 
     public static void main(String[] args) {
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
-        priorityQueue.offer(1);
         priorityQueue.offer(2);
+        priorityQueue.offer(1);
+        priorityQueue.offer(6);
         priorityQueue.offer(3);
+        priorityQueue.offer(8);
+        priorityQueue.offer(4);
 
         priorityQueue.poll();
+
+        int[] arr = new int[]{2, 1, 6, 3, 8, 4};
+
+        _02_binary_heap binaryHeap = new _02_binary_heap();
+
+        for (int i = 0; i < arr.length; i++) {
+            binaryHeap.insert(arr[i]);
+        }
+
 
     }
 
