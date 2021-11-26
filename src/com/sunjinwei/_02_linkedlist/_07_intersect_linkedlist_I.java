@@ -5,9 +5,10 @@ import com.sunjinwei.domain.ListNode;
 import java.util.Stack;
 
 /**
- * 问题一：无环链表相交
+ * 问题一：无环链表相交 力扣：160 剑指offer：52 两个链表的第一个公共结点 难度:简单
+ * <p>
  * 如何判断两个无环链表是否相交，相交则返回第一个相交节点，不相交则返回null。【no_loop】
- * 力扣：160 剑指offer：52 两个链表的第一个公共结点 难度:简单
+ * <p>
  * 程序尽量满足 O(n) 时间复杂度，且仅用 O(1) 内存。
  * 思路：
  * 1时间复杂度为O(m*n):嵌套遍历
@@ -271,6 +272,24 @@ public class _07_intersect_linkedlist_I {
             result = stackB.pop();
         }
         return result;
+    }
+
+    /**
+     * 160 找出两个链表的交点 最简洁的写法
+     * 思路：链表A到达结尾时 此时从链表B的头节点开始 遍历 ；链表B同理，当两个节点相同时就是交点
+     *
+     * @param headA
+     * @param headB
+     * @return
+     */
+    public ListNode getIntersectionNode2222(ListNode headA, ListNode headB) {
+        ListNode p1 = headA;
+        ListNode p2 = headB;
+        while (p1 != p2) {
+            p1 = p1 != null ? p1.next : headB;
+            p2 = p2 != null ? p2.next : headA;
+        }
+        return p1;
     }
 
 
