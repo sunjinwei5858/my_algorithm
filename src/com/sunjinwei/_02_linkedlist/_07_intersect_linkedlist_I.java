@@ -10,10 +10,11 @@ import java.util.Stack;
  * 如何判断两个无环链表是否相交，相交则返回第一个相交节点，不相交则返回null。【no_loop】
  * <p>
  * 程序尽量满足 O(n) 时间复杂度，且仅用 O(1) 内存。
- * 思路：
- * 1时间复杂度为O(m*n):嵌套遍历
- * 2时间和空间复杂度为O(m+n): 从链表的尾巴开始比较，使用两个辅助栈, ps：使用栈一定要注意非空判断!!!
- * 3空间复杂度为O(1): 先找出两个链表各自的长度m,n，长度长的链表先走(m-n)步，然后开始比较
+ *
+ * 目前有三种方法：
+ * 方法1：先计算出链表的长度 谁更长 谁先走
+ * 方法2：双指针 谁先到末尾 然后从另一个链表开始走
+ * 方法3：使用栈 利用栈先进后出 将两个链表分别入栈 然后弹栈 思路就是从尾巴节点开始遍历
  * <p>
  * 注意：但是这里要注意，如果题目只是说找两个链表的第一个公共节点，
  * 这里是要提前说明 这两个链表是不是单链表 是不是无环
@@ -22,20 +23,18 @@ import java.util.Stack;
 public class _07_intersect_linkedlist_I {
 
     /**
-     * 给定两个（单向）链表，判定它们是否相交并返回交点。
-     * 请注意相交的定义基于节点的引用，而不是基于节点的值。
-     * 换句话说，如果一个链表的第k个节点与另一个链表的第j个节点是同一节点（引用完全相同），则这两个链表相交。
+     * 方法1：
+     * 1。先判断会不会相交，如果相交 那么最后一个节点都是相等的
+     * 2。利用第一步的判断 可以知道两个链表的长度，然后进行相减
      * <p>
      * 执行用时：1 ms, 在所有 Java 提交中击败了100.00%的用户
      * 内存消耗：41.6 MB, 在所有 Java 提交中击败了13.99%的用户
-     * <p>
-     * 【做法一：左神思路 自己的写法 冗余代码多 需要优化】
      *
      * @param headA
      * @param headB
      * @return
      */
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    public ListNode getIntersectionNode01(ListNode headA, ListNode headB) {
         // 鲁棒性1
         if (headA == null || headB == null) {
             return null;
@@ -63,12 +62,13 @@ public class _07_intersect_linkedlist_I {
         if (end1 != end2) {
             return null;
         }
-        // 再找相交的节点
+        // 2再找相交的节点
         // 分析：比较长度 如果len1更大 那么两个链表从头开始走的话 链表1需要先走len1-len2步
         ListNode node1 = headA;
         ListNode node2 = headB;
-        if (len1 > len2) {
-            int k = len1 - len2;
+        int k = len1 - len2;
+        if (k > 0) {
+            // len1更大 node1先走k步
             for (int i = 0; i < k; i++) {
                 node1 = node1.next;
             }
@@ -80,9 +80,8 @@ public class _07_intersect_linkedlist_I {
                 node1 = node1.next;
                 node2 = node2.next;
             }
-        }
-        if (len1 < len2) {
-            int k = len2 - len1;
+        } else if (k < 0) {
+            // len2更大 node2先走k步
             for (int i = 0; i < k; i++) {
                 node2 = node2.next;
             }
@@ -94,8 +93,7 @@ public class _07_intersect_linkedlist_I {
                 node1 = node1.next;
                 node2 = node2.next;
             }
-        }
-        if (len1 == len2) {
+        } else {
             // 注意：这里要取= 不然就要next前写if判断 next后也要进行判断
             for (int i = 0; i <= len1; i++) {
                 if (node1 == node2) {
@@ -109,7 +107,7 @@ public class _07_intersect_linkedlist_I {
     }
 
     /**
-     * 优化上面的代码 简化
+     * 方法2 对上面的代码进行优化
      * 执行用时：1 ms, 在所有 Java 提交中击败了100.00%的用户
      * 内存消耗：41.1 MB, 在所有 Java 提交中击败了80.11%的用户
      * <p>
@@ -119,12 +117,12 @@ public class _07_intersect_linkedlist_I {
      * @param headA
      * @param headB
      */
-    public ListNode getIntersectionNode_02(ListNode headA, ListNode headB) {
+    public ListNode getIntersectionNode02(ListNode headA, ListNode headB) {
         // 鲁棒性1: 提前判空
         if (headA == null || headB == null) {
             return null;
         }
-        // 判断是否相交
+        // 1 判断是否相交
         // 思路：判断两个链表最后一个节点是不是相等 并且声明长度 只声明一个长度变量 不需要各自一个
         int len = 0;
         ListNode lastA = headA;
@@ -137,10 +135,11 @@ public class _07_intersect_linkedlist_I {
             len--;
             lastB = lastB.next;
         }
+        // 2
         if (lastA != lastB) {
             return null;
         }
-        // 找出相交的第一个节点
+        // 3 找出相交的第一个节点
         lastA = headA;
         lastB = headB;
         if (len > 0) {
@@ -156,18 +155,7 @@ public class _07_intersect_linkedlist_I {
                 lastB = lastB.next;
             }
         }
-        // 开始一起遍历 判断节点是否相等
-        // 写法1
-        /*while (lastA != null && lastB != null) {
-            if (lastA == lastB) {
-                return lastA;
-            }
-            lastA = lastA.next;
-            lastB = lastB.next;
-        }
-        return null;*/
-
-        // 写法2 左神的写法 更加简洁
+        // 开始一起遍历 判断节点是否相等 左神的写法 更加简洁
         while (lastA != lastB) {
             lastA = lastA.next;
             lastB = lastB.next;
@@ -177,7 +165,9 @@ public class _07_intersect_linkedlist_I {
 
 
     /**
-     * 双指针： 但是如果不先判断有没有相交的话 默认相交的话 会一直陷入死循环中 所以更加完善的做法还是需要先提前判断是不是会相交
+     * 方法3：双指针
+     * 但是如果不先判断有没有相交的话 默认相交的话 会一直陷入死循环中 所以更加完善的做法还是需要先提前判断是不是会相交
+     *
      * 执行用时：1 ms, 在所有 Java 提交中击败了100.00%的用户
      * 内存消耗：41.5 MB, 在所有 Java 提交中击败了17.24%的用户
      * <p>
@@ -189,43 +179,12 @@ public class _07_intersect_linkedlist_I {
      * @param headA
      * @param headB
      */
-    public ListNode getIntersectionNode_03(ListNode headA, ListNode headB) {
+    public ListNode getIntersectionNode03(ListNode headA, ListNode headB) {
         // 鲁棒性1: 提前判空
         if (headA == null || headB == null) {
             return null;
         }
         // 鲁棒性2：必须先判断是不是相交 如果不相交 该程序是要崩溃的
-        boolean isIntersect = judgeListNodeIsIntersect(headA, headB);
-        if (!isIntersect) {
-            return null;
-        }
-        // 指针1
-        ListNode p1 = headA;
-        // 指针2
-        ListNode p2 = headB;
-        while (p1 != p2) {
-            if (p1 == null) {
-                p1 = headB;
-            } else {
-                p1 = p1.next;
-            }
-            if (p2 == null) {
-                p2 = headA;
-            } else {
-                p2 = p2.next;
-            }
-        }
-        return p1;
-    }
-
-    /**
-     * 判断两个无环链表是不是相交，返回布尔值
-     *
-     * @param headA
-     * @param headB
-     */
-    private boolean judgeListNodeIsIntersect(ListNode headA, ListNode headB) {
-        // 第一种方式：看最后一个节点是不是相等
         ListNode node1 = headA;
         ListNode node2 = headB;
         while (node1.next != null) {
@@ -234,13 +193,20 @@ public class _07_intersect_linkedlist_I {
         while (node2.next != null) {
             node2 = node2.next;
         }
-        if (node1 == node2) {
-            return true;
+        if (node1 != node2) {
+            return null;
         }
-        return false;
+        ListNode p1 = headA;
+        ListNode p2 = headB;
+        while (p1 != p2) {
+            p1 = p1 == null ? headB : p1.next;
+            p2 = p2 == null ? headA : p2.next;
+        }
+        return p1;
     }
 
     /**
+     * 方法4：使用栈
      * 使用辅助栈的解法：空间复杂度为O(m+n), 利用栈的先进后出，栈顶就是链表的尾巴节点，当然这里的前提是：链表为无环链表才可以使用这个方法
      * <p>
      * 执行用时：3 ms, 在所有 Java 提交中击败了15.63%的用户
@@ -250,7 +216,7 @@ public class _07_intersect_linkedlist_I {
      * @param headB
      * @return
      */
-    public ListNode getIntersectionNode_04(ListNode headA, ListNode headB) {
+    public ListNode getIntersectionNode04(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) {
             return null;
         }
@@ -274,25 +240,6 @@ public class _07_intersect_linkedlist_I {
         return result;
     }
 
-    /**
-     * 160 找出两个链表的交点 最简洁的写法
-     * 思路：链表A到达结尾时 此时从链表B的头节点开始 遍历 ；链表B同理，当两个节点相同时就是交点
-     *
-     * @param headA
-     * @param headB
-     * @return
-     */
-    public ListNode getIntersectionNode2222(ListNode headA, ListNode headB) {
-        ListNode p1 = headA;
-        ListNode p2 = headB;
-        while (p1 != p2) {
-            p1 = p1 != null ? p1.next : headB;
-            p2 = p2 != null ? p2.next : headA;
-        }
-        return p1;
-    }
-
-
     public static void main(String[] args) {
         _07_intersect_linkedlist_I linkedlist_iii = new _07_intersect_linkedlist_I();
         ListNode three = new ListNode(3);
@@ -306,7 +253,7 @@ public class _07_intersect_linkedlist_I {
         // 第二个链表
         four.next = two;
 
-        ListNode intersectionNode = linkedlist_iii.getIntersectionNode(one, four);
+        ListNode intersectionNode = linkedlist_iii.getIntersectionNode01(one, four);
         System.out.println(intersectionNode.val);
 
     }

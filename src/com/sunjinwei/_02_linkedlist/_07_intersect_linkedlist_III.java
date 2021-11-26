@@ -40,7 +40,7 @@ public class _07_intersect_linkedlist_III {
         // 问题3：两个都是有环
         if (loop1 == null && loop2 == null) {
             _07_intersect_linkedlist_I noLoop = new _07_intersect_linkedlist_I();
-            return noLoop.getIntersectionNode(headA, headB);
+            return noLoop.getIntersectionNode01(headA, headB);
         } else {
             _07_intersect_linkedlist_II bothLoop = new _07_intersect_linkedlist_II();
             return bothLoop.bothLoop(headA, loop1, headB, loop2);
