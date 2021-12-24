@@ -14,35 +14,46 @@ import com.sunjinwei.domain.ListNode;
  * 输入：l1 = [2,4,3], l2 = [5,6,4]
  * 输出：[7,0,8]
  * 解释：342 + 465 = 807
+ *
+ * 比较好的题解：https://leetcode-cn.com/problems/add-two-numbers/solution/hua-jie-suan-fa-2-liang-shu-xiang-jia-by-guanpengc/
  **/
 public class _14_AddTwoNumbers {
 
+    /**
+     * 思路：这道题和 字符串相加是一样的 都需要进位，因为两个链表的长度可能不一样
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
-        int num1 = 0;
-        int num2 = 0;
-        ListNode p1 = l1;
-        ListNode p2 = l2;
-        while (p1 != null) {
-            num1 = num1 * 10 + p1.val;
-            p1 = p1.next;
-        }
-        while (p2 != null) {
-            num2 = num2 * 10 + p2.val;
-            p2 = p2.next;
-        }
-        String s = String.valueOf(num1 + num2);
-        char[] chars = s.toCharArray();
+        // 1链表要想到哨兵节点
         ListNode shaobing = new ListNode(-1);
-        ListNode pre = null;
         ListNode curr = null;
-        pre = shaobing;
+        curr = shaobing;
 
-        for (int i = chars.length - 1; i >= 0; i--) {
-            int tem = chars[i] - '0';
-            curr = new ListNode(tem);
-            pre.next = curr;
-            pre = curr;
+        int carry = 0;
+        while (l1 != null || l2 != null) {
+            int a = l1 != null ? l1.val : 0;
+            int b = l2 != null ? l2.val : 0;
+            int sum = a + b + carry;
+            // 1计算进位
+            carry = sum / 10;
+            // 2计算位置的值 也就是余数
+            sum = sum % 10;
+
+            curr.next = new ListNode(sum);
+            curr = curr.next;
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                l2 = l2.next;
+            }
+        }
+        if (carry > 0) {
+            curr.next = new ListNode(carry);
         }
         return shaobing.next;
     }
@@ -67,6 +78,7 @@ public class _14_AddTwoNumbers {
         ListNode listNode = addTwoNumbers.addTwoNumbers(a1, b1);
         while (listNode != null) {
             System.out.println(listNode.val);
+            listNode = listNode.next;
         }
     }
 }
