@@ -22,6 +22,8 @@ import java.util.Set;
  * 567. 字符串的排列
  * 632. 最小区间
  * 727. 最小窗口子序列
+ *
+ * 滑动窗口思想：固定left，right++，直到窗口不满足条件；left++，直到窗口重新满足条件；不断滑动窗口，在每个满足条件的位置更新答案 是滑动窗口的标准套路
  */
 public class _01_length_longest_substring {
 
