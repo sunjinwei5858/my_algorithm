@@ -29,21 +29,21 @@ public class _01_fibonacci {
      */
     public int fib_sjw_02(int n) {
         // 1备忘录
-        int[] memeory = new int[n + 1];
+        int[] memory = new int[n + 1];
         // 2辅助函数 用于递归
-        return fib_sjw_helper(n, memeory);
+        return fib_sjw_helper(n, memory);
     }
 
     // 辅助函数
-    private int fib_sjw_helper(int n, int[] memeory) {
+    private int fib_sjw_helper(int n, int[] memory) {
         if (n <= 1) {
             return n;
         }
-        if (memeory[n] == 0) {
+        if (memory[n] == 0) {
             // 3递归 自顶向下的递归
-            memeory[n] = fib_sjw_helper(n - 1, memeory) + fib_sjw_helper(n - 2, memeory);
+            memory[n] = fib_sjw_helper(n - 1, memory) + fib_sjw_helper(n - 2, memory);
         }
-        return memeory[n];
+        return memory[n];
     }
 
     /**
