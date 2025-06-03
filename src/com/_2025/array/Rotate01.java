@@ -31,7 +31,7 @@ public class Rotate01 {
             return s;
         }
         // 取模, 防止k大于n
-        k = n / k;
+        k = n % k;
         return s.substring(n - k) + s.substring(0, k);
     }
 
