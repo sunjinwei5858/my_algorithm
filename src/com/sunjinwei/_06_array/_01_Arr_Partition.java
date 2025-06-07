@@ -1,4 +1,4 @@
-package com.sunjinwei._06_array_02;
+package com.sunjinwei._06_array;
 
 import java.util.Arrays;
 

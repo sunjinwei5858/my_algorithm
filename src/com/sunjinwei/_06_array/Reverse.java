@@ -1,4 +1,4 @@
-package com._2025.array;
+package com.sunjinwei._06_array;
 
 /**
  * 数组基本功：反转数组

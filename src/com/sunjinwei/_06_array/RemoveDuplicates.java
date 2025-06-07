@@ -1,4 +1,4 @@
-package com._2025.array;
+package com.sunjinwei._06_array;
 
 /**
  * 力扣26 删除有序数组中的重复项

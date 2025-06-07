@@ -1,4 +1,4 @@
-package com._2025.array;
+package com.sunjinwei._06_array;
 
 /**
  * 189. 轮转数组

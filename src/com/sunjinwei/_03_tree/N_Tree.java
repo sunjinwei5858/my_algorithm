@@ -1,4 +1,4 @@
-package com.algorithm.week06_tree;
+package com.sunjinwei._03_tree;
 
 import java.util.ArrayList;
 import java.util.List;
