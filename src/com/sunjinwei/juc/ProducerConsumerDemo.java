@@ -2,6 +2,8 @@ package com.sunjinwei.juc;
 
 /**
  * 再写一个使用wait/notify实现生产者消费者
+ * 使用 wait/notify 可以实现线程间的协作，经典场景就是生产者-消费者模型，通过共享锁和条件变量控制生产和消费的节奏。
+ * 总结：该模式是 单生产者 单消费者
  */
 public class ProducerConsumerDemo {
 
