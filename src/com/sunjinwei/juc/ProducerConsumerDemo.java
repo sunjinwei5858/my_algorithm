@@ -3,7 +3,7 @@ package com.sunjinwei.juc;
 /**
  * 再写一个使用wait/notify实现生产者消费者
  * 使用 wait/notify 可以实现线程间的协作，经典场景就是生产者-消费者模型，通过共享锁和条件变量控制生产和消费的节奏。
- * 总结：该模式是 单生产者 单消费者
+ * 总结：wait/notify/notifyAll 多生产者+多消费者
  */
 public class ProducerConsumerDemo {
 
@@ -27,7 +27,7 @@ public class ProducerConsumerDemo {
                     }
                     // 生产一个产品
                     buffer = 1;
-                    System.out.println("生产者生产了一个产品" + (i + 1));
+                    System.out.println(Thread.currentThread().getName() + "生产者生产了一个产品" + (i + 1));
                     lock.notifyAll();
                 }
 
@@ -48,7 +48,7 @@ public class ProducerConsumerDemo {
                         }
                     }
                     buffer = 0;
-                    System.out.println("消费者消费了一个产品" + (i + 1));
+                    System.out.println(Thread.currentThread().getName() + "消费者消费了一个产品" + (i + 1));
                     lock.notifyAll();
                 }
 
@@ -57,7 +57,11 @@ public class ProducerConsumerDemo {
     }
 
     public static void main(String[] args) {
-        new Producer().start();
-        new Consumer().start();
+        for (int i = 0; i < 3; i++) {
+            new Producer().start();
+        }
+        for (int i = 0; i < 3; i++) {
+            new Consumer().start();
+        }
     }
 }
