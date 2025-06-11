@@ -27,7 +27,6 @@ public class _06_quick_sort_I {
          * 1随机打乱处理: 保证i在[left, right]的随机一个 这是为了概率分布
          */
         int i = left + (int) (Math.random() * (right - left + 1));
-        // 将随机选中的元素与子数组的最后一个元素交换
         // 这样，分区函数就可以像经典快排一样，以最后一个元素为枢轴进行操作
         swap(arr, i, right);
         /**
@@ -45,38 +44,42 @@ public class _06_quick_sort_I {
 
     /**
      * partition方法的思想：小于等于分界点的放左边，大于分界点的放右边
+     * [low ... i]   :  <=pivot
+     * [i+1 ... j-1] :  >pivot
+     * [j ... high-1]:  未处理
+     * [high] ：=pivot
+     * <p>
+     * i 指针：始终指向小于或等于枢轴元素的区域的最后一个元素。
+     * j 指针：遍历未处理的元素。
      *
      * @param arr
-     * @param left
-     * @param right
+     * @param low
+     * @param high
      * @return
      */
-    private int partition(int[] arr, int left, int right) {
-        if (left > right) {
+    private int partition(int[] arr, int low, int high) {
+        if (low > high) {
             return -1;
         }
-        if (left == right) {
-            return left;
+        if (low == high) {
+            return low;
         }
-        // 指向小于枢轴元素的区域的右边界
-        int less = left - 1;
-        for (int i = left; i < right; i++) {
-            /**
-             * 分支1：arr[i] <= 15，arr[i]和小于等于区的右边一个元素交换，同时小于等于区向右扩展1个，i++
-             * 分支2：arr[i] > 15，不做操作，只是i++
-             */
-            if (arr[i] <= arr[right]) {
-                //增加小于区域的右边界
-                less++;
+        // 小于等于pivot区域的最右边位置
+        int i = low - 1;
+        for (int l = low; l < high; l++) {
+            if (arr[l] <= arr[high]) {
+                //向右扩张小于等于pivot的区域
+                i++;
                 //将当前元素与小于区域的下一个元素交换
-                swap(arr, less, i);
+                swap(arr, i, l);
             }
         }
         /**
+         * 将枢轴放到其最终的正确位置
          * 处理：right分界点放置到正确的位置 也就是左边的区域，所以less需要++后才有位置
          */
-        swap(arr, less + 1, right);
-        return less + 1;
+        swap(arr, i + 1, high);
+        return i + 1;
     }
 
     private void swap(int[] arr, int i, int j) {
