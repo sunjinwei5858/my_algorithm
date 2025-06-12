@@ -55,28 +55,29 @@ public class _06_quick_sort_II {
      * @return
      */
     private int[] partition(int[] arr, int left, int right) {
+        //通常使用三个指针 less, more, i 来维护这三个区域。
+        // arr[left...less-1]：存储小于枢轴的元素。arr[less...i-1]：存储等于枢轴的元素。arr[more+1...right]：存储大于枢轴的元素
         // 小于区
-        int less = left - 1;
-        // 大于区: 默认使用right元素作为分界点 保证了分界点在数组中
-        // 默认使用最右边元素为分界点
+        int less = left;
+        // 大于区
         int more = right;
         // 当前遍历的索引
-        int index = left;
-        while (index < more) {
+        int i = left;
+        while (i <= more) {
             /**
              * 小于区：arr[i]和小于区的下一个元素【less++】进行置换 index指针向前挪动一位
              * 大于区：arr[i]和大于区的前一个元素【more--】进行置换 ps：index指针不需要向前挪动 因为不确定置换过来的数在哪个区
              * 等于区：不需要操作 只需要index指针++即可
              */
-            if (arr[index] < arr[right]) {
+            if (arr[i] < arr[right]) {
+                swap(arr, less, i);
                 less++;
-                swap(arr, less, index);
-                index++;
-            } else if (arr[index] > arr[right]) {
+                i++;
+            } else if (arr[i] > arr[right]) {
                 more--;
-                swap(arr, more, index);
+                swap(arr, more, i);
             } else {
-                index++;
+                i++;
             }
         }
         /**
@@ -85,7 +86,7 @@ public class _06_quick_sort_II {
          * 所以返回等于区的数组为{less+1, more}
          */
         swap(arr, more, right);
-        return new int[]{less + 1, more};
+        return new int[]{less, more};
 
     }
 
